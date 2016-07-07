@@ -1,0 +1,468 @@
+html, body {
+    font-family: lato, sans-serif;
+    color: #e5e5cf;
+    font-weight: 500 !important;
+    /*font-size: 16px !important;*/
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.borderDebug {
+    border: 1px solid red;
+}
+.panoCenter {
+    display: none;
+    width: 140px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bottomArea {
+    max-width: 350px;
+    position: absolute;
+    z-index: 1;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.bottomArea > div:first-child {
+    margin-bottom: 20px;
+    width: 100%;
+    font-style: italic;
+}
+
+.bottomArea > div:nth-child(2) > img {
+    width: 30px;
+    height: auto;
+    display: inline-block;
+}
+
+.cluesCtr {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    z-index: 1;
+    top: 85%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.cluesCtr img {
+    width: 100px;
+    height: auto;
+}
+.centerElement {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.centerInlineHor {
+    text-align: center;
+    border: none;
+}
+.centerVer {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.centerHor {
+    display: block;
+    margin: 0 auto;
+}
+
+.btnClose {
+    position: absolute;
+    left: 75%;
+}
+.fadePage {
+    display: none;
+    position: fixed;
+    top: 0px;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    text-align: center;
+}
+#pageClues {
+    display: none;
+    position: absolute;
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: auto;
+    transform: translate(-50%, -50%);
+}
+#pageClues> img {
+    width: 30%;
+    height: auto;
+    margin-left: 10px;
+}
+#pageGuessName,
+#pageGuessDate,
+#pageShare {
+    display: none;
+    background-image: url('../img/q1_bg.png');
+    background-position: center;
+    background-size: cover;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 40;
+}
+#pageGuessName> div, #pageGuessDate> div {
+    position: absolute;
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+}
+
+#pageGuessDate,
+#pageShare {
+    background-image: none;
+    background-color: #000;
+}
+
+/*#pageGuessName > div > input {
+    display: none;
+    border: none;
+    border-bottom: 5px red dotted;
+    background-color: transparent;
+    margin-left: 15px;
+    margin-right: 15px;
+    position: relative;
+    top: 50%;
+}*/
+
+.cluePlaceholder {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: auto;
+    transform: translate(-50%, -50%);
+}
+#cluePlaceholder img {
+    height: 100%;
+    width: auto;
+}
+.closeButtonRed {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-image: url('../img/icon-close.png');
+}
+.btnBlood {
+    display: inline-block;
+    padding: 10px 15px 10px 15px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../img/texture_inactive.jpg');
+    background-repeat: none;
+    border: none;
+    font-weight: 800;
+    color: #e5e5cf;
+}
+.btnBlood.active {
+    background-image: url('../img/texture.jpg');
+}
+#pageGuessName .inputBorder {
+    /*border: none;*/
+    display: inline-block;
+    font-family: "edoregular", Serif;
+    font-size: 2em;
+    color: #45140e;
+    background-color: transparent;
+    /*float: left;*/
+    margin-left: 10px;
+    text-align: center;
+}
+.font-edo {
+    font-family: "edoregular", sans-serif;
+}
+
+.font-trajan-pro {
+    font-family: "trajan-pro-3", courier;
+}
+
+.fg-whitish {
+    color: #e5e5cf;
+}
+.fg-yellow {
+    color: #ffc700 !important;
+}
+.fg-black {
+    color: #000;
+}
+.fg-red {
+    color: #a80101;
+}
+.bloodBox {
+    /*border-image-source: url('../img/texture.jpg');*/
+    display: inline-block;
+    border-style: solid;
+    border-width: 4px 4px 4px 4px;
+    -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    background-color: rgba(0, 0, 0, 0.60);
+    padding: 15px;
+}
+.guessBox > input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #a80101;
+    color: #fff;
+    font-size: 200%;
+}
+
+.double-column,
+.triple-column {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.double-column > li,
+.triple-column > li
+ {
+    float: left;
+    list-style: none;
+    height: 100%;
+}
+
+#pageGuessDate > div {
+    width: 50%;
+}
+
+.double-column li {
+    width: 50%;
+}
+.double-column li:first-child {
+    width: 50%;
+}
+
+#pageGuessName .double-column li {
+    width: 30%;
+}
+#pageGuessName .double-column li:first-child {
+    width: 70%;
+}
+
+.triple-column li {
+    width: 33%;
+}
+
+.double-column li.pontianakBox div {
+    height: 100%;
+    width: 300px;
+    display: none;
+    position: absolute;
+    /*background-position: center;*/
+}
+
+.pontianak1 { background: transparent url( ../img/01_ponappear.png ) 0 0 no-repeat; }
+.pontianak2 { background: transparent url( ../img/02_ponwait.png ) 0 0 no-repeat; }
+.pontianak3 { background: transparent url( ../img/03_ponturn_1.png ) 0 0 no-repeat; }
+.pontianak4 { background: transparent url( ../img/04_ponwait_1.png ) 0 0 no-repeat; }
+.pontianak5 { background: transparent url( ../img/05_ponturn_2.png ) 0 0 no-repeat; }
+.pontianak6 { background: transparent url( ../img/06_ponwait_2.png ) 0 0 no-repeat; }
+.pontianak7 { background: transparent url( ../img/07_ponturn_3.png ) 0 0 no-repeat; }
+.pontianak8 { background: transparent url( ../img/08_ponwait_3.png ) 0 0 no-repeat; }
+.pontianak9 { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }
+
+#pageGuessDate li:first-child div div  {
+    display: inline-block;
+    border-style: solid;
+    border-width: 4px 4px 4px 4px;
+    -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    background-color: rgba(0, 0, 0, 0.60);
+}
+
+#pageGuessDate li:first-child div div a {
+    display: inline-block;
+    border-left: 1px solid #a80101;
+    border-right: 1px solid #a80101;
+    text-align: center;
+    padding: 20px;
+    font-size: 120%;
+    color: #ffc700;
+    font-weight: bold;
+    border-right: 1px solid #a80101;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 250%;
+}
+
+h2 {
+    font-size: 220%;
+}
+
+h3 {
+    font-size: 190%;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 160%;
+}
+
+h5 {
+    font-size: 130%;
+}
+
+h6 {
+    font-size: 110%;
+}
+
+.clueImage {
+    padding: 0px 80px 80px 80px;
+    background-image: url( ../img/code_bg.png );
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.clueImage > img {
+    min-width: 350px;
+    max-width: 70%;
+    height: auto;
+}
+
+.guessBoxHeader {
+    padding: 12px 7px 7px 7px;
+    background-image: url(../img/texture.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.leaderboardBox {
+    min-width: 400px;
+    width: 70%;
+}
+
+.leaderboardBox > div:nth-child(2) {
+    width: 100%;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+.topBorderRed {
+    border-top: 1px solid #a80101;
+}
+
+.iconSocMed {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.iconSocMed.facebook        { background-image: url(../img/icon_fb.png); }
+.iconSocMed.facebook:hover  { background-image: url(../img/icon_fb_ro.png); }
+
+.iconSocMed.twitter         { background-image: url(../img/icon_twitter.png); }
+.iconSocMed.twitter:hover   { background-image: url(../img/icon_twitter_ro.png); }
+
+.iconSocMed.weibo           { background-image: url(../img/icon_fb.png); }
+.iconSocMed.weibo:hover     { background-image: url(../img/icon_fb_ro.png); }
+
+.iconDownload {
+    display: inline-block;
+    margin: 20px;
+    background-image: url( ../img/icon_download.png);
+    height: 30px;
+    vertical-align: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 37px;
+    line-height: 30px;
+}
+
+#pageLanding {
+    background-image: url( ../img/landing_bg.jpg );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 40;
+}
+
+#pageLanding > div > div {
+    width: 750px;
+    height: 200px;
+    background-image: url( ../img/landing_blood.png );
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 40px 50px 10px 50px;
+}
+
+#pageLanding > div > div > ul {
+    height: auto;
+}
+
+#pageLanding > div > div > ul > li {
+    padding: 10px;
+    margin-bottom: 10px;
+    /*font-size: 100%;*/
+}
+
+#pageLanding > div > div > ul > li > img {
+    max-height: 50px;
+    width: auto;
+}
+
+#pageFails {
+    background-image: url( ../img/fail_bg.jpg );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 40;
+}

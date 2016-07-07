@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Halloween Horror Night 6</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        @-ms-viewport {
+            width: device-width;
+        }
+    </style>
+    <link rel="stylesheet" href="vendor/reset.min.css">
+    <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
+</head>
+
+<body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons">
+
+    <!-- facebook share  -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '1170183606339093',
+                xfbml: true,
+                version: 'v2.6'
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- header -->
+    <div class="hdr">
+        <a class="hdr__logo" href="#/">
+            <img src="img/logo-narrow.png">
+        </a>
+        <div class="hdr__quicklinks" aria-hidden="false" style="">
+            <h4><small>Select nights</small><br>30 Sep - 31 Oct</h4>
+            <a ng-click="$parent.calendarOpen = true" href="" class="btn btn--textured btn--calendar">
+                View calendar <span class="icon--calendar"></span></a> <a href="" class="btn btn--textured btn--tickets">Buy tickets <span class="icon--tickets"></span>
+            </a>
+        </div>
+        <a ng-click="menu.active = !menu.active" href="" class="nav__toggle"><span class="icon--menu"></span>
+        </a>
+        <menu>
+            <div ng-show="menu.active" class="menu fade">
+                <a ng-click="menu.active = false" class="menu__close icon--close" href=""></a>
+                <div class="menu__content">
+                    <ul class="menu__list list--reset h-clearfix">
+                        <box class="menu__item box" border="3" style="padding: 3px;">
+                            <div class="inner">
+                                <div class="menu__item__content">
+                                    <h3 class="menu__links"><a ui-sref="home" ng-click="menu.active = false" href="#/">Home</a></h3></div>
+                            </div>
+                        </box>
+                        <box class="menu__item box" border="3" style="padding: 3px;">
+                            <div class="inner">
+                                <div class="menu__item__content">
+                                    <h3 class="menu__links"><a ui-sref="tickets" ng-click="menu.active = false" href="#/tickets">Tickets</a></h3></div>
+                            </div>
+                        </box>
+                        <box class="menu__item box" border="3" style="padding: 3px;">
+                            <div class="inner">
+                                <div class="menu__item__content ">
+                                    <h3><a ui-sref="highlights.section({ section: 'main' })" ng-click="menu.active = false" class="menu__links" href="#/highlights/main">Highlights</a></h3>
+                                    <div class="menu__sub"><a ui-sref="highlights.section({ section: 'revwards' })" ng-click="menu.active = false" class="menu__links" href="#/highlights/revwards">Haunts</a>
+                                        <br><a ui-sref="highlights" ng-click="menu.active = false" class="menu__links" href="#/highlights">Scarezones &amp; Shows</a>
+                                        <br><a ui-sref="highlights" ng-click="menu.active = false" class="menu__links" href="#/highlights">Winners</a>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </box>
+                        <box class="menu__item box" border="3" style="padding: 3px;">
+                            <div class="inner">
+                                <div class="menu__item__content">
+                                    <h3><a ui-sref="event-guide" ng-click="menu.active = false" class="menu__links" href="#/event-guide">Event Guide</a></h3>
+                                    <div class="menu__sub"><a ui-sref="event-guide" ng-click="menu.active = false" class="menu__links" href="#/event-guide">Map</a>
+                                        <br><a ui-sref="event-guide.section({ section: 'roadshows'})" ng-click="menu.active = false" class="menu__links" href="#/event-guide/roadshows">Road Shows</a>
+                                        <br><a ui-sref="event-guide.section({ section: 'gallery'})" ng-click="menu.active = false" class="menu__links" href="#/event-guide/gallery">Gallery &amp; Testimonials</a>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </box>
+                        <box class="menu__item box" border="3" style="padding: 3px;">
+                            <div class="inner">
+                                <div class="menu__item__content ">
+                                    <h3>Information</h3>
+                                    <div class="menu__sub"><a ui-sref="information.section({ section: 'park-information' })" ng-click="menu.active = false" class="menu__links" href="#/information/park-information">Park information</a>
+                                        <br><a ui-sref="information.section({ section: 'how-to-get-there' })" ng-click="menu.active = false" class="menu__links" href="#/information/how-to-get-there">How to get there</a>
+                                        <br><a ui-sref="information.section({ section: 'faq' })" ng-click="menu.active = false" class="menu__links" href="#/information/faq">FAQ</a>
+                                        <br><a ui-sref="information.section({ section: 'how-to-survive' })" ng-click="menu.active = false" class="menu__links" href="#/information/how-to-survive">How to survive</a></div>
+                                </div>
+                            </div>
+                        </box>
+                    </ul>
+                </div>
+            </div>
+        </menu>
+    </div>
+
+    <!-- footer -->
+    <footer class="ftr">
+        <img class="ftr__background" src="img/footer-mask.png">
+        <a class="ftr__logo" href="">
+            <img src="img/footer-logo.svg">
+        </a>
+        <!-- <a href="" ng-click="scrollDown()" class="nav--footer__scroll"><img src="img/text-scroll.png">
+            <br><span class="icon--arrow--down"></span></a> -->
+        <div class="ftr__links">
+            <equalizer class="ng-isolate-scope">
+                <div class="bar-c">
+                    <div id="bar-1" class="bar"></div>
+                    <div id="bar-2" class="bar"></div>
+                    <div id="bar-3" class="bar"></div>
+                    <div id="bar-4" class="bar"></div>
+                    <div id="bar-5" class="bar"></div>
+                </div>
+            </equalizer>
+            <a class="ftr__link" href="" ng-click="showFooterPopup('share')">Share</a>
+            <a class="ftr__link" href="" ng-click="showFooterPopup('connected')">Stay connected</a>
+            <a class="ftr__link" href="" ng-click="showFooterPopup('legal')">Legal</a>
+        </div>
+        <div class="ftr__popup" ng-class="{ 'is-active' : footer.popupActive }" ng-switch="footer.section">
+            <button class="ftr__close icon--close btn" ng-click="footer.hidePopup()">Close</button>
+        </div>
+        <div class="ftr__popup" ng-class="{ 'is-active' : footer.popupActive }" ng-switch="footer.section">
+
+            <!-- footer share -->
+            <div class="inner ftr__popup--spread" ng-switch-when="share">
+                <h3>Spread the Evil</h3>
+                <a class="ftr__icon" href="">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 53">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #e5e5cf;
+                                }
+                            </style>
+                        </defs>
+                        <path class="cls-1" d="M187.2,391h5.5v-5.3c0-2.3.1-6,1.8-8.2s4.3-4,8.5-4c6.9,0,9.8,1,9.8,1l-1.4,8.1a18.5,18.5,0,0,0-4.4-.7c-2.1,0-4,.8-4,2.9V391h8.7l-.6,7.9H203v27.5H192.7V399h-5.5Z" transform="translate(-187.2 -373.5)"></path>
+                    </svg>
+                </a>
+                <a class="ftr__icon" href="">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.2 45">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #e5e5cf;
+                                }
+                            </style>
+                        </defs>
+                        <path class="cls-1" d="M619.7,153.8a23.3,23.3,0,0,1-6.6,1.8,11.4,11.4,0,0,0,5.1-6.3,23.3,23.3,0,0,1-7.3,2.8,11.6,11.6,0,0,0-8.4-3.6,11.5,11.5,0,0,0-11.5,11.4,11.1,11.1,0,0,0,.3,2.6,32.9,32.9,0,0,1-23.8-11.9,11.3,11.3,0,0,0,3.6,15.2,11.7,11.7,0,0,1-5.2-1.4h0a11.4,11.4,0,0,0,9.3,11.1,11.4,11.4,0,0,1-3,.4l-2.2-.2a11.5,11.5,0,0,0,10.8,7.9,23.4,23.4,0,0,1-14.3,4.9l-2.8-.2a33,33,0,0,0,17.7,5.1c21.2,0,32.8-17.3,32.8-32.3,0-.5,0-1,0-1.5a23.1,23.1,0,0,0,5.8-5.9"
+                            transform="translate(-563.4 -148.5)"></path>
+                    </svg>
+                </a>
+                <a class="ftr__icon" href="">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 45">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #e5e5cf;
+                                }
+                            </style>
+                        </defs>
+                        <path class="cls-1" d="M480.6,289.8l-7.8-6.8L450.5,302a4.5,4.5,0,0,0,3.1,1.2h53.9a4.5,4.5,0,0,0,3.1-1.2l-22.3-19.1Zm0,0" transform="translate(-449.1 -258.3)"></path>
+                        <path class="cls-1" d="M510.6,259.5a4.4,4.4,0,0,0-3.1-1.2H453.6a4.5,4.5,0,0,0-3.1,1.2l30.1,25.8Zm0,0" transform="translate(-449.1 -258.3)"></path>
+                        <path class="cls-1" d="M449.1,262.2v37.4l21.8-18.5Zm0,0" transform="translate(-449.1 -258.3)"></path>
+                        <path class="cls-1" d="M490.3,281.1l21.8,18.5V262.2Zm0,0" transform="translate(-449.1 -258.3)"></path>
+                    </svg>
+                </a>
+                <a class="ftr__icon ftr__icon--ig" href="">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #e5e5cf;
+                                }
+                            </style>
+                        </defs>
+                        <path class="cls-1" d="M382.1,242.8H348.3a10.6,10.6,0,0,0-10.6,10.6v33.7a10.6,10.6,0,0,0,10.6,10.6h33.8a10.6,10.6,0,0,0,10.6-10.6V253.4A10.6,10.6,0,0,0,382.1,242.8Zm3.1,6.3h1.2v9.3h-9.3v-9.3Zm-27.8,15.5a9.7,9.7,0,1,1-1.8,5.6A9.7,9.7,0,0,1,357.4,264.7Zm30,22.5a5.3,5.3,0,0,1-5.3,5.3H348.3a5.3,5.3,0,0,1-5.3-5.3V264.7h8.2a15,15,0,1,0,27.9,0h8.2Z"
+                            transform="translate(-337.7 -242.8)"></path>
+                    </svg>
+                </a><a href="">#HHN6</a>
+            </div>
+
+            <!-- footer connected -->
+            <div class="inner ftr__popup--connected h-clearfix" ng-switch-when="connected"><div class="connected__follow"><h3>Follow Us</h3><a class="ftr__icon" href=""><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 53"><defs><style>.cls-1{fill:#e5e5cf;}</style></defs><path class="cls-1" d="M187.2,391h5.5v-5.3c0-2.3.1-6,1.8-8.2s4.3-4,8.5-4c6.9,0,9.8,1,9.8,1l-1.4,8.1a18.5,18.5,0,0,0-4.4-.7c-2.1,0-4,.8-4,2.9V391h8.7l-.6,7.9H203v27.5H192.7V399h-5.5Z" transform="translate(-187.2 -373.5)"></path></svg></a><a class="ftr__icon ftr__icon" href=""><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55"><defs><style>.cls-1{fill:#e5e5cf;}</style></defs><path class="cls-1" d="M382.1,242.8H348.3a10.6,10.6,0,0,0-10.6,10.6v33.7a10.6,10.6,0,0,0,10.6,10.6h33.8a10.6,10.6,0,0,0,10.6-10.6V253.4A10.6,10.6,0,0,0,382.1,242.8Zm3.1,6.3h1.2v9.3h-9.3v-9.3Zm-27.8,15.5a9.7,9.7,0,1,1-1.8,5.6A9.7,9.7,0,0,1,357.4,264.7Zm30,22.5a5.3,5.3,0,0,1-5.3,5.3H348.3a5.3,5.3,0,0,1-5.3-5.3V264.7h8.2a15,15,0,1,0,27.9,0h8.2Z" transform="translate(-337.7 -242.8)"></path></svg></a><a class="ftr__icon" href=""><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.4 55"><defs><style>.cls-1{fill:#e5e5cf;}</style></defs><path class="cls-1" d="M493.2,258.2v12.3l-1,.9-.9.4a.8.8,0,0,1-.6-.3,1.2,1.2,0,0,1-.2-.8V258.2h-3.3v13.5a3.4,3.4,0,0,0,.6,2.2,2.1,2.1,0,0,0,1.7.7,4.4,4.4,0,0,0,1.9-.5,7.2,7.2,0,0,0,1.9-1.5v1.8h3.3V258.2Zm-10.1.8a4.8,4.8,0,0,0-3.4-1.2,5.5,5.5,0,0,0-3.6,1.1,3.7,3.7,0,0,0-1.3,3v8.4a4.3,4.3,0,0,0,1.3,3.3,5.7,5.7,0,0,0,7,0,4.1,4.1,0,0,0,1.3-3.2V262A3.9,3.9,0,0,0,483.1,259ZM481,270.6a1.3,1.3,0,0,1-.4,1,1.4,1.4,0,0,1-1.1.4,1.3,1.3,0,0,1-1-.4,1.4,1.4,0,0,1-.4-1v-8.8a1,1,0,0,1,.4-.8,1.4,1.4,0,0,1,1-.3,1.7,1.7,0,0,1,1.1.3,1,1,0,0,1,.4.8Zm-10.3-18.2-2.3,8.8h-.3l-2.4-8.8H462l4.4,13.2v8.7h3.7v-9.1l4.3-12.8Zm25.8,38.6a2.3,2.3,0,0,1,.3,1.3v1.5h-2.6v-1.5a2,2,0,0,1,.3-1.3,1.4,1.4,0,0,1,2,0Zm-10.2-.1a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Zm0,0a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291ZM503,279.7H457a9.2,9.2,0,0,0-9.2,9.2v9.4a9.2,9.2,0,0,0,9.2,9.2h46a9.2,9.2,0,0,0,9.2-9.2v-9.4A9.3,9.3,0,0,0,503,279.7Zm-33.6,6.5H466v17h-3.3v-17h-3.4v-2.9h10.2Zm9.7,17h-3v-1.6a5.5,5.5,0,0,1-1.7,1.4,3.4,3.4,0,0,1-1.7.5,1.9,1.9,0,0,1-1.6-.7,3.2,3.2,0,0,1-.5-2V288.5h2.9v11.3a1.2,1.2,0,0,0,.2.7.7.7,0,0,0,.6.2l.8-.3a3,3,0,0,0,.9-.8V288.5h3Zm10.6-3.1a3.7,3.7,0,0,1-.7,2.4,2.5,2.5,0,0,1-2,.8,3.3,3.3,0,0,1-1.5-.3,4,4,0,0,1-1.3-1v1.1h-3V283.3h3v6.4a4.6,4.6,0,0,1,1.3-1,3.1,3.1,0,0,1,1.4-.4,2.5,2.5,0,0,1,2.1.9,4.3,4.3,0,0,1,.7,2.7Zm10.2-3.9h-5.6V299a3.1,3.1,0,0,0,.3,1.6,1.1,1.1,0,0,0,1,.5,1.2,1.2,0,0,0,1-.4,3.1,3.1,0,0,0,.3-1.7v-.7h3.1v.7a4.6,4.6,0,0,1-1.1,3.4,4.2,4.2,0,0,1-3.3,1.1,4,4,0,0,1-3.1-1.2,4.7,4.7,0,0,1-1.1-3.3v-6.6a4.1,4.1,0,0,1,1.3-3.1,4.4,4.4,0,0,1,3.2-1.2,4.1,4.1,0,0,1,3.1,1.1,4.4,4.4,0,0,1,1.1,3.2Zm-14.4-5.6h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6a1.6,1.6,0,0,0-.3-1.1A1.1,1.1,0,0,0,485.5,290.6Zm.9.4a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Zm0,0a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Z" transform="translate(-447.8 -252.5)"></path></svg></a></div><div class="connected__subscribe"><div class="inner"><h3>Be Warned Of Stirring Evils</h3><input type="email" placeholder="Email address"> <button class="btn btn--textured">Submit</button><p><input type="checkbox" id="agree"><label for="agree"><small>&nbsp;I consent to Resorts World Sentosa (“RWS”) to collect, use and disclose to companies within the Genting Group, my personal data for customer research and marketing purposes.</small></label></p></div></div></div>
+
+            <!-- footer legal -->
+            <div class="inner ftr__popup--legal" ng-switch-when="legal"><img src="assets/images/footer-warning.svg"><ul class="list--reset list--horizontal"><li><a href="">Legal Information</a></li><li><a href="">Contact Us</a></li><li><a href="">Terms &amp; Conditions</a></li></ul><p class="legal__rights">UNIVERSAL STUDIOS, UNIVERSAL STUDIOS SINGAPORE, Universal Globe logo, and all Universal elements and related indicia TM &amp; © Universal Studios. All Rights Reserved.</p></div>
+            <!-- end ngSwitchWhen: -->
+            <button class="ftr__close icon--close btn" ng-click="hideFooterPopup()">Close</button>
+        </div>
+    </footer>
+
+    <!-- landing page -->
+    <div id="pageLanding">
+        <div class="centerElement centerInlineHor">
+            <h2 class="font-trajan-pro fg-whitish">Bodies Of Work</h2>
+            <br />
+            <br />
+            <p>
+                The Shipmen fire tragedy has ignited the evil within Damien, inspiring
+                his greatest work yet. Take a trip down the memory lane with his family,
+                as he pieces them back together, limb by limb.
+
+            </p>
+            <br />
+            <br />
+            <div>
+                <p class="fg-yellow bold">
+                    ALL CREATION NEEDS THE RIGHT TOOLS
+                </p>
+                <ul class="triple-column">
+                    <li>
+                        <img src="img/icon_search.png" />
+                        <br /> Find the right tool that Damien needs.
+                    </li>
+                    <li>
+                        <img src="img/icon_heart.png" />
+                        <br /> No mistake goes unpunished, but his mercy last till the 3<span style="vertical-align:super">rd</span>
+                    </li>
+                    <li>
+                        <img src="img/icon_timer.png" />
+                        <br /> Time is the key to higher chances of winning.
+                    </li>
+                </ul>
+            </div>
+            <br />
+            <a class="btnBlood active" ng-click="startGame();">
+                START NOW
+            </a>
+        </div>
+    </div>
+
+    <!-- fail -->
+    <div id="pageFails">
+        <div class="centerElement centerInlineHor">
+            <h3 class="font-trajan-pro fg-whitish">
+                A Deadly Mistake
+            </h3>
+            <br />
+            <p>
+                Mercy comes short for those who disrupt Damien's work.
+                However, you're in luck. He has decided to give you
+                another change to save your own skin.
+            </p>
+            <br />
+            <a class="btnBlood active" onclick="location.reload()">
+                TRY AGAIN
+            </a>
+        </div>
+    </div>
+
+    <!-- share -->
+    <div id="pageShare">
+        <div class="centerElement">
+            <ul class="double-column">
+                <li>
+                    <div class="clueImage">
+                        <img src="img/code.png" class="centerHor" />
+                    </div>
+                    <br />
+                    <p class="centerInlineHor">
+                        Collect all 5 codes to unlock the final haunting
+                    </p>
+                    <p class="centerInlineHor">
+                        <a href="#" class="iconDownload fg-yellow">
+                            <!-- <img src="img/download.svg"/> -->
+                            DOWNLOAD IMAGE
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <h4 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h4>
+                    <br />
+                    <p class="centerInlineHor">
+                        Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
+                    </p>
+                    <br />
+                    <div class="leaderboardBox">
+                        <div>
+                            <p class="font-trajan-pro bold fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
+                        </div>
+                        <div class="guessBox">
+                            <p class="bold centerInlineHor">YOUR TIME <span class="fg-yellow">04:05</span></p>
+                            <br />
+                            <div class="centerInlineHor">
+                                <a href="#" class="iconSocMed facebook" ng-click="share( 'facebook' )"></a>
+                                <a href="#" class="iconSocMed twitter"></a>
+                                <a href="#" class="iconSocMed weibo"></a>
+                            </div>
+                            <br />
+                            <div class="topBorderRed">
+                                <br />
+                                <p class="bold centerInlineHor">LEADERBOARD</p>
+                                <br />
+                                <ul class="double-column centerInlineHor leaderboard">
+                                    <li>
+                                        <div ng-repeat="entry in entry1to5">
+                                            {{$index}}. {{entry.time}}
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div ng-repeat="entry in entry2to5">
+                                            {{$index}}. {{entry.time}}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Marzipano Pano -->
+    <div id="pano"></div>
+
+    <!-- clues location in pano -->
+    <div id="clue-1" class="borderDebug" style="height: 5px; width: 5px"></div>
+    <div id="clue-2" class="borderDebug" style="height: 5px; width: 5px"></div>
+    <div id="clue-3" class="borderDebug" style="height: 5px; width: 5px"></div>
+
+    <!-- <img src="img/arrow_up.png" id="switch-1" /> -->
+
+    <!-- camera icon -->
+    <!-- <img class="panoCenter" src="img/icon_camera_ingame.png" /> -->
+
+    <!-- health meter and dialogues-->
+    <div class="bottomArea">
+        <div class="bloodBox">
+            {{message}}
+        </div>
+        <div>
+            <img src="img/heart.png" class="m1"/>
+            <img src="img/heart.png" class="m2"/>
+            <img src="img/heart.png" class="m3"/>
+            <img src="img/heart.png" class="m4"/>
+        </div>
+    </div>
+
+    <!-- clues counter -->
+    <!-- <div class="cluesCtr" onclick="showPage( '.fadePage' );showPage( '', '#pageClues'); showClues();">
+        <img src="img/clue.png" />
+    </div> -->
+
+    <!-- single item -->
+    <div id="cluePlaceholder" class="cluePlaceholder">
+        <a href="#" class="closeButtonRed">
+        </a>
+        <img/>
+    </div>
+
+    <!-- <div id="pageClues">
+        <a href="#" class="closeButtonRed">
+        </a>
+        <img src="img/photo_clue_blank.png" class="borderDebug" />
+        <img src="img/photo_clue_blank.png" class="borderDebug" />
+        <img src="img/photo_clue_blank.png" class="borderDebug" />
+        <br />
+        <br />
+        <a href="#" class="btnBlood">
+            Guess
+        </a>
+    </div> -->
+
+    <div style="display:none">
+        <div id="sceneList">
+            <ul class="scenes">
+                <a href="#" class="scene" data-id="0-snowy">
+                    <li class="text">snowy</li>
+                </a>
+                <a href="#" class="scene" data-id="1-home">
+                    <li class="text">home</li>
+                </a>
+            </ul>
+        </div>
+
+        <div id="titleBar">
+            <h1 class="sceneName"></h1>
+        </div>
+
+        <a href="#" id="autorotateToggle">
+            <img class="icon off" src="img/play.png">
+            <img class="icon on" src="img/pause.png">
+        </a>
+
+        <a href="#" id="fullscreenToggle">
+            <img class="icon off" src="img/fullscreen.png">
+            <img class="icon on" src="img/windowed.png">
+        </a>
+
+        <a href="#" id="sceneListToggle">
+            <img class="icon off" src="img/expand.png">
+            <img class="icon on" src="img/collapse.png">
+        </a>
+
+        <a href="#" id="viewUp" class="viewControlButton viewControlButton-1">
+            <img class="icon" src="img/up.png">
+        </a>
+        <a href="#" id="viewDown" class="viewControlButton viewControlButton-2">
+            <img class="icon" src="img/down.png">
+        </a>
+        <a href="#" id="viewLeft" class="viewControlButton viewControlButton-3">
+            <img class="icon" src="img/left.png">
+        </a>
+        <a href="#" id="viewRight" class="viewControlButton viewControlButton-4">
+            <img class="icon" src="img/right.png">
+        </a>
+        <a href="#" id="viewIn" class="viewControlButton viewControlButton-5">
+            <img class="icon" src="img/plus.png">
+        </a>
+        <a href="#" id="viewOut" class="viewControlButton viewControlButton-6">
+            <img class="icon" src="img/minus.png">
+        </a>
+    </div>
+
+    <script src=https://use.typekit.net/gmu3kbc.js></script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="vendor/es5-shim.js"></script>
+    <script src="vendor/eventShim.js"></script>
+    <script src="vendor/classList.js"></script>
+    <script src="vendor/requestAnimationFrame.js"></script>
+    <script src="vendor/screenfull.min.js"></script>
+    <script src="vendor/bowser.min.js"></script>
+    <script src="vendor/marzipano.js"></script>
+    <script src="vendor/jquery.spritely.js"></script>
+    <script src="vendor/motio.min.js"></script>
+    <script src="vendor/jquery.motio.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="controller.js"></script>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+    <script src="game.js"></script>
+
+
+</body>
+
+</html>
