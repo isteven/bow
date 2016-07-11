@@ -1,7 +1,7 @@
 html, body {
     font-family: lato, sans-serif;
     color: #e5e5cf;
-    font-weight: 500 !important;    
+    font-weight: 500 !important;
 }
 
 a:hover {
@@ -195,25 +195,12 @@ a:hover {
 .btnBlood.active {
     background-image: url('../img/texture.jpg');
 }
-#pageGuessName .inputBorder {
-    /*border: none;*/
-    display: inline-block;
-    font-family: "edoregular", Serif;
-    font-size: 2em;
-    color: #45140e;
-    background-color: transparent;
-    /*float: left;*/
-    margin-left: 10px;
-    text-align: center;
-}
 .font-edo {
     font-family: "edoregular", sans-serif;
 }
-
 .font-trajan-pro {
     font-family: "trajan-pro-3", courier;
 }
-
 .fg-whitish {
     color: #e5e5cf;
 }
@@ -238,13 +225,6 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.60);
     padding: 15px;
 }
-.guessBox > input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid #a80101;
-    color: #fff;
-    font-size: 200%;
-}
 
 .double-column,
 .triple-column {
@@ -261,11 +241,6 @@ a:hover {
     list-style: none;
     height: 100%;
 }
-
-#pageGuessDate > div {
-    width: 50%;
-}
-
 .double-column li {
     width: 50%;
 }
@@ -273,57 +248,8 @@ a:hover {
     width: 50%;
 }
 
-#pageGuessName .double-column li {
-    width: 30%;
-}
-#pageGuessName .double-column li:first-child {
-    width: 70%;
-}
-
 .triple-column li {
     width: 33%;
-}
-
-.double-column li.pontianakBox div {
-    height: 100%;
-    width: 300px;
-    display: none;
-    position: absolute;
-    /*background-position: center;*/
-}
-
-.pontianak1 { background: transparent url( ../img/01_ponappear.png ) 0 0 no-repeat; }
-.pontianak2 { background: transparent url( ../img/02_ponwait.png ) 0 0 no-repeat; }
-.pontianak3 { background: transparent url( ../img/03_ponturn_1.png ) 0 0 no-repeat; }
-.pontianak4 { background: transparent url( ../img/04_ponwait_1.png ) 0 0 no-repeat; }
-.pontianak5 { background: transparent url( ../img/05_ponturn_2.png ) 0 0 no-repeat; }
-.pontianak6 { background: transparent url( ../img/06_ponwait_2.png ) 0 0 no-repeat; }
-.pontianak7 { background: transparent url( ../img/07_ponturn_3.png ) 0 0 no-repeat; }
-.pontianak8 { background: transparent url( ../img/08_ponwait_3.png ) 0 0 no-repeat; }
-.pontianak9 { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }
-
-#pageGuessDate li:first-child div div  {
-    display: inline-block;
-    border-style: solid;
-    border-width: 4px 4px 4px 4px;
-    -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-    -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-    -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-    border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-    background-color: rgba(0, 0, 0, 0.60);
-}
-
-#pageGuessDate li:first-child div div a {
-    display: inline-block;
-    border-left: 1px solid #a80101;
-    border-right: 1px solid #a80101;
-    text-align: center;
-    padding: 20px;
-    font-size: 120%;
-    color: #ffc700;
-    font-weight: bold;
-    border-right: 1px solid #a80101;
-    cursor: pointer;
 }
 
 h1 {
@@ -470,9 +396,5 @@ h6 {
     z-index: 40;
 }
 
-#clue-10 {
-    background-image: url( ../img/items/tape.png );
-    background-repeat: no-repeat;
-    background-size: contain;
-
-}
+#clue-10            { background: transparent url( ../img/items/tape.png )      0 0 no-repeat;  }
+#clue-10.animate    { background: transparent url( ../img/items/tape_glow.png ) 0 0 no-repeat }

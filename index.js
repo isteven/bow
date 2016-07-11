@@ -85,7 +85,7 @@
         console.log( Math.PI );
         var limiter = Marzipano.util.compose(
           Marzipano.RectilinearView.limit.traditional( sceneData.faceSize, 100*Math.PI/180, 120*Math.PI/180),
-          Marzipano.RectilinearView.limit.pitch( -Math.PI/2, Math.PI/2, -Math.PI/2, Math.PI/2 )
+          Marzipano.RectilinearView.limit.pitch( 0,0 )
         );
 
         var view = new Marzipano.RectilinearView(sceneData.initialViewParameters, limiter);
@@ -100,12 +100,10 @@
         // Create link hotspots.
         sceneData.linkHotspots.forEach(function(hotspot) {
             var element = createLinkHotspotElement(hotspot);
+            console.log( hotspot.radius, hotspot.extraRotations );
             marzipanoScene.hotspotContainer().createHotspot(element, {
                 yaw: hotspot.yaw,
                 pitch: hotspot.pitch
-            },
-            {
-                perspective: { radius: 700, extraRotations: "rotateX(5deg)"  }
             });
         });
 
