@@ -80,7 +80,14 @@
 
         var geometry = new Marzipano.CubeGeometry(sceneData.levels);
 
-        var limiter = Marzipano.RectilinearView.limit.traditional(sceneData.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
+        // var limiter = Marzipano.RectilinearView.limit.traditional(sceneData.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
+        // we need 180 degrees limit, hence..
+        console.log( Math.PI );
+        var limiter = Marzipano.util.compose(
+          Marzipano.RectilinearView.limit.traditional( sceneData.faceSize, 100*Math.PI/180, 120*Math.PI/180),
+          Marzipano.RectilinearView.limit.pitch( -Math.PI/2, Math.PI/2, -Math.PI/2, Math.PI/2 )
+        );
+
         var view = new Marzipano.RectilinearView(sceneData.initialViewParameters, limiter);
 
         var marzipanoScene = viewer.createScene({
@@ -96,6 +103,9 @@
             marzipanoScene.hotspotContainer().createHotspot(element, {
                 yaw: hotspot.yaw,
                 pitch: hotspot.pitch
+            },
+            {
+                perspective: { radius: 700, extraRotations: "rotateX(5deg)"  }
             });
         });
 

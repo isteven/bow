@@ -1,8 +1,7 @@
 html, body {
     font-family: lato, sans-serif;
     color: #e5e5cf;
-    font-weight: 500 !important;
-    /*font-size: 16px !important;*/
+    font-weight: 500 !important;    
 }
 
 a:hover {
@@ -15,6 +14,10 @@ a:hover {
 
 .borderDebug {
     border: 1px solid red;
+}
+
+.borderDebugBlue {
+    border: 1px solid blue;
 }
 .panoCenter {
     display: none;
@@ -465,4 +468,11 @@ h6 {
     height: 100%;
     position: absolute;
     z-index: 40;
+}
+
+#clue-10 {
+    background-image: url( ../img/items/tape.png );
+    background-repeat: no-repeat;
+    background-size: contain;
+
 }

@@ -1,42 +1,20 @@
 var myApp = angular.module('myApp',[]);
 
-myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
+myApp.controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', function( $scope, $http, $timeout ) {
 
     var lang            = 'en';
     var gameStartTime   = null;
     var gameEndTime     = null;
+    var currentItemIdx  = 0;
+    $scope.currentMsg   = '';
 
-    $scope.menu                 = {};
-    $scope.menu.active          = false;
-    $scope.footer               = {};
-    $scope.footer.section       = '';
-    $scope.footer.popupActive   = false;
+    $scope.message      = [];
+    $scope.message[ 0 ] = '"Ah, such a round nose we have here. It simply will not do, I have to sharpen it further."';
+    $scope.message[ 1 ] = '"1"';
+    $scope.message[ 2 ] = '"2"';
 
-    $scope.message = '"Ah, such a round nose we have here. It simply will not do, I have to sharpen it further.""';
-
-    $scope.entry1to5 = [
-        { time: 100 },
-        { time: 200 },
-        { time: 300 },
-        { time: 400 },
-        { time: 500 },
-    ];
-    $scope.entry2to5 = [
-        { time: 600 },
-        { time: 700 },
-        { time: 800 },
-        { time: 900 },
-        { time: 1000 },
-    ];
-
-    $scope.showFooterPopup = function( type ) {
-        $scope.footer.popupActive  = true;
-        $scope.footer.section = type;
-    }
-
-    $scope.hideFooterPopup = function( type ) {
-        $scope.footer.popupActive  = false;
-    }
+    $scope.entry1to5 = [];
+    $scope.entry2to5 = [];
 
     function getUrlVar( variable )
     {
@@ -59,11 +37,6 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         return result;
     }
 
-    var tempLang = getUrlVar( 'lang' );
-    if ( tempLang ) {
-        lang = tempLang;
-    }
-
     $scope.showPage = function( domString ) {
         window.showPage( domString );
     }
@@ -72,44 +45,21 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         window.hidePage( domString );
     }
 
-    $scope.share = function( type ) {
+    $scope.processTrue = function() {
+        showPage( '#singleClue' );
+        $scope.currentMsg = '"Ah yes, this would be perfect for the task."';
+        currentItemIdx++;
+        console.log( 'true' );
+    }
 
-        gameEndTime = performance.now();
-        var elapsedGameTime = gameStartTime - gameEndTime;
-
-        FB.ui({
-            method: 'share_open_graph',
-            action_type: 'og.likes',
-            action_properties: JSON.stringify({
-                object: 'https://developers.facebook.com/docs/',
-            })
-        }, function(response) {
-            if ( typeof response != 'undefined' ) {
-                var dataToSend = {
-                    id          : null,
-                    game        : 1,
-                    account     : 'facebook',
-                    user_name   : 'test-user',
-                    full_name   : 'mr. test-user',
-                    time        : elapsedGameTime,
-                    email       : 'test@test.com',
-                    phone       : '99998888'
-                };
-
-                $http({
-                    method  : 'POST',
-                    url     : 'http://54.169.173.245/clients/rws/hhn6/_laravel/game/submit',
-                    data    : dataToSend
-                }).then(
-                    function( success ) {
-                        console.log( success );
-                    },
-                    function( error ) {
-                        console.log( error );
-                    }
-                );
-            }
-        });
+    $scope.processFalse = function() {
+        showPage( '#singleClue' );
+        $scope.currentMsg = '"You fool! Hand me the correct item, or you\'ll become my next tool!"'
+        console.log(  $scope.message[ currentItemIdx ]);
+        $timeout( function() {
+            $scope.currentMsg = $scope.message[ currentItemIdx ];
+        }, 1500 );
+        console.log( 'error' );
     }
 
     $scope.startGame = function() {
@@ -117,16 +67,19 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         gameStartTime   = null;
         gameEndTime     = null;
 
-        $scope.guessCorrect = true;
-        $scope.failLetter   = '';
-        $scope.triesLeft    = 5;
-        $scope.singleLetter = '';
-        $scope.menu.active  = false;
+        $scope.triesLeft    = 4;
+
+        var tempLang = getUrlVar( 'lang' );
+        if ( tempLang ) {
+            lang = tempLang;
+        }
 
         hidePage( '.fadePage' );
         $( '#pageLanding' ).fadeOut( 400 );
         hidePage( '#pageFails' );
-    }
 
-    showPage( '#pageLanding' );
+        $scope.currentMsg = $scope.message[ currentItemIdx ];
+    }
+    $scope.startGame();
+    // showPage( '#pageLanding' );
 }]);
