@@ -19,7 +19,6 @@ tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot
 // clay
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-4"),
     { yaw: 0.24, pitch: 0.0 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } });
-
 // FALSE: box
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-5"),
     { yaw: -0.47, pitch: 0.07 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } }); // OK

@@ -1,17 +1,21 @@
 var myApp = angular.module('myApp',[]);
 
-myApp.controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', function( $scope, $http, $timeout ) {
+angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', function( $scope, $http, $timeout ) {
 
     var lang            = 'en';
     var gameStartTime   = null;
     var gameEndTime     = null;
     var currentItemIdx  = 0;
-    $scope.currentMsg   = '';
+    var trials          = 4;
+
+    $scope.parentData = {};
+    $scope.parentData.currentMsg   = '';
 
     $scope.message      = [];
     $scope.message[ 0 ] = '"Ah, such a round nose we have here. It simply will not do, I have to sharpen it further."';
-    $scope.message[ 1 ] = '"1"';
-    $scope.message[ 2 ] = '"2"';
+    $scope.message[ 1 ] = '"This isn\'t good at all, she\'s falling apart right along the sides. I need to tighten the seams."';
+    $scope.message[ 2 ] = '"All bruised and broken, this hand will be rendered useless. I\'ll have to get rid of it."';
+    $scope.message[ 3 ] = '"It\'s time to patch things up. Hand over the materials to seal off these hollow areas."';
 
     $scope.entry1to5 = [];
     $scope.entry2to5 = [];
@@ -45,21 +49,31 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', function( $scope,
         window.hidePage( domString );
     }
 
-    $scope.processTrue = function() {
-        showPage( '#singleClue' );
-        $scope.currentMsg = '"Ah yes, this would be perfect for the task."';
-        currentItemIdx++;
-        console.log( 'true' );
+    $scope.closeClue = function( element ) {
+        $( '#singleClue' ).fadeOut();
+        console.log( $scope.message[ currentItemIdx ] );
+        $scope.parentData.currentMsg = $scope.message[ currentItemIdx ];
+        console.log( $scope.parentData.currentMsg );
     }
 
-    $scope.processFalse = function() {
+    $scope.processClue = function( param ) {
         showPage( '#singleClue' );
-        $scope.currentMsg = '"You fool! Hand me the correct item, or you\'ll become my next tool!"'
-        console.log(  $scope.message[ currentItemIdx ]);
-        $timeout( function() {
-            $scope.currentMsg = $scope.message[ currentItemIdx ];
-        }, 1500 );
-        console.log( 'error' );
+        $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
+        if ( param < 5 ) {
+            $scope.parentData.currentMsg = '"Ah yes, this would be perfect for the task."';
+            currentItemIdx++;
+        }
+        else {
+            if ( trials > 0 ) {
+                $scope.parentData.currentMsg = '"You fool! Hand me the correct item, or you\'ll become my next tool!"'
+                $( '.heart_' + trials ).attr( 'src', 'img/heart_strike.png');
+                trials--;
+            }
+            else {
+                
+            }
+
+        }
     }
 
     $scope.startGame = function() {
@@ -78,7 +92,7 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', function( $scope,
         $( '#pageLanding' ).fadeOut( 400 );
         hidePage( '#pageFails' );
 
-        $scope.currentMsg = $scope.message[ currentItemIdx ];
+        $scope.parentData.currentMsg = $scope.message[ currentItemIdx ];
     }
     $scope.startGame();
     // showPage( '#pageLanding' );

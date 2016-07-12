@@ -180,17 +180,17 @@
     <div id="pano"></div>
 
     <!-- correct items in pano -->
-    <div id="clue-1" class="borderDebug" style="height: 50px; width: 50px" ng-click="processTrue( 1 )"></div>
-    <div id="clue-2" class="borderDebug" style="height: 50px; width: 50px" ng-click="processTrue( 2 )"></div>
-    <div id="clue-3" class="borderDebug" style="height: 50px; width: 50px" ng-click="processTrue( 3 )"></div>
-    <div id="clue-4" class="borderDebug" style="height: 50px; width: 50px" ng-click="processTrue( 4 )"></div>
+    <div id="clue-1" class="borderDebug" style="height: 50px; width: 50px" ng-click="processClue( 1 )"></div>
+    <div id="clue-2" class="borderDebug" style="height: 50px; width: 50px" ng-click="processClue( 2 )"></div>
+    <div id="clue-3" class="borderDebug" style="height: 50px; width: 50px" ng-click="processClue( 3 )"></div>
+    <div id="clue-4" class="borderDebug" style="height: 50px; width: 50px" ng-click="processClue( 4 )"></div>
     <!-- wrong items -->
-    <div id="clue-5" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processFalse( 5 )"></div>
-    <div id="clue-6" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processFalse( 6 )"></div>
-    <div id="clue-7" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processFalse( 7 )"></div>
-    <div id="clue-8" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processFalse( 8 )"></div>
-    <div id="clue-9" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processFalse( 9 )"></div>
-    <div id="clue-10" class="borderDebugBlue" style="height: 79px; width: 128px" ng-click="processFalse( 10 )"></div>
+    <div id="clue-5" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processClue( 5 )"></div>
+    <div id="clue-6" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processClue( 6 )"></div>
+    <div id="clue-7" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processClue( 7 )"></div>
+    <div id="clue-8" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processClue( 8 )"></div>
+    <div id="clue-9" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processClue( 9 )"></div>
+    <div id="clue-10" class="" style="height: 79px; width: 128px; z-index: 40;position: absolute;" ng-click="processFalse( 10 )"></div>
 
     <!-- <img src="img/arrow_up.png" id="switch-1" /> -->
 
@@ -200,38 +200,29 @@
     <!-- health meter and dialogues-->
     <div class="bottomArea">
         <div class="bloodBox">
-            {{currentMsg}}
+            {{parentData.currentMsg}}
         </div>
         <div>
-            <img src="img/heart.png" class="m1"/>
-            <img src="img/heart.png" class="m2"/>
-            <img src="img/heart.png" class="m3"/>
-            <img src="img/heart.png" class="m4"/>
+            <img src="img/heart.png" class="heart_4"/>
+            <img src="img/heart.png" class="heart_3"/>
+            <img src="img/heart.png" class="heart_2"/>
+            <img src="img/heart.png" class="heart_1"/>
         </div>
     </div>
 
-    <!-- clues counter -->
-    <!-- <div class="cluesCtr" onclick="showPage( '.fadePage' );showPage( '', '#pageClues'); showClues();">
-        <img src="img/clue.png" />
-    </div> -->
-
-    <!-- single item -->
-    <div id="cluePlaceholder" class="cluePlaceholder">
-        <img/>
+    <div id="pageSplatter_4" class="page fail">
+    </div>
+    <div id="pageSplatter_3" class="page">
+    </div>
+    <div id="pageSplatter_2" class="page">
+    </div>
+    <div id="pageSplatter_1" class="page">
     </div>
 
-    <!-- <div id="pageClues">
-        <a href="#" class="closeButtonRed">
-        </a>
-        <img src="img/photo_clue_blank.png" class="borderDebug" />
-        <img src="img/photo_clue_blank.png" class="borderDebug" />
-        <img src="img/photo_clue_blank.png" class="borderDebug" />
-        <br />
-        <br />
-        <a href="#" class="btnBlood">
-            Guess
-        </a>
-    </div> -->
+    <!-- single item -->
+    <div id="singleClue" class="page" ng-click="closeClue()">
+        <img class=""/>
+    </div>
 
     <div style="display:none">
         <div id="sceneList">

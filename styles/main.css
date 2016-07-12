@@ -31,7 +31,7 @@ a:hover {
 .bottomArea {
     max-width: 350px;
     position: absolute;
-    z-index: 1;
+    z-index: 40;
     bottom: 0%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -42,6 +42,8 @@ a:hover {
     margin-bottom: 20px;
     width: 100%;
     font-style: italic;
+    position: relative;
+    z-index: 50;
 }
 
 .bottomArea > div:nth-child(2) > img {
@@ -50,28 +52,25 @@ a:hover {
     display: inline-block;
 }
 
-.centerElement {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.centerInlineHor {
+.center-hor-inline-children {
     text-align: center;
-    border: none;
-}
-.centerVer {
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    top: 50%;
-    transform: translate(0%, -50%);
 }
 
-.centerHor {
-    display: block;
+.center-hor-block-children {
+    display: inline-block;
     margin: 0 auto;
+}
+
+.center-ver-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center-ver-hor-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btnClose {
@@ -87,21 +86,17 @@ a:hover {
     left: 0;
     height: 100%;
     width: 100%;
+    background-color: rgba(0, 0, 0, 0.82);
 }
 
-.cluePlaceholder {
-    display: none;
+#singleClue > img {
     position: absolute;
-    z-index: 10;
     top: 50%;
     left: 50%;
     height: 50%;
     width: auto;
+    margin-bottom: 20px;
     transform: translate(-50%, -50%);
-}
-#cluePlaceholder img {
-    height: 100%;
-    width: auto;
 }
 .closeButtonRed {
     display: none;
@@ -209,21 +204,7 @@ h6 {
     font-size: 110%;
 }
 
-.clueImage {
-    padding: 0px 80px 80px 80px;
-    background-image: url( ../img/code_bg.png );
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.clueImage > img {
-    min-width: 350px;
-    max-width: 70%;
-    height: auto;
-}
-
-.guessBoxHeader {
+.bloodBoxHeader {
     padding: 12px 7px 7px 7px;
     background-image: url(../img/texture.jpg);
     background-position: center;
