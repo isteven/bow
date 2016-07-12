@@ -2,7 +2,8 @@ html, body {
     font-family: lato, sans-serif;
     color: #e5e5cf;
     font-weight: 500 !important;
-    /*overflow: visible;*/
+    position: relative;
+    overflow: visible;
 }
 
 a:hover {
@@ -258,6 +259,12 @@ a:hover {
     height: 100%;
     position: absolute;
     z-index: 40;
+}
+
+#pageLanding > div,
+#pageShare > div {
+    position: absolute;
+    overflow: visible;
 }
 
 #pageLanding > div > div {

@@ -80,6 +80,12 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
                 $scope.parentData.currentMsg = '"You fool! Hand me the correct item, or you\'ll become my next tool!"'
                 var tempTrials = trials;
                 $( '#pageSplatter_' + tempTrials ).show();
+                // fadeout for msie < 11
+                if ( bowser.msie && bowser.version < 11 ) {
+                    setTimeout( function() {
+                        $( '#pageSplatter_' + tempTrials ).fadeOut();
+                    },3000);
+                }
                 $( '.heart_' + tempTrials ).attr( 'src', 'img/heart_strike.png');
                 trials--;
             }
@@ -95,6 +101,17 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
             }
         }
     }
+
+    function pad(pad, str, padLeft) {
+    if (typeof str === 'undefined')
+        return pad;
+    if (padLeft) {
+        return (pad + str).slice(-pad.length);
+    } else {
+        return (str + pad).substring(0, pad.length);
+    }
+}
+
 
     loadLeaderboard = function() {
         $http({
@@ -241,5 +258,5 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     }
 
     hidePage( '.bottomArea' );
-    showPage( '#pageLanding' );
+    showPage( '#pageShare' );
 }]);
