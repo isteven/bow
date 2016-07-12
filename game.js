@@ -88,7 +88,7 @@ $( '#clue-10' ).mouseover( function( e ) {
 
 $( '#clue-10' ).mouseout( function( e ) {
     window.sprite.toStart( true, function() {
-        $( '#clue-10' ).removeClass('animate' );    
+        $( '#clue-10' ).removeClass('animate' );
     });
 
 })

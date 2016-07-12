@@ -328,5 +328,5 @@ h6 {
     z-index: 40;
 }
 
-#clue-10            { background: transparent url( ../img/items/tape.png )      0 0 no-repeat }
-#clue-10.animate    { background: transparent url( ../img/items/tape_glow.png ) 0 0 no-repeat }
+#clue-10            { background: transparent url( ../img/items/tape.png )      no-repeat 0 0 }
+#clue-10.animate    { background: transparent url( ../img/items/tape_glow.png ) no-repeat  0 0 }
