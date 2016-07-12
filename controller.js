@@ -8,6 +8,8 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     var gameEndTime         = null;
     $scope.elapsedGameTime  = null;
 
+    $scope.entry1to5 = [];
+    $scope.entry2to5 = [];
 
     var currentItemIdx  = 1;
     var trials          = 4;
@@ -56,16 +58,20 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
 
     $scope.processClue = function( param ) {
         showPage( '#singleClue' );
+        showPage( '.bottomArea' );
         $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
         if ( param < 5 && param == currentItemIdx ) {
             $scope.parentData.currentMsg = '"Ah yes, this would be perfect for the task."';
             if ( currentItemIdx >= 4 ) {
+                calculateGameTime();
                 setTimeout( function() {
                     hidePage( '#singleClue' );
                     hidePage( '.bottomArea' );
-                    showPage( '#pageFailsBg' );
+                    hidePage( '.splatter' );
+                    showPage( '#pageBlackBg' );
                     showPage( '#pageShare' );
                 }, 900);
+                loadLeaderboard();
             }
             currentItemIdx++;
         }
@@ -83,11 +89,41 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
                 setTimeout( function() {
                     hidePage( '#singleClue' );
                     hidePage( '.bottomArea' );
-                    showPage( '#pageFailsBg' );
+                    showPage( '#pageBlackBg' );
                     showPage( '#pageFails' );
                 }, 900);
             }
         }
+    }
+
+    loadLeaderboard = function() {
+        $http({
+            method: 'GET',
+            url: configGet('apiUrl') + '_laravel/game/board/2',
+        }).then(
+            function(success) {
+                var idx = 0;
+                angular.forEach(success.data, function(value, key) {
+                    //console.log( value );
+                    var paddedIdx = pad('00', (idx + 1), true);
+                    if (idx < 5) {
+                        $scope.entry1to5.push({
+                            idxString: paddedIdx,
+                            time: value.time
+                        });
+                    } else if (idx < 10) {
+                        $scope.entry2to5.push({
+                            idxString: paddedIdx,
+                            time: value.time
+                        });
+                    }
+                    idx++;
+                });
+            },
+            function(error) {
+                console.log(error);
+            }
+        );
     }
 
     var calculateGameTime = function() {
@@ -126,7 +162,7 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     $scope.share_twitter = function() {
         window.open(
             'http://stg.craftandcode.com.sg/clients/rws/hhn6/_laravel/game/twitter?gameId=' + configGet( 'gameId' ) + '&gameTime=' + $scope.elapsedGameTime,
-            '1468140690854',
+            'twitter-share',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         );
     }
@@ -187,8 +223,7 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
 
     $scope.startGame = function() {
 
-        gameStartTime   = null;
-        gameEndTime     = null;
+        gameStartTime   = performance.now();
 
         $scope.triesLeft    = 4;
 
@@ -199,12 +234,12 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
 
         hidePage( '.fadePage' );
         $( '#pageLanding' ).fadeOut( 400 );
-        hidePage( '#pageFails' )
-        $( '.bottomArea').hide();
-        //showPage( '#pageShare');
+        hidePage( '#pageFails' );
+        showPage( '.bottomArea' );
 
         $scope.parentData.currentMsg = $scope.message[ currentItemIdx - 1 ];
     }
-    $scope.startGame();
+
+    hidePage( '.bottomArea' );
     showPage( '#pageLanding' );
 }]);

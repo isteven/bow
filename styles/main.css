@@ -303,7 +303,7 @@ a:hover {
     z-index: 50;
 }
 
-#pageFailsBg {
+#pageBlackBg {
     background-color: #000;
     position: absolute;
     z-index: 30;
@@ -364,7 +364,7 @@ a:hover {
 }
 
 #pageShare > .container {
-    width: 60%;
+    width: 70%;
 }
 
 .codeImage {
