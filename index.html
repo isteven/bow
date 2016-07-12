@@ -12,10 +12,12 @@
         }
     </style>
     <link rel="stylesheet" href="vendor/reset.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/menu.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/text-style.css">
     <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
 </head>
@@ -34,8 +36,8 @@
                 version: 'v2.6'
             });
 
-            FB.getLoginStatus(function( response ) {
-                if ( response.status === 'connected' ) {
+            FB.getLoginStatus(function(response) {
+                if (response.status === 'connected') {
                     window.fbLoggedIn = true;
                     window.fbResponse = response;
                 }
@@ -54,125 +56,153 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
 
-    <!-- landing page -->
-    <div id="pageLanding">
-        <div class="centerElement centerInlineHor">
-            <h2 class="font-trajan-pro fg-whitish">Bodies Of Work</h2>
-            <br />
-            <br />
-            <p>
-                The Shipmen fire tragedy has ignited the evil within Damien, inspiring
-                his greatest work yet. Take a trip down the memory lane with his family,
-                as he pieces them back together, limb by limb.
 
-            </p>
-            <br />
-            <br />
-            <div>
-                <p class="fg-yellow bold">
-                    ALL CREATION NEEDS THE RIGHT TOOLS
-                </p>
-                <ul class="triple-column">
-                    <li>
-                        <img src="img/icon_search.png" />
-                        <br /> Find the right tool that Damien needs.
-                    </li>
-                    <li>
-                        <img src="img/icon_heart.png" />
-                        <br /> No mistake goes unpunished, but his mercy last till the 3<span style="vertical-align:super">rd</span>
-                    </li>
-                    <li>
-                        <img src="img/icon_timer.png" />
-                        <br /> Time is the key to higher chances of winning.
-                    </li>
-                </ul>
+    <!-- landing page -->
+    <div id="pageLanding" class="page">
+        <div class="container center-ver-parent">
+            <div class="row center-block">
+                <div class="col-sm-12 text-center">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="font-trajan-pro fg-whitish">Bodies Of Work</h2>
+                            <br />
+                            <p class="">
+                                The Shipmen fire tragedy has ignited the evil within Damien, inspiring his greatest work yet. Take a trip down the memory lane with his family, as he pieces them back together, limb by limb.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blood-bg center-block">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="fg-yellow bold">
+                                    ALL CREATION NEEDS THE RIGHT TOOLS
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="img/icon_search.png" />
+                                <br /> Find the right tool that Damien needs.
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="img/icon_heart.png" />
+                                <br /> No mistake goes unpunished, but his mercy last till the 3<span style="vertical-align:super">rd</span>
+                            </div>
+                            <div class="col-sm-4">
+
+                                <img src="img/icon_timer.png" />
+                                <br /> Time is the key to higher chances of winning.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 start-game-col">
+                            <a class="btnBlood active" ng-click="startGame();">
+                                START NOW
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <br />
-            <a class="btnBlood active" ng-click="startGame();">
-                START NOW
-            </a>
         </div>
     </div>
 
+    <div id="pageFailsBg" class="page">
+    </div>
+
     <!-- fail -->
-    <div id="pageFails">
-        <div class="centerElement centerInlineHor">
-            <h3 class="font-trajan-pro fg-whitish">
-                A Deadly Mistake
-            </h3>
-            <br />
-            <p>
-                Mercy comes short for those who disrupt Damien's work.
-                However, you're in luck. He has decided to give you
-                another change to save your own skin.
-            </p>
-            <br />
-            <a class="btnBlood active" onclick="location.reload()">
-                TRY AGAIN
-            </a>
+    <div id="pageFails" class="page">
+        <div class="center-ver-parent">
+            <div class="center-hor-inline-children">
+                <h3 class="font-trajan-pro fg-whitish">
+                    A Deadly Mistake
+                </h3>
+                <br />
+                <p>
+                    Mercy comes short for those who disrupt Damien's work. However, you're in luck. He has decided to give you another change to save your own skin.
+                </p>
+                <br />
+                <a class="btnBlood active" onclick="location.reload()">
+                    TRY AGAIN
+                </a>
+            </div>
         </div>
     </div>
 
     <!-- share -->
     <div id="pageShare" class="page">
-        <div class="centerElement">
-            <ul class="double-column">
-                <li>
-                    <div class="clueImage">
-                        <img src="img/code.png" class="centerHor" />
+        <div class="container center-ver-parent">
+            <div class="row center-block">
+                <div class="col-sm-6">
+                    <div class="codeImage ">
                     </div>
                     <br />
-                    <p class="centerInlineHor">
+                    <span>
                         Collect all 5 codes to unlock the final haunting
-                    </p>
+                    </span>
                     <p class="centerInlineHor">
                         <a href="#" class="iconDownload fg-yellow">
-                            <!-- <img src="img/download.svg"/> -->
                             DOWNLOAD IMAGE
                         </a>
                     </p>
-                </li>
-                <li>
-                    <h4 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h4>
+                </div>
+
+                <div class="col-sm-6 text-center">
+                    <h4 class="font-trajan-pro ">Spread The Word Of Evil</h4>
                     <br />
-                    <p class="centerInlineHor">
+                    <p>
                         Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
                     </p>
                     <br />
-                    <div class="leaderboardBox">
+                    <div class="share-win center-block">
                         <div>
-                            <p class="font-trajan-pro bold fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
+                            <p class="font-trajan-pro fg-yellow">SHARE &amp; WIN NOW</p>
                         </div>
-                        <div class="guessBox">
-                            <p class="bold centerInlineHor">YOUR TIME <span class="fg-yellow">04:05</span></p>
-                            <br />
-                            <div class="centerInlineHor">
-                                <a href="#" class="iconSocMed facebook" ng-click="share( 'facebook' )"></a>
-                                <a href="#" class="iconSocMed twitter"></a>
-                                <a href="#" class="iconSocMed weibo"></a>
+                        <div class="center-hor-block-children">
+                            <div>
+                                <p class="bold">
+                                    YOUR TIME <span class="fg-yellow">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
+                                </p>
+                                <div>
+                                    <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook " ng-click="share_facebook()"></a>
+                                    <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter " ng-click="share_twitter()"></a>
+                                    <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
+                                </div>
+                                <div class="centerInlineHor">
+                                    <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions">Terms & Conditions</a> apply
+                                </div>
                             </div>
-                            <br />
-                            <div class="topBorderRed">
-                                <br />
-                                <p class="bold centerInlineHor">LEADERBOARD</p>
-                                <br />
-                                <ul class="double-column centerInlineHor leaderboard">
-                                    <li>
+                            <div class="leaderboard topBorderRed">
+                                <p class="bold">
+                                    LEADERBOARD
+                                </p>
+                                <div class="row">
+                                    <div class="col-sm-6">
                                         <div ng-repeat="entry in entry1to5">
-                                            {{$index}}. {{entry.time}}
+                                            <span class="numbering">
+                                                {{entry.idxString}}.
+                                            </span> {{millisToMinutesAndSeconds( entry.time )}}
                                         </div>
-                                    </li>
-                                    <li>
+                                    </div>
+                                    <div class="col-sm-6">
                                         <div ng-repeat="entry in entry2to5">
-                                            {{$index}}. {{entry.time}}
+                                            <span class="numbering">
+                                                {{entry.idxString}}.
+                                            </span> {{millisToMinutesAndSeconds( entry.time )}}
                                         </div>
-                                    </li>
-                                </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </li>
-            </ul>
+                    <div class="text-center">
+                        <br />
+                        <a class="bold fg-yellow" onclick="location.reload()">
+                            REPLAY?
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -180,17 +210,17 @@
     <div id="pano"></div>
 
     <!-- correct items in pano -->
-    <div id="clue-1" class="borderDebug" style="height: 50px; width: 50px" ng-click="processClue( 1 )"></div>
-    <div id="clue-2" class="borderDebug" style="height: 50px; width: 50px" ng-click="processClue( 2 )"></div>
-    <div id="clue-3" class="borderDebug" style="height: 50px; width: 50px" ng-click="processClue( 3 )"></div>
-    <div id="clue-4" class="borderDebug" style="height: 50px; width: 50px" ng-click="processClue( 4 )"></div>
+    <div id="clue-1" class="clue borderDebug" style="height: 110px; width: 50px" ng-click="processClue( 1 )"></div>
+    <div id="clue-2" class="clue borderDebug" style="height: 90px; width: 110px" ng-click="processClue( 2 )"></div>
+    <div id="clue-3" class="clue borderDebug" style="height: 360px; width: 40px" ng-click="processClue( 3 )"></div>
+    <div id="clue-4" class="clue borderDebug" style="height: 100px; width: 100px" ng-click="processClue( 4 )"></div>
     <!-- wrong items -->
-    <div id="clue-5" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processClue( 5 )"></div>
-    <div id="clue-6" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processClue( 6 )"></div>
-    <div id="clue-7" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processClue( 7 )"></div>
-    <div id="clue-8" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processClue( 8 )"></div>
-    <div id="clue-9" class="borderDebugBlue" style="height: 50px; width: 50px" ng-click="processClue( 9 )"></div>
-    <div id="clue-10" class="" style="height: 79px; width: 128px; z-index: 40;position: absolute;" ng-click="processFalse( 10 )"></div>
+    <div id="clue-5" class="clue borderDebugBlue" style="height: 65px; width: 100px" ng-click="processClue( 5 )"></div>
+    <div id="clue-6" class="clue borderDebugBlue" style="height: 150px; width: 50px" ng-click="processClue( 6 )"></div>
+    <div id="clue-7" class="clue borderDebugBlue" style="height: 150px; width: 150px" ng-click="processClue( 7 )"></div>
+    <div id="clue-8" class="clue borderDebugBlue" style="height: 150px; width: 70px" ng-click="processClue( 8 )"></div>
+    <div id="clue-9" class="clue borderDebugBlue" style="height: 45px; width: 100px" ng-click="processClue( 9 )"></div>
+    <div id="clue-10" class="clue" style="height: 79px; width: 128px" ng-click="processClue( 10 )"></div>
 
     <!-- <img src="img/arrow_up.png" id="switch-1" /> -->
 
@@ -203,14 +233,14 @@
             {{parentData.currentMsg}}
         </div>
         <div>
-            <img src="img/heart.png" class="heart_4"/>
-            <img src="img/heart.png" class="heart_3"/>
-            <img src="img/heart.png" class="heart_2"/>
-            <img src="img/heart.png" class="heart_1"/>
+            <img src="img/heart.png" class="heart_4" />
+            <img src="img/heart.png" class="heart_3" />
+            <img src="img/heart.png" class="heart_2" />
+            <img src="img/heart.png" class="heart_1" />
         </div>
     </div>
 
-    <div id="pageSplatter_4" class="page fail">
+    <div id="pageSplatter_4" class="page">
     </div>
     <div id="pageSplatter_3" class="page">
     </div>
@@ -221,7 +251,7 @@
 
     <!-- single item -->
     <div id="singleClue" class="page" ng-click="closeClue()">
-        <img class=""/>
+        <img class="" />
     </div>
 
     <div style="display:none">
