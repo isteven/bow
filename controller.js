@@ -258,5 +258,6 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     }
 
     hidePage( '.bottomArea' );
+    showPage( '#pageBlackBg' );
     showPage( '#pageShare' );
 }]);

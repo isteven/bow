@@ -194,6 +194,11 @@ a:hover {
     background-position: center;
     background-size: cover;
 }
+@media (max-width: 1024px) {
+    .share-win {
+        width: 100%;
+    }
+}
 .share-win > div:first-child {
     padding-top: 10px;
 }
@@ -369,13 +374,23 @@ a:hover {
     background-size:cover;
     background-position: center;
 }
+@media (max-width: 1024px) {
+    #pageShare {
+        background-image: none;
+        background-color: #000;
+    }
 
-#pageShare > .container {
-    width: 70%;
 }
+/*#pageShare > .container {
+    width: 70%;
+}*/
 
 .codeImage {
-    width: 300px;
+    background-image: url( ../img/code_bg.png );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /*width: 250px;*/
     height: 400px;
 }
 
