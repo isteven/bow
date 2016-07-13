@@ -9,16 +9,16 @@ var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
 
 // sculpting kit
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"),
-    { yaw: -0.15, pitch: 0.085 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } } );
+    { yaw: -0.15, pitch: 0.07 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } } );
 // needles & thread sewing kit
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-2"),
     { yaw: 1.68, pitch: 0.0 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } });
 // axe
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-3"),
-    { yaw: -1.84, pitch: 0.2 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } });
+    { yaw: -1.89, pitch: 0.33 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } });
 // clay
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-4"),
-    { yaw: 0.27, pitch: 0.0 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } });
+    { yaw: 0.27, pitch: 0.04 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } });
 // FALSE: box
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-5"),
     { yaw: -0.41, pitch: 0.08 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } }); // OK
@@ -27,16 +27,16 @@ tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot
     { yaw: -2.12, pitch: -0.16 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } }); // OK
 // FALSE: knife
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-7"),
-    { yaw: -1.21, pitch: 0.0 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } }); // OK
+    { yaw: -1.21, pitch: 0.06 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } }); // OK
 // FALSE: saw
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-8"),
     { yaw: -1.6, pitch: 0.0 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } }); // OK
 // FALSE: spade
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-9"),
-    { yaw: 0.03, pitch: -0.09 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } }); // OK
+    { yaw: 0.03, pitch: -0.098 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } }); // OK
 // FALSE: tape
 tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-10"),
-    { yaw: 1.90, pitch: 0.08 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } } ); // OK
+    { yaw: 1.93, pitch: 0.05 }, { perspective: { radius: 600, extraRotations: "rotateX(5deg)" } } ); // OK
 
 $('.panoCenter').click(function(e) {
     var activeSceneIdx = activeSceneList.indexOf( activeScene.data.id );
@@ -74,20 +74,23 @@ var hidePage = function( page ) {
     $( page ).fadeOut();
 }
 
+
+/*
+var element = document.getElementById( 'clue-10' );
+var sprite = new Motio(element, {
+    fps: 11,
+    frames: 11
+});
+window.tempSprite = sprite;
+
 $( '#clue-10' ).mouseover( function( e ) {
-    $( '#clue-10' ).addClass( 'animate' );
-    var element = document.getElementById( 'clue-10' );
-    var sprite = new Motio(element, {
-        fps: 11,
-        frames: 11
-    });
-    sprite.play();
-    window.sprite = sprite;
+    window.tempSprite.play();
+
 })
 
 $( '#clue-10' ).mouseout( function( e ) {
-    window.sprite.toStart( true, function() {
-        $( '#clue-10' ).removeClass('animate' );
-    });
+    window.tempSprite.pause();
+    window.tempSprite.toStart();
 
 })
+*/

@@ -7,10 +7,10 @@ var APP_DATA = {
             "size": 256,
             "fallbackOnly": true
         }, {
-            "tileSize": 512,
-            "size": 512
+            "tileSize": 1024,
+            "size": 1024
         }],
-        "faceSize": 2048,
+        "faceSize": 1024,
         "initialViewParameters": {
             "yaw": -1.2,
             "pitch": 0,

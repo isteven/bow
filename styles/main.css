@@ -394,8 +394,22 @@ a:hover {
     height: 400px;
 }
 
-#clue-10            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-10.animate    { background: transparent url( ../img/items/tool_glow_10_animate.png ) no-repeat  0 0 }
+.clue {
+    cursor: pointer;
+}
+
+/*
+#clue-1            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
+#clue-2            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
+#clue-3            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
+#clue-4            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
+#clue-5            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
+#clue-6            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
+#clue-7            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
+#clue-8            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
+#clue-7            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
+#clue-8            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
+#clue-10            { background: transparent url( ../img/items/tool_glow_10_animate.png ) no-repeat  0 0 }*/
 
 .terms-conditions {
     text-decoration: underline;

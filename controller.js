@@ -255,9 +255,37 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
         showPage( '.bottomArea' );
 
         $scope.parentData.currentMsg = $scope.message[ currentItemIdx - 1 ];
+        window.tempSprite = [];
+        for ( var i = 0 ; i < 10; i++ ) {
+
+            $( '#clue-' + ( i + 1)).css( "background", "transparent url( img/items/tool_glow_" + (i + 1) + ".png )  no-repeat 0 0" );
+
+            var element = document.getElementById( 'clue-' + (i + 1) );
+            var sprite = new Motio(element, {
+                fps: 11,
+                frames: 11
+            });
+
+            window.tempSprite[ i ] = sprite;
+
+            $( '#clue-' + (i+1) ).mouseover( function( e ) {
+                var idx = e.target.id.split( '-' );
+                idx = idx[ 1 ] - 1;
+                window.tempSprite[ idx ].play();
+            })
+            $( '#clue-' + (i+1) ).mouseout( function( e ) {
+                var idx = e.target.id.split( '-' );
+                idx = idx[ 1 ] - 1;
+                window.tempSprite[ idx ].pause();
+                window.tempSprite[ idx ].toStart();
+            })
+        }
+        console.log( window.tempSprite );
     }
 
+    // $scope.startGame();
     hidePage( '.bottomArea' );
-    showPage( '#pageBlackBg' );
-    showPage( '#pageShare' );
+    // showPage( '#pageBlackBg' );
+    // showPage( '#pageShare' );
+    showPage( '#pageLanding' );
 }]);
