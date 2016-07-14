@@ -3,9 +3,9 @@ var APP_DATA = {
         "id": "0-scene-1",
         "name": "Scene 1",
         "levels": [{
-            "tileSize": 256,
-            "size": 256,
+            "tileSize": 1024,
             "fallbackOnly": true
+            "size": 1024,
         }, {
             "tileSize": 1024,
             "size": 1024
