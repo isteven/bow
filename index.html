@@ -15,9 +15,11 @@
     <link rel="stylesheet" href="vendor/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styles/menu.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/text-style.css">
+    <link rel="stylesheet" href="styles/game-landing.css">
+    <link rel="stylesheet" href="styles/game-share.css">
+    <link rel="stylesheet" href="styles/menu.css">
     <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
 </head>
@@ -28,7 +30,7 @@
     <script>
         window.jsFbLoggedIn = false;
         window.jsFbResponse = null;
-
+        /*
         window.fbAsyncInit = function() {
             FB.init({
                 appId: '1198509583506495',
@@ -54,6 +56,7 @@
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+        */
     </script>
 
 
@@ -61,14 +64,16 @@
     <div id="pageLanding" class="page">
         <div class="container center-ver-parent">
             <div class="row center-block">
-                <div class="col-sm-12 text-center">
+                <div class="col-sm-12 text-center borderDebug">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <h2 class="font-trajan-pro fg-whitish">Bodies Of Work</h2>
-                            <br />
-                            <p class="">
-                                The Shipmen fire tragedy has ignited the evil within Damien, inspiring his greatest work yet. Take a trip down the memory lane with his family, as he pieces them back together, limb by limb.
-                            </p>
+                        <div class="col-sm-12 borderDebug">
+                            <div class="center-block">
+                                <h2 class="font-trajan-pro fg-whitish">Bodies Of Work</h2>
+                                <br />
+                                <p class="borderDebug">
+                                    The Shipmen fire tragedy has ignited the evil within Damien, inspiring his greatest work yet. Take a trip down the memory lane with his family, as he pieces them back together, limb by limb.
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="blood-bg center-block">
@@ -143,26 +148,24 @@
                                 Collect all 5 codes to unlock the final haunting
                             </span>
                             <p class="centerInlineHor">
-                                <a href="#" class="iconDownload fg-yellow">
+                                <a href="#" class="iconDownload black fg-yellow">
                                     DOWNLOAD IMAGE
                                 </a>
                             </p>
                         </div>
 
                         <div class="col-sm-6 text-center">
-                            <h4 class="font-trajan-pro ">Spread The Word Of Evil</h4>
-                            <br />
-                            <p>
+                            <h1 class="font-trajan-pro fg-whitish margin-bottom-30">Spread The Word Of Evil</h1>
+                            <h4 class="margin-bottom-30">
                                 Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
-                            </p>
-                            <br />
+                            </h4>
                             <div class="share-win center-block">
                                 <div>
-                                    <p class="font-trajan-pro fg-yellow">SHARE &amp; WIN NOW</p>
+                                    <h4 class="font-trajan-pro bold fg-yellow">SHARE &amp; WIN NOW</h4>
                                 </div>
                                 <div class="center-hor-block-children">
                                     <div>
-                                        <p class="bold">
+                                        <p class="black">
                                             YOUR TIME <span class="fg-yellow">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
                                         </p>
                                         <div>
@@ -171,13 +174,13 @@
                                             <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
                                         </div>
                                         <div class="centerInlineHor">
-                                            <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions">Terms & Conditions</a> apply
+                                            <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-yellow">Terms & Conditions</a> apply
                                         </div>
                                     </div>
                                     <div class="leaderboard topBorderRed">
-                                        <p class="bold">
+                                        <h5 class="black">
                                             LEADERBOARD
-                                        </p>
+                                        </h5>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div ng-repeat="entry in entry1to5">
@@ -198,8 +201,7 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <br />
-                                <a class="bold fg-yellow" onclick="location.reload()">
+                                <a class="iconReplay black fg-yellow" onclick="location.reload()">
                                     REPLAY?
                                 </a>
                             </div>

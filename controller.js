@@ -153,7 +153,8 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     $scope.millisToMinutesAndSeconds = function(millis) {
         var minutes = Math.floor(millis / 60000);
         var seconds = ((millis % 60000) / 1000).toFixed(0);
-        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+        var paddedMinutes = pad('00', minutes, true);
+        return paddedMinutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
 
     $scope.share_facebook = function() {
@@ -286,6 +287,6 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     // $scope.startGame();
     hidePage( '.bottomArea' );
     // showPage( '#pageBlackBg' );
-    // showPage( '#pageShare' );
-    showPage( '#pageLanding' );
+    showPage( '#pageShare' );
+    // showPage( '#pageLanding' );
 }]);

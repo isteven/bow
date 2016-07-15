@@ -1,0 +1,38 @@
+#pageLanding {
+    background-image: url( ../img/landing_bg.jpg );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 40;
+}
+
+#pageLanding > div,
+#pageShare > div {
+    position: absolute;
+    overflow: visible;
+}
+
+#pageLanding > div > div {
+    width: 682px;
+    /*width: 100%;*/
+}
+
+#pageLanding > div > div > div > div > div > div {
+    width: calc( 100% - 140px );
+}
+
+.start-game-col {
+    padding-top: 40px;
+}
+
+.black {
+    font-weight: 800;
+}
+
+.bold {
+    font-weight: 700;
+}

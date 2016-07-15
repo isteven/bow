@@ -60,7 +60,7 @@ a:hover {
     justify-content: center;
     align-items: center;
 }
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .center-ver-parent {
         display: flex;
         justify-content: center;
@@ -120,17 +120,12 @@ a:hover {
 .btnBlood.active {
     background-image: url('../img/texture.jpg');
 }
-.font-edo {
-    font-family: "edoregular", sans-serif;
-}
-.font-trajan-pro {
-    font-family: "trajan-pro-3", courier;
-}
+
 .fg-whitish {
     color: #e5e5cf;
 }
 .fg-yellow {
-    color: #ffc700 !important;
+    color: #ffab1a !important;
 }
 .fg-black {
     color: #000;
@@ -149,160 +144,6 @@ a:hover {
     border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
     background-color: rgba(0, 0, 0, 0.60);
     padding: 15px;
-}
-
-/*
-.double-column,
-.triple-column {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-}
-
-.double-column > li,
-.triple-column > li
- {
-    float: left;
-    list-style: none;
-    height: 100%;
-}
-.double-column li {
-    width: 50%;
-}
-.double-column li:first-child {
-    width: 50%;
-}
-
-.triple-column li {
-    width: 33%;
-}
-*/
-
-.bloodBoxHeader {
-    padding: 12px 7px 7px 7px;
-    background-image: url(../img/texture.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.share-win {
-    width: 60%;
-    max-width: 300px;
-    background-image: url(../img/texture.jpg);
-    background-position: center;
-    background-size: cover;
-}
-@media (max-width: 1024px) {
-    .share-win {
-        width: 100%;
-    }
-}
-.share-win > div:first-child {
-    padding-top: 10px;
-}
-.share-win > div:nth-child(2) {
-    width: calc( 100% - 10px );
-    margin-bottom: 5px;
-    background-color: #000;
-}
-
-.share-win > div:nth-child(2) > div {
-    margin: 20px;
-}
-
-.leaderboard {
-    padding: 20px;
-}
-
-.bold {
-    font-weight: 900;
-}
-
-.topBorderRed {
-    border-top: 1px solid #a80101;
-}
-
-.iconSocMed {
-    display: inline-block;
-    width: 100px;
-    height: 60px;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: center;
-}
-
-.iconSocMed.facebook        { background-image: url(../img/icon_fb.png); }
-.iconSocMed.facebook:hover  { background-image: url(../img/icon_fb_ro.png); }
-
-.iconSocMed.twitter         { background-image: url(../img/icon_twitter.png); }
-.iconSocMed.twitter:hover   { background-image: url(../img/icon_twitter_ro.png); }
-
-.iconSocMed.weibo           { background-image: url(../img/icon_fb.png); }
-.iconSocMed.weibo:hover     { background-image: url(../img/icon_fb_ro.png); }
-
-.iconDownload {
-    display: inline-block;
-    margin: 20px;
-    background-image: url( ../img/icon_download.png);
-    height: 30px;
-    vertical-align: bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-    padding-left: 37px;
-    line-height: 30px;
-}
-
-#pageLanding {
-    background-image: url( ../img/landing_bg.jpg );
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 40;
-}
-
-#pageLanding > div,
-#pageShare > div {
-    position: absolute;
-    overflow: visible;
-}
-
-#pageLanding > div > div {
-    max-width: 800px;
-    width: 100%;
-}
-
-.start-game-col {
-    padding-top: 40px;
-}
-
-.blood-bg {
-    width: 750px;
-    height: 220px;
-    background-image: url( ../img/landing_blood.png );
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    padding: 40px 50px 10px 50px;
-}
-@media (max-width: 1024px) {
-    .blood-bg {
-        height: auto;
-        width: auto;
-        padding: 30px 10px 30px 10px;
-        margin-top: 20px;
-    }
-}
-
-.blood-bg img {
-    max-width: 70px;
-    height: auto;
 }
 
 #pageFails {
@@ -368,48 +209,9 @@ a:hover {
     z-index: 45;
 }
 
-#pageShare {
-    background: url( ../img/completed_bg.jpg );
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center;
-}
-@media (max-width: 1024px) {
-    #pageShare {
-        background-image: none;
-        background-color: #000;
-    }
-
-}
-/*#pageShare > .container {
-    width: 70%;
-}*/
-
-.codeImage {
-    background-image: url( ../img/code_bg.png );
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    /*width: 250px;*/
-    height: 400px;
-}
-
 .clue {
     cursor: pointer;
 }
-
-/*
-#clue-1            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-2            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-3            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-4            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-5            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-6            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-7            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-8            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-7            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-8            { background: transparent url( ../img/items/tool_glow_10.png )      no-repeat 0 0 }
-#clue-10            { background: transparent url( ../img/items/tool_glow_10_animate.png ) no-repeat  0 0 }*/
 
 .terms-conditions {
     text-decoration: underline;
