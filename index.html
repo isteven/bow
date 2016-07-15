@@ -140,8 +140,9 @@
             <div class="row center-block">
                 <div class="col-sm-12 text-center">
                     <div class="row">
-                        <div class="col-sm-6 visible-md visible-lg" >
-                            <div class="codeImage">
+                        <div class="col-sm-6 codeImage borderDebug visible-md visible-lg">
+                            <div >
+                                <!-- COde image here -->
                             </div>
                             <br />
                             <span>
@@ -206,7 +207,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-sm-6 visible-xs visible-sm" >
+                        <div class="col-sm-6 visible-xs visible-sm">
                             <div class="codeImage center-block">
                             </div>
                             <br />
@@ -232,7 +233,7 @@
     <!-- correct items in pano -->
     <div id="clue-1" class="clue" style="height: 122px; width: 82px" ng-click="processClue( 1 )"></div>
     <div id="clue-2" class="clue" style="height: 135px; width: 231px" ng-click="processClue( 2 )"></div>
-    <div id="clue-3" class="clue" style="height: 498px; width: 227px" ng-click="processClue( 3 )"></div>
+    <div id="clue-3" class="clue" style="height: 250px; width: 290px" ng-click="processClue( 3 )"></div>
     <div id="clue-4" class="clue" style="height: 133px; width: 138px" ng-click="processClue( 4 )"></div>
     <!-- wrong items -->
     <div id="clue-5" class="clue" style="height: 115px; width: 165px" ng-click="processClue( 5 )"></div>
@@ -249,8 +250,8 @@
 
     <!-- health meter and dialogues-->
     <div class="bottomArea">
-        <div class="bloodBox">
-            {{parentData.currentMsg}}
+        <div class="bloodBox center-ver-inline">
+            <div class=" ">{{parentData.currentMsg}}</div>
         </div>
         <div>
             <img src="img/heart.png" class="heart_4" />

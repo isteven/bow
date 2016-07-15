@@ -97,7 +97,7 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
                     hidePage( '.bottomArea' );
                     showPage( '#pageBlackBg' );
                     showPage( '#pageFails' );
-                }, 900);
+                }, 100);
             }
         }
     }
@@ -284,9 +284,9 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
         console.log( window.tempSprite );
     }
 
-    // $scope.startGame();
     hidePage( '.bottomArea' );
+    //$scope.startGame();
     // showPage( '#pageBlackBg' );
-    showPage( '#pageShare' );
-    // showPage( '#pageLanding' );
+    //showPage( '#pageShare' );
+    showPage( '#pageLanding' );
 }]);

@@ -1,9 +1,11 @@
 html, body {
     font-family: lato, sans-serif;
     color: #e5e5cf;
-    font-weight: 500 !important;
+    /*font-weight: 500 !important;*/
+    font-size: 14px;
     position: relative;
     overflow: visible;
+    -webkit-font-smoothing: antialiased;
 }
 
 a:hover {
@@ -33,10 +35,12 @@ a:hover {
 
 .bottomArea > div:first-child {
     margin-bottom: 20px;
-    width: 100%;
+    width: 370px;
+    height: 80px;
     font-style: italic;
     position: relative;
     z-index: 50;
+    vertical-align: middle;
 }
 
 .bottomArea > div:nth-child(2) > img {
@@ -208,6 +212,13 @@ a:hover {
     position: absolute;
     z-index: 45;
 }
+
+.codeImage > div:nth-child(2) {
+    width: 170px;
+    font-size: 11px;
+    font-weight: 400;
+}
+
 
 .clue {
     cursor: pointer;
