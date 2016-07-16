@@ -288,4 +288,5 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     //$scope.startGame();
     // showPage( '#pageShare' );
     showPage( '#pageLanding' );
+    // showPage( '#pageShare' );
 }]);
