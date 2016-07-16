@@ -1,0 +1,164 @@
+/*
+*  Fake clues Section
+*
+*/
+.prop-hotspot-clue {
+  display: none;
+}
+
+
+/*
+*  Clue Image
+*  All Scenes
+*/
+.cluesCtr {
+  width: 100px;
+  height: 100px;
+
+  position: absolute;
+  z-index: 40;
+
+  bottom: 100px;
+  right: 80px;
+  display: none;
+}
+
+.cluesCtr img {
+  width: 100%;
+}
+
+@media (max-width: 480px){
+  .cluesCtr {
+    bottom: 70px;
+    right: 20px;
+  }
+}
+
+
+.cluePlaceholder {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: auto;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.7);
+}
+#cluePlaceholder img {
+    height: 100%;
+    width: auto;
+}
+@media (max-width: 480px){
+	.cluePlaceholder {
+    	top: 46%;
+	}
+}
+
+
+/*
+*  Animations Section
+*  Scene 1 - lighting props
+*/
+.prop-hotspot-light {
+  overflow: hidden;
+}
+
+.prop-hotspot-light.active > .prop-inner {
+  overflow: hidden;
+  width: 296px;
+  height: 251px;
+
+  -webkit-animation: prop_light_flickers 2s steps(8) infinite;
+      -moz-animation: prop_light_flickers 2s steps(8) infinite;
+          animation: prop_light_flickers 2s steps(8) infinite;
+
+}
+
+@-webkit-keyframes prop_light_flickers {
+  0% {
+    background-position: 0;
+  }
+
+  80% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -2368px;
+  }
+}
+
+@-moz-keyframes prop_light_flickers {
+  0% {
+    background-position: 0;
+  }
+
+  80% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -2368px;
+  }
+}
+
+@keyframes prop_light_flickers {
+  0% {
+    background-position: 0;
+  }
+
+  80% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -2368px;
+  }
+
+}
+
+
+/*
+*  Animations Section
+*  Scene 2 - Jump Scare
+*/
+#scare {
+  width: 974px;
+  height: 1119px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+  display: none;
+  background-image: url('../img/scare.png');
+  background-size: cover;
+  background-position: 0 0;
+}
+
+.scare-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000000;
+  z-index: 11;
+  display: none;
+}
+
+.scare-overlay.active {
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  #scare {
+    width: 389px;
+    height: 447px;
+    background-image: url('../img/scare-m.png');
+  }
+}

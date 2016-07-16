@@ -1,0 +1,56 @@
+$desktop-large-min: 1440px;
+$desktop-medium-max: $desktop-large-min - 1;
+$desktop-medium-min: 1280px;
+$tablet-max: 1024px;
+$tablet-min: 737px;
+$tablet-portrait-min: 414px;
+$tablet-portrait-max: 736px;
+$mobile-max: 736px;
+
+@mixin respond-to($media) {
+  @if $media == "desktop-large" {
+    @media only screen and (min-width: $desktop-large-min) {
+      @content;
+    }
+  }
+  @else if $media == "desktop-medium" {
+    @media only screen and (min-width: $desktop-medium-min) and (max-width: $desktop-medium-max) {
+      @content;
+    }
+  }
+  @else if $media == "desktop" {
+    @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+      @content;
+    }
+  }
+  @if $media == "desktop-combined" {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+  @else if $media == "tablet-ls" {
+    @media only screen and (min-device-width: $tablet-min) and (max-device-width: $tablet-max) and (orientation: landscape) {
+      @content;
+    }
+  }
+  @else if $media == "tablet-p" {
+    @media only screen and (min-device-width: $tablet-min) and (max-device-width: $tablet-max) and (orientation: portrait) {
+      @content;
+    }
+  }
+  @else if $media == "mobile" {
+    @media only screen and (max-width: $mobile-max) {
+      @content;
+    }
+  }
+  @else if $media == "mobile-ls" {
+    @media only screen and (max-width: $mobile-max) and (orientation: landscape) {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and (max-width: #{$media}px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,229 @@
+html, body {
+    font-family: lato, sans-serif;
+    color: #e5e5cf;
+    /*font-weight: 500 !important;*/
+    font-size: 14px;
+    position: relative;
+    overflow: visible;
+    -webkit-font-smoothing: antialiased;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.borderDebug {
+    border: 1px solid red;
+}
+
+.borderDebugBlue {
+    border: 1px solid blue;
+}
+.bottomArea {
+    max-width: 350px;
+    position: absolute;
+    z-index: 50;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.bottomArea > div:first-child {
+    margin-bottom: 20px;
+    width: 370px;
+    height: 80px;
+    font-style: italic;
+    position: relative;
+    z-index: 50;
+    vertical-align: middle;
+}
+
+.bottomArea > div:nth-child(2) > img {
+    width: 30px;
+    height: auto;
+    display: inline-block;
+}
+
+.center-hor-inline-children {
+    text-align: center;
+}
+
+.center-hor-block-children {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+
+.center-ver-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .center-ver-parent {
+        display: flex;
+        justify-content: center;
+        align-items:flex-start;
+    }
+}
+
+.center-ver-hor-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+    display: none;
+    position: absolute;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    overflow: visible;
+}
+
+#singleClue > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: auto;
+    margin-bottom: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+}
+.closeButtonRed {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-image: url('../img/icon-close.png');
+}
+.btnBlood {
+    display: inline-block;
+    padding: 10px 15px 10px 15px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../img/texture_inactive.jpg');
+    background-repeat: none;
+    border: none;
+    font-weight: 800;
+    color: #e5e5cf;
+}
+.btnBlood.active {
+    background-image: url('../img/texture.jpg');
+}
+
+.fg-whitish {
+    color: #e5e5cf;
+}
+.fg-yellow {
+    color: #ffab1a !important;
+}
+.fg-black {
+    color: #000;
+}
+.fg-red {
+    color: #a80101;
+}
+.bloodBox {
+    /*border-image-source: url('../img/texture.jpg');*/
+    display: inline-block;
+    border-style: solid;
+    border-width: 4px 4px 4px 4px;
+    -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    background-color: rgba(0, 0, 0, 0.60);
+    padding: 15px;
+}
+
+#pageFails {
+    background-color: transparent;
+    background-image: none;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 50;
+}
+
+#pageBlackBg {
+    background-color: #000;
+    position: absolute;
+    z-index: 30;
+}
+
+#pageFails > div {
+    width: 100%;
+    height: 100%;
+}
+
+#pageFails > div > div {
+    width: 100%;
+    max-width:500px;
+}
+
+#pageSplatter_4 {
+    background: url( ../img/splatter_overlay1.png );
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    pointer-events: none;
+    position: absolute;
+    z-index: 45;
+}
+#pageSplatter_3 {
+    background: url( ../img/splatter_overlay2.png );
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: top lfet;
+    pointer-events: none;
+    position: absolute;
+    z-index: 45;
+}
+#pageSplatter_2 {
+    background: url( ../img/splatter_overlay3.png );
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: top right;
+    pointer-events: none;
+    position: absolute;
+    z-index: 45;
+}
+#pageSplatter_1 {
+    background: url( ../img/splatter_overlay4.png );
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    pointer-events: none;
+    position: absolute;
+    z-index: 45;
+}
+
+.codeImage > div:nth-child(2) {
+    width: 170px;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+
+.clue {
+    cursor: pointer;
+}
+
+.terms-conditions {
+    text-decoration: underline;
+}

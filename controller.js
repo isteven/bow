@@ -286,7 +286,6 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
 
     hidePage( '.bottomArea' );
     //$scope.startGame();
-    // showPage( '#pageBlackBg' );
-    //showPage( '#pageShare' );
-    showPage( '#pageLanding' );
+    showPage( '#pageShare' );
+    //  showPage( '#pageLanding' );
 }]);

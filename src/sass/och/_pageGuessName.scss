@@ -1,0 +1,274 @@
+#pageGuessName {
+  background-image: url('../img/q1_bg.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 1440px; /* set the background not movable */
+}
+
+#pageGuessName.bg-hide {
+  background-image: none;
+}
+
+#pageGuessName > .inner {
+  position: absolute;
+  z-index: 1;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// @media (max-width: 480px){
+//   top:
+// }
+
+#pageGuessName .inputBorder {
+    /*border: none;*/
+    display: inline-block;
+    font-family: "edoregular", Serif;
+    font-size: 2.4em;
+    line-height: 0.8;
+    color: #45140e;
+    background-color: transparent;
+    /*float: left;*/
+    margin-left: 10px;
+    text-align: center;
+}
+#pageGuessName .inputBorder img{
+    width: 45px;
+}
+#pageGuessName h1.font-edo.ng-binding{
+	margin-bottom: 5px;
+    font-size: 2.2em;
+}
+#pageGuessName h1.font-edo.last.ng-binding{
+    font-size: 1.8em;
+}
+// #pageGuessName .guess-overlay {
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: #000000;
+//   z-index: 1;
+//   display: none;
+//
+//   width: 100%;
+//   height: 100%;
+//   transform: none;
+// }
+// #pageGuessName .guess-overlay.active {
+//   display: block;
+// }
+
+#pageGuessName> div, #pageGuessDate> div {
+    position: absolute;
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+}
+@media (max-width: 480px){
+    #pageGuessName> div, #pageGuessDate> div {
+        position: absolute;
+        z-index: 30;
+        top: 50%;
+        left: 50%;
+        height: 60%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.guessBox {
+    /*border-image-source: url('../img/texture.jpg');*/
+    display: inline-block;
+    border-style: solid;
+    border-width: 4px 4px 4px 4px;
+    -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    background-color: rgba(0, 0, 0, 0.60);
+    padding: 30px;
+}
+.guessBox > input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #a80101;
+    color: #fff;
+    font-size: 200%;
+    text-align: center;
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+	#pageGuessName .inputBorder{
+        margin-left: 2px;
+	    margin-bottom: 10px;
+	    font-size: 2.2em;
+	    line-height: 0.8em;
+    }
+	#pageGuessName .inputBorder img{
+        width: 35px;
+    }
+    #pageGuessName h1.font-edo.ng-binding{
+        font-size: 1.6em;
+    }
+    #pageGuessName h1.font-edo.last.ng-binding{
+        font-size: 1.4em;
+    }
+}
+@media (max-width: 480px){
+    #pageGuessName .inputBorder{
+        margin-left: 1px;
+        font-size: 2.7em;
+        line-height: 0.5;
+    }
+    #pageGuessName .inputBorder img{
+        width: 29px;
+    }
+    #pageGuessName h1.font-edo{
+        margin-bottom: 5px;
+        font-size: 2.2em;
+    }
+    #pageGuessName h1.font-edo.ng-binding{
+        font-size: 1.4em;
+    }
+    #pageGuessName h1.font-edo.last.ng-binding{
+        font-size: 1.2em;
+    }
+}
+@media (max-width: 320px){
+    #pageGuessName .inputBorder{
+        font-size: 2.2em;
+    }
+    #pageGuessName .inputBorder img{
+        width: 25px;
+    }
+    #pageGuessName h1.font-edo.ng-binding{
+        font-size: 1.2em;
+    }
+    #pageGuessName h1.font-edo.last.ng-binding{
+        font-size: 1.0em;
+    }
+}
+
+// #pageGuessName .double-column li {
+//     width: 30%;
+// }
+// #pageGuessName .double-column li:first-child {
+//     width: 70%;
+// }
+@media (max-width: 480px) {
+    #pageGuessName > div{
+        top: 45%;
+    }
+    #pageGuessName .double-column li {
+        display: inline-block;
+        width: 30%;
+    }
+    #pageGuessName .double-column li:first-child {
+        display: inline-block;
+        width: 67%;
+    }
+    #pageGuessName .double-column li.pontianakBox {
+        margin-left: -12%;
+    }
+}
+@media (max-width: 320px) {
+    #pageGuessName .double-column li.pontianakBox {
+        margin-left: -16%;
+    }
+}
+
+/* jac: vetting pontianak box stylings here */
+#pageGuessName .single-column {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 480px) {
+  #pageGuessName {
+    margin-top: 54px;
+  }
+
+  #pageGuessName .centerElement {
+    overflow: hidden;
+    top: 0;
+    height: 100%;
+    transform: none;
+    left: 0;
+    position: static;
+  }
+
+  #pageGuessName .pontianakBox {
+    width: 100%;
+    left: 0;
+    margin-top: -30%;
+    right: 0;
+    margin-left: 0;
+  }
+}
+
+.pontianakBox {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 640px;
+  height: 800px;
+  margin-top: -200px;
+  margin-left: -50px;
+}
+
+.pontianakBox > div {
+  width: 640px;
+  height: 800px;
+}
+.pontianak1 { background: transparent url( ../img/01_ponappear.png ) 0 0 no-repeat; }
+.pontianak2 { background: transparent url( ../img/02_ponwait.png ) 0 0 no-repeat; }
+.pontianak3 { background: transparent url( ../img/03_ponturn_1.png ) 0 0 no-repeat; }
+.pontianak4 { background: transparent url( ../img/04_ponwait_1.png ) 0 0 no-repeat; }
+.pontianak5 { background: transparent url( ../img/05_ponturn_2.png ) 0 0 no-repeat; }
+.pontianak6 { background: transparent url( ../img/06_ponwait_2.png ) 0 0 no-repeat; }
+.pontianak7 { background: transparent url( ../img/07_ponturn_3.png ) 0 0 no-repeat; }
+.pontianak8 { background: transparent url( ../img/08_ponwait_3.png ) 0 0 no-repeat; }
+/*.pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }*/
+.pontianak9,
+.pontianakSpecial { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; }
+
+.pontianakSpecial {
+  /*background-position-x: -5400px;*/
+  background-position: -1280px -800px;
+  display: block;
+  height: 100%;
+}
+
+@media (max-width: 769px) {
+
+  .pontianakBox > div {
+    width: 600px;
+    height: 648px;
+  }
+
+  .pontianak9, .pontianakSpecial {
+    background: transparent url( ../img/09_pondash-m.png ) 0 0 no-repeat;
+    width: 600px;
+  }
+
+  .pontianak1 { background-image: none; }
+  .pontianak2 { background-image: none; }
+  .pontianak3 { background-image: none; }
+  .pontianak4 { background-image: none; }
+  .pontianak5 { background-image: none; }
+  .pontianak6 { background-image: none; }
+  .pontianak7 { background-image: none; }
+  .pontianak8 { background-image: none; }
+  .pontianakSpecial {
+    /*background-position-x: -5400px;*/
+    background-position: -1280px -800px;
+    display: block;
+    height: 100%;
+  }
+
+}

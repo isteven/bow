@@ -1,0 +1,82 @@
+.tnc {
+    padding-top: 100px;
+}
+.tnc__wrapper {
+    display: none;
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    top: 0;
+    left: 0;
+    overflow: auto
+}
+.tnc__close {
+    position: fixed;
+    top: 40px;
+    right: 30px
+}
+.tnc__content {
+    max-width: 740px;
+    counter-reset: a
+}
+.tnc h3 {
+    line-height: 1;
+    margin-bottom: 20px
+}
+.tnc h4 {
+    font-size: 1.4rem
+}
+.tnc ol {
+    padding-left: 3rem;
+    margin-bottom: 10px
+}
+.tnc ol>li {
+    list-style: none;
+    position: relative;
+    margin-bottom: 15px
+}
+.tnc ol>li:before {
+    counter-increment: a;
+    content: counter(a, decimal) ") ";
+    position: absolute;
+    left: -3rem
+}
+.tnc ol ol {
+    margin: 20px 0;
+    counter-reset: b
+}
+.tnc ol ol>li:before {
+    counter-increment: b;
+    content: counter(b, lower-alpha) ") ";
+    position: absolute;
+    left: -1.4em
+}
+.tnc ol ol ol {
+    counter-reset: c;
+    margin: 5px 0
+}
+.tnc ol ol ol>li {
+    margin-bottom: 5px
+}
+.tnc ol ol ol>li:before {
+    counter-increment: c;
+    content: counter(c, lower-roman) ") ";
+    position: absolute;
+    left: -1.4em
+}
+.tnc table {
+    border-collapse: collapse;
+    border: 1px solid hsla(60, 30%, 85%, .5)
+}
+.tnc table td,
+.tnc table th {
+    padding: 5px;
+    border: 1px solid hsla(60, 30%, 85%, .3);
+    text-align: center
+}
+.tnc table .subheader {
+    text-align: left;
+    padding-left: 20px
+}

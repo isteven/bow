@@ -1,0 +1,213 @@
+
+.emf__container {
+  position: absolute;
+  z-index: 1;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+}
+
+@media (max-width: 480px){
+	.emf__container {
+		top: 85%;
+	}
+}
+
+.emf__reader {
+  color: #00ff30;
+  margin-top: 10px;
+}
+
+.emf__reader > .static {
+  display: inline-block;
+}
+.emf__reader > .static.hidden {
+  display: none;
+}
+
+.emf__visual {
+  list-style-type: none;
+
+  background-image: url('../img/emf-bg.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+
+  width: 150px;
+  height: 27px;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.emf__visual > li {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-position: left top;
+  background-repeat: no-repeat;
+}
+
+.emf__visual > li.emf__1 {
+  background-image: url('../img/emf-green.png');
+}
+
+.emf__visual > li.emf__2 {
+  background-image: url('../img/emf-green.png');
+}
+
+.emf__visual > li.emf__3 {
+  background-image: url('../img/emf-yellow.png');
+}
+
+.emf__visual > li.emf__4 {
+  background-image: url('../img/emf-orange.png');
+}
+
+.emf__visual > li.emf__5 {
+  background-image: url('../img/emf-red.png');
+}
+
+.emf__visual.is-region-2 > li.emf__5,
+.emf__visual.is-region-3 > li.emf__4,
+.emf__visual.is-region-4 > li.emf__3,
+.emf__visual.is-region-5 > li.emf__2 {
+          animation: flicker .8s steps(1) infinite;
+  -webkit-animation: flicker .8s steps(1) infinite;
+
+  -webkit-transform: translate3D(0,0,0);
+  -webkit-backface-visibility: false;
+  -webkit-perspective: 1000;
+}
+
+.emf__visual.is-region-1 > li.emf__1,
+.emf__visual.is-region-1 > li.emf__2,
+.emf__visual.is-region-1 > li.emf__3,
+.emf__visual.is-region-1 > li.emf__4,
+.emf__visual.is-region-1 > li.emf__5 {
+  background-position: left bottom;
+}
+
+.emf__visual.is-region-2 > li.emf__1,
+.emf__visual.is-region-2 > li.emf__2,
+.emf__visual.is-region-2 > li.emf__3,
+.emf__visual.is-region-2 > li.emf__4 {
+  background-position: left bottom;
+}
+
+.emf__visual.is-region-3 > li.emf__1,
+.emf__visual.is-region-3 > li.emf__2,
+.emf__visual.is-region-3 > li.emf__3 {
+  background-position: left bottom;
+}
+
+.emf__visual.is-region-4 > li.emf__1,
+.emf__visual.is-region-4 > li.emf__2 {
+  background-position: left bottom;
+}
+
+.emf__visual.is-region-5 > li.emf__1 {
+  background-position: left bottom;
+}
+
+.emf__visual.is-region-6 > li.emf__1 {
+  background-position: left bottom;
+}
+
+@keyframes flicker {
+  0% {
+    background-position: left top;
+  }
+  1% {
+    background-position: left bottom;
+  }
+  5% {
+    background-position: left top;
+  }
+
+  50% {
+    background-position: left top;
+  }
+  51% {
+    background-position: left bottom;
+  }
+  55% {
+    background-position: left top;
+  }
+
+  79% {
+    background-position: left top;
+  }
+  80% {
+    background-position: left bottom;
+  }
+  90% {
+    background-position: left top;
+  }
+}
+
+@-webkit-keyframes flicker {
+  0% {
+    background-position: left top;
+  }
+  1% {
+    background-position: left bottom;
+  }
+  5% {
+    background-position: left top;
+  }
+
+  50% {
+    background-position: left top;
+  }
+  51% {
+    background-position: left bottom;
+  }
+  55% {
+    background-position: left top;
+  }
+
+  79% {
+    background-position: left top;
+  }
+  80% {
+    background-position: left bottom;
+  }
+  90% {
+    background-position: left top;
+  }
+}
+
+@-moz-keyframes flicker {
+  0% {
+    background-position: left top;
+  }
+  1% {
+    background-position: left bottom;
+  }
+  5% {
+    background-position: left top;
+  }
+
+  50% {
+    background-position: left top;
+  }
+  51% {
+    background-position: left bottom;
+  }
+  55% {
+    background-position: left top;
+  }
+
+  79% {
+    background-position: left top;
+  }
+  80% {
+    background-position: left bottom;
+  }
+  90% {
+    background-position: left top;
+  }
+}

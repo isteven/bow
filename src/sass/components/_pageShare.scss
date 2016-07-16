@@ -1,0 +1,161 @@
+#pageShare {
+    background: url( ../img/completed_bg.jpg );
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+@media (max-width: 768px) {
+    #pageShare {
+        background-image: none;
+        background-color: #000;
+    }
+
+}
+
+#pageShare > div > div {
+    width: 1090px;
+}
+
+#pageShare > div > div > div > div > div:nth-child(2) {
+    width: 472px;
+    margin-left: 70px;
+}
+
+.share-win {
+    width: 288px;
+    background-image: url(../img/texture.jpg);
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+    .share-win {
+        width: 100%;
+    }
+}
+.share-win > div:first-child {
+    padding: 10px 0px;
+}
+.share-win > div:nth-child(2) {
+    width: calc( 100% - 10px );
+    margin-bottom: 5px;
+    background-color: #000;
+}
+
+.share-win > div:nth-child(2) > div {
+    margin: 20px;
+}
+.share-win > div:nth-child(2) > div > div > h5 {
+    /*border: 1px solid blue;*/
+
+}
+
+.share-win h4 {
+    margin: 0px;
+}
+
+.leaderboard h5 {
+    margin: 0px;
+    padding: 20px 0px;
+}
+
+.leaderboard > div > div:first-child {
+    padding-left: 22px;
+}
+.leaderboard > div > div:nth-child(2) {
+    padding-right: 22px;
+}
+
+
+.bloodBoxHeader {
+    padding: 12px 7px 7px 7px;
+    background-image: url(../img/texture.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.topBorderRed {
+    border-top: 1px solid #a80101;
+}
+
+.iconSocMed {
+    display: inline-block;
+    width: 73px;
+    height: 44px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+}
+
+.iconSocMed.facebook        { background-image: url(../img/icon_fb.png); }
+.iconSocMed.facebook:hover  { background-image: url(../img/icon_fb_ro.png); }
+
+.iconSocMed.twitter         { background-image: url(../img/icon_twitter.png); }
+.iconSocMed.twitter:hover   { background-image: url(../img/icon_twitter_ro.png); }
+
+.iconSocMed.weibo           { background-image: url(../img/icon_fb.png); }
+.iconSocMed.weibo:hover     { background-image: url(../img/icon_fb_ro.png); }
+
+.iconDownload {
+    display: inline-block;
+    /*margin: 20px;*/
+    background-image: url( ../img/icon_download.png);
+    height: 28px;
+    vertical-align: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 30px;
+    line-height: 32px;
+}
+.iconDownload:hover {
+    background-image: url( ../img/icon_download_ro.png);
+}
+
+.iconReplay {
+    display: inline-block;
+    /*margin: 20px;*/
+    background-image: url( ../img/icon_replay.png);
+    height: 28px;
+    vertical-align: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 30px;
+    line-height: 32px;
+}
+.iconReplay:hover {
+    background-image: url( ../img/icon_replay_ro.png);
+}
+
+.blood-bg {
+    width: 682px;
+    height: 220px;
+    background-image: url( ../img/landing_blood.png );
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 40px 50px 10px 50px;
+}
+@media (max-width: 768px) {
+    .blood-bg {
+        height: auto;
+        width: auto;
+        padding: 30px 10px 30px 10px;
+        margin-top: 20px;
+    }
+}
+
+.blood-bg img {
+    max-width: 50px;
+    height: auto;
+}
+
+.codeImage {
+    /*background-image: url( ../img/code_bg.png );*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /*width: 250px;*/
+    height: 400px;
+}

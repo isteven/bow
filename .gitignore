@@ -1,0 +1,37 @@
+with-tools
+backup
+# General all-around files
+# ------------------------
+
+*.DS_Store
+*Thumbs.db
+
+# Sass-related files
+# ------------------
+node_modules
+*.sass-cache
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
+
+tmp
+temp
+TODO.md
+vendor
+
+*.sublime-*
+
+bower_components
