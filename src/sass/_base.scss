@@ -62,14 +62,6 @@ h6 {
     margin-bottom: 15px;
 }
 
-.font-edo {
-    font-family: "edoregular", sans-serif;
-}
-
-.font-trajan-pro {
-    font-family: "trajan-pro-3", courier;
-}
-
 .fg-whitish {
     color: #e5e5cf;
 }
@@ -301,4 +293,51 @@ a:hover {
     position: absolute;
     z-index: 1;
     background-color: #000000;
+}
+
+.borderDebug {
+    border: 1px solid red;
+}
+
+.borderDebugBlue {
+    border: 1px solid blue;
+}
+.center-hor-inline-children {
+    text-align: center;
+}
+
+.center-hor-block-children {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.center-ver-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .center-ver-parent {
+        display: flex;
+        justify-content: center;
+        align-items:flex-start;
+    }
+}
+
+.center-ver-hor-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+    display: none;
+    position: absolute;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    overflow: visible;
 }

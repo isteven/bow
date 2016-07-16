@@ -110,6 +110,7 @@
 }
 .iconDownload:hover {
     background-image: url( ../img/icon_download_ro.png);
+    color: #ffe14c  !important;
 }
 
 .iconReplay {
@@ -125,25 +126,7 @@
 }
 .iconReplay:hover {
     background-image: url( ../img/icon_replay_ro.png);
-}
-
-.blood-bg {
-    width: 682px;
-    height: 220px;
-    background-image: url( ../img/landing_blood.png );
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    padding: 40px 50px 10px 50px;
-}
-@media (max-width: 768px) {
-    .blood-bg {
-        height: auto;
-        width: auto;
-        padding: 30px 10px 30px 10px;
-        margin-top: 20px;
-    }
+    color: #ffe14c  !important;
 }
 
 .blood-bg img {
