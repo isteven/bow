@@ -65,6 +65,7 @@ function( $scope, $http, $timeout, $window ) {
         showPage( '.bottomArea' );
         if ( param < 5 && param == currentItemIdx ) {
             showPage( '#singleClue' );
+            showPage( '#pageBlackBg' );
             $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
             $scope.parentData.currentMsg = '"Ah yes, this would be perfect for the task."';
             if ( currentItemIdx >= 4 ) {
@@ -303,6 +304,8 @@ function( $scope, $http, $timeout, $window ) {
     hidePage( '.bottomArea' );
     //$scope.startGame();
     // showPage( '#pageShare' );
-    showPage( '#pageLanding' );
-    // showPage( '#pageShare' );
+    // showPage( '#pageLanding' );
+    showPage( '#pageShare' );
+    // showPage( '#pageFails' );
+
 }]);

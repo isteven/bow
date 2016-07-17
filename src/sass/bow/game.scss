@@ -70,7 +70,7 @@
 }
 
 #pageFails > div > div {
-    width: 100%;
+    width: calc( 100% - 80px );
     max-width:500px;
 }
 
@@ -170,13 +170,20 @@
 }
 
 .bottomArea > div:first-child {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     width: 440px;
     font-style: italic;
     position: relative;
     z-index: 50;
     height: 90px;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.7);
+}
+@media (max-width: 768px) {
+    .bottomArea > div:first-child {
+        margin: 0px auto;
+        margin-bottom: 10px;
+        width: calc( 100% - 40px );
+    }
 }
 
 .bottomArea > div:nth-child(2) > img {

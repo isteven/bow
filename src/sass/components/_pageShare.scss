@@ -108,6 +108,7 @@
     background-size: contain;
     padding-left: 30px;
     line-height: 32px;
+    margin-top: 5px;
 }
 .iconDownload:hover {
     background-image: url( ../img/icon_download_ro.png);
@@ -124,11 +125,16 @@
     background-size: contain;
     padding-left: 30px;
     line-height: 32px;
+    margin-top: 5px;
 }
 .iconReplay:hover {
     background-image: url( ../img/icon_replay_ro.png);
     color: #ffe14c  !important;
 }
+
+ #pageShare > div {
+    // width: 1170px;
+ }
 
 .codeImage {
     /*background-image: url( ../img/code_bg.png );*/
