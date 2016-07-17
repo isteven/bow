@@ -4,10 +4,12 @@ html, body {
     font-weight: 500 !important;
     /*font-size: 16px !important;*/
     overflow:hidden;
+    // padding-top: 78px;
 }
-@media (max-width: 480px){
+@media (max-width: 768px){
     html, body{
-        overflow: auto;
+        position: absolute;
+        overflow:auto;
     }
 }
 
@@ -39,6 +41,8 @@ h3 {
 h4 {
     font-size: 16px;
     line-height: 16px;
+    margin: 0px;
+    padding: 0px;
 }
 
 h5 {
@@ -61,7 +65,7 @@ h6 {
 }
 
 .margin-bottom-30 {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 .margin-bottom-20 {
     margin-bottom: 20px;
@@ -353,6 +357,16 @@ a:hover {
         justify-content: center;
         align-items:flex-start;
     }
+    .bloodBox.center-ver-parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.center-ver-parent-fix {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .center-ver-hor-parent {

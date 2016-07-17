@@ -30,6 +30,7 @@
 }
 @media (max-width: 768px) {
     .share-win {
+        max-width: 768px;
         width: 100%;
     }
 }
@@ -129,11 +130,6 @@
     color: #ffe14c  !important;
 }
 
-.blood-bg img {
-    max-width: 50px;
-    height: auto;
-}
-
 .codeImage {
     /*background-image: url( ../img/code_bg.png );*/
     background-position: center;
@@ -149,4 +145,11 @@
     position: absolute;
     bottom: 30px;
     right: 35px;
+}
+
+@media (max-width: 768px) {
+    .codeMobile{
+        width: 100%;
+        height: auto;
+    }
 }

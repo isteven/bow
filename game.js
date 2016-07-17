@@ -1,5 +1,7 @@
 'use strict';
 
+window.isDragging = false;
+
 var tempHotspots = [];
 
 var activeSceneList = [ '0-scene-1' ];
@@ -94,3 +96,14 @@ $( '#clue-10' ).mouseout( function( e ) {
 
 })
 */
+
+var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
+
+// Listen for the end of a drag.
+dragControlMethod.addEventListener('active', function() {
+    window.isDragging = true;
+});
+// Listen for the end of a drag.
+dragControlMethod.addEventListener('inactive', function() {
+    window.isDragging = false;
+});

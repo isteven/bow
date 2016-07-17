@@ -1,6 +1,7 @@
 var myApp = angular.module('myApp',[]);
 
-angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', function( $scope, $http, $timeout ) {
+angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', '$window',
+function( $scope, $http, $timeout, $window ) {
 
     $scope.lang            = 'en';
 
@@ -8,8 +9,8 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     var gameEndTime         = null;
     $scope.elapsedGameTime  = null;
 
-    $scope.entry1to5 = [];
-    $scope.entry2to5 = [];
+    $scope.entry1to5 = [ {idxString:'01', time: 999999 },{idxString:'01', time: 999999 },{idxString:'01', time: 999999 }];
+    $scope.entry2to5 = [{idxString:'01', time: 999999 },{idxString:'01', time: 999999 },{idxString:'01', time: 999999 }];
 
     var currentItemIdx  = 1;
     var trials          = 4;
@@ -58,10 +59,13 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     }
 
     $scope.processClue = function( param ) {
-        showPage( '#singleClue' );
+        if ( window.isDragging ) {
+            return;
+        }
         showPage( '.bottomArea' );
-        $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
         if ( param < 5 && param == currentItemIdx ) {
+            showPage( '#singleClue' );
+            $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
             $scope.parentData.currentMsg = '"Ah yes, this would be perfect for the task."';
             if ( currentItemIdx >= 4 ) {
                 calculateGameTime();
@@ -69,7 +73,7 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
                     hidePage( '#singleClue' );
                     hidePage( '.bottomArea' );
                     hidePage( '.splatter' );
-                    showPage( '#pageBlackBg' );
+                    // showPage( '#pageBlackBg' );
                     showPage( '#pageShare' );
                 }, 900);
                 loadLeaderboard();
@@ -78,6 +82,8 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
         }
         else {
             if ( trials > 1 ) {
+                showPage( '#singleClue' );
+                $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
                 $scope.parentData.currentMsg = '"You fool! Hand me the correct item, or you\'ll become my next tool!"'
                 var tempTrials = trials;
                 $( '#tempFade' ).show();
@@ -95,9 +101,10 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
             else {
                 $( '.heart_' + trials ).attr( 'src', 'img/heart_strike.png');
                 $( '#pageSplatter_' + trials ).show();
+                hidePage( '#singleClue' );
+                hidePage( '.bottomArea' );
+
                 setTimeout( function() {
-                    hidePage( '#singleClue' );
-                    hidePage( '.bottomArea' );
                     showPage( '#pageBlackBg' );
                     showPage( '#pageFails' );
                 }, 100);
@@ -241,6 +248,12 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
         );
     }
 
+    $scope.$watch( function () {
+        return $window.isDragging
+    }, function() {
+        console.log( $window.isDragging );
+    });
+
 
     $scope.startGame = function() {
 
@@ -266,7 +279,7 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
 
             var element = document.getElementById( 'clue-' + (i + 1) );
             var sprite = new Motio(element, {
-                fps: 11,
+                fps: 18,
                 frames: 11
             });
 

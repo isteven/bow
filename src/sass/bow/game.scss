@@ -11,12 +11,18 @@
 }
 #singleClue > img {
     position: absolute;
-    top: 50%;
+    top: calc( 50% - 60px );
     left: 50%;
-    height: 50%;
+    height: 376px;
     width: auto;
     margin-bottom: 20px;
     transform: translate(-50%, -50%);
+}
+@media (max-width: 768px) {
+    #singleClue > img {
+        top: calc( 50% - 30px );
+        height: 545px;
+    }
 }
 .closeButtonRed {
     display: none;
@@ -81,7 +87,7 @@
     background: url( ../img/splatter_overlay2.png );
     background-color: transparent;
     background-repeat: no-repeat;
-    background-position: top lfet;
+    background-position: top left;
     pointer-events: none;
     position: absolute;
     z-index: 45;
@@ -105,6 +111,39 @@
     z-index: 45;
 }
 
+@media (max-width: 768px) {
+    #pageSplatter_4 {
+        background: url( ../img/mobile/M_splatter_overlay1.png );
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        pointer-events: none;
+        position: absolute;
+        z-index: 45;
+        background-size: contain;
+    }
+    #pageSplatter_3 {
+        background: url( ../img/mobile/M_splatter_overlay2.png );
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: top left;
+        pointer-events: none;
+        position: absolute;
+        z-index: 45;
+        background-size: contain;
+    }
+    #pageSplatter_2 {
+        background: url( ../img/mobile/M_splatter_overlay3.png );
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: top right;
+        pointer-events: none;
+        position: absolute;
+        z-index: 45;
+        background-size: contain;
+    }
+}
+
 .codeImage > div:nth-child(2) {
     width: 170px;
     font-size: 11px;
@@ -121,7 +160,7 @@
 }
 
 .bottomArea {
-    max-width: 440px;
+    width: 440px;
     position: absolute;
     z-index: 50;
     bottom: 0%;
@@ -131,8 +170,8 @@
 }
 
 .bottomArea > div:first-child {
-    margin-bottom: 20px;
-    width: 100%;
+    margin-bottom: 0px;
+    width: 440px;
     font-style: italic;
     position: relative;
     z-index: 50;

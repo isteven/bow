@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="center-block">
-                                <h2 class="font-trajan-pro fg-whitish margin-bottom-20">Bodies Of Work</h2>
+                                <h1 class="font-trajan-pro fg-whitish margin-bottom-20">Bodies Of Work</h1>
                                 <p class="margin-bottom-30">
                                     The Shipmen fire tragedy has ignited the evil within Damien, inspiring his greatest work yet. Take a trip down the memory lane with his family, as he pieces them back together, limb by limb.
                                 </p>
@@ -118,11 +118,11 @@
 
     <!-- fail -->
     <div id="pageFails" class="page">
-        <div class="center-ver-parent">
+        <div class="center-ver-parent-fix">
             <div class="center-hor-inline-children">
-                <h3 class="font-trajan-pro fg-whitish">
+                <h1 class="font-trajan-pro fg-whitish">
                     A Deadly Mistake
-                </h3>
+                </h1>
                 <br />
                 <p>
                     Mercy comes short for those who disrupt Damien's work. However, you're in luck. He has decided to give you another change to save your own skin.
@@ -140,8 +140,9 @@
         <div class="container center-ver-parent">
             <div class="row center-block">
                 <div class="col-sm-12 text-center">
-                    <div class="row">
-                        <div class="col-sm-6 codeImage  visible-md visible-lg">
+                    <!-- desktop -->
+                    <div class="row visible-sm visible-md visible-lg">
+                        <div class="col-sm-6 codeImage">
                             <div>
                                 <span>
                                     Collect all 5 codes to<br/> unlock the final haunting.
@@ -181,16 +182,16 @@
                                             LEADERBOARD
                                         </h5>
                                         <div class="row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 bold">
                                                 <div ng-repeat="entry in entry1to5">
-                                                    <span class="numbering">
+                                                    <span class="numbering ">
                                                         {{entry.idxString}}.
                                                     </span> {{millisToMinutesAndSeconds( entry.time )}}
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 bold">
                                                 <div ng-repeat="entry in entry2to5">
-                                                    <span class="numbering">
+                                                    <span class="numbering ">
                                                         {{entry.idxString}}.
                                                     </span> {{millisToMinutesAndSeconds( entry.time )}}
                                                 </div>
@@ -205,18 +206,76 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-sm-6 visible-xs visible-sm">
-                            <div>
-                                <span>
-                                    Collect all 5 codes to<br/> unlock the final haunting.
-                                </span>
-                                <br />
-                                <a href="#" class="iconDownload black fg-orange">
-                                    DOWNLOAD IMAGE
-                                </a>
+                    </div>
+
+                    <!-- mobile -->
+                    <div class="row visible-xs">
+                        <div class="col-sm-12 text-center" style="padding-left:40px; padding-right: 40px;">
+                            <h1 class="font-trajan-pro fg-whitish margin-bottom-30">Spread The Word Of Evil</h1>
+                            <h4 class="margin-bottom-30">
+                                Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
+                            </h4>
+                            <div class="share-win center-block">
+                                <div>
+                                    <h4 class="font-trajan-pro bold fg-orange">SHARE &amp; WIN NOW</h4>
+                                </div>
+                                <div class="center-hor-block-children">
+                                    <div>
+                                        <p class="black">
+                                            YOUR TIME <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
+                                        </p>
+                                        <div>
+                                            <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook " ng-click="share_facebook()"></a>
+                                            <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter " ng-click="share_twitter()"></a>
+                                            <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
+                                        </div>
+                                        <div class="centerInlineHor">
+                                            <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange">Terms & Conditions</a> apply
+                                        </div>
+                                    </div>
+                                    <div class="leaderboard topBorderRed">
+                                        <h5 class="black">
+                                            LEADERBOARD
+                                        </h5>
+                                        <div class="row">
+                                            <div class="col-xs-6 bold">
+                                                <div ng-repeat="entry in entry1to5">
+                                                    <span class="numbering ">
+                                                        {{entry.idxString}}.
+                                                    </span> {{millisToMinutesAndSeconds( entry.time )}}
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 bold">
+                                                <div ng-repeat="entry in entry2to5">
+                                                    <span class="numbering ">
+                                                        {{entry.idxString}}.
+                                                    </span> {{millisToMinutesAndSeconds( entry.time )}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="row visible-xs">
+                        <div class="col-sm-12 text-center">
+                            <a class="iconReplay black fg-orange" onclick="location.reload()">
+                                REPLAY?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row visible-xs">
+                        <div class="col-sm-12 text-center">
+                            <img src="img/mobile/M_completed.jpg" class="codeMobile"/>
+                            <div>
+                                Collect all 5 codes to<br/> unlock the final haunting.
+                            </div>
+                            <br />
+                            <a href="#" class="iconDownload black fg-orange">
+                                DOWNLOAD IMAGE
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -257,14 +316,10 @@
         </div>
     </div>
 
-    <div id="pageSplatter_4" class="page splatter">
-    </div>
-    <div id="pageSplatter_3" class="page splatter">
-    </div>
-    <div id="pageSplatter_2" class="page splatter">
-    </div>
-    <div id="pageSplatter_1" class="page splatter">
-    </div>
+    <div id="pageSplatter_4" class="page splatter "></div>
+    <div id="pageSplatter_3" class="page splatter"></div>
+    <div id="pageSplatter_2" class="page splatter"></div>
+    <div id="pageSplatter_1" class="page splatter"></div>
 
     <!-- single item -->
     <div id="tempFade" class="page">

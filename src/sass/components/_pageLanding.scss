@@ -24,6 +24,11 @@
 #pageLanding > div > div > div > div:first-child > div:first-child > div {
     width: calc( 100% - 170px );
 }
+@media (max-width: 768px) {
+    #pageLanding > div > div > div > div:first-child > div:first-child > div {
+        width: calc( 100% - 40px );
+    }
+}
 
 .black {
     font-weight: 800;
@@ -47,7 +52,21 @@
     .blood-bg {
         height: auto;
         width: auto;
-        padding: 30px 10px 30px 10px;
-        margin-top: 20px;
+        padding: 50px 10px 60px 10px;
+        position: relative;
+        top: -10px;
+        // margin-top: 20px;
     }
+}
+
+.blood-bg img {
+    max-width: 50px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+.blood-bg img {
+    max-width: 60px;
+    height: auto;
+}
 }
