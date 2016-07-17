@@ -121,7 +121,7 @@
         pointer-events: none;
         position: absolute;
         z-index: 45;
-        background-size: contain;
+        background-size: auto 100%;
     }
     #pageSplatter_3 {
         background: url( ../img/mobile/M_splatter_overlay2.png );

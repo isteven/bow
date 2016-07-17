@@ -24,7 +24,7 @@ function( $scope, $http, $timeout, $window, $sce ) {
     $scope.message[ 3 ] = '"It\'s time to patch things up. Hand over the materials to seal off these hollow areas."';
 
     $scope.getContent = function( index, html ) {
-        console.log( index, $scope.lang, window.languageSet[ $scope.lang ][ index ] );
+        // console.log( index, $scope.lang, window.languageSet[ $scope.lang ][ index ] );
         if ( html ) {
             return $sce.trustAsHtml( window.languageSet[ $scope.lang ][ index ] );
         }

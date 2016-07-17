@@ -212,7 +212,7 @@ dragControlMethod.addEventListener('parameterDynamics', function() {
             yaw: tempHotspots[ i ].position().yaw,
             pitch: tempHotspots[ i ].position().pitch
         });
-        console.log( screen );
+        // console.log( screen );
         if (
             screen &&
             Math.abs(screen.x - size.width/2) < 50 &&
