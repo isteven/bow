@@ -5,13 +5,14 @@ window.languageSet[ 'en' ] = [];
 window.languageSet[ 'cn' ] = [];
 window.languageSet[ 'en' ][ 'clue' ] = [];
 window.languageSet[ 'cn' ][ 'clue' ] = [];
+
 // LANDING PAGE
 
     window.languageSet[ 'en' ][ 'title-landing' ] = 'Bodies Of Works';
-    window.languageSet[ 'cn' ][ 'title-landing' ] = 'cn-title';
+    window.languageSet[ 'cn' ][ 'title-landing' ] = '作品的尸体';
 
     window.languageSet[ 'en' ][ 'intro' ] = 'The Shipmen fire tragedy has ignited the evil within Damien, inspiring his greatest work yet. Take a trip down the memory lane with his family, as he pieces them back together, limb by limb.';
-    window.languageSet[ 'cn' ][ 'intro' ] = 'cn-intro';
+    window.languageSet[ 'cn' ][ 'intro' ] = '本批货大火惨剧已经点燃达米安内邪，鼓舞他的最伟大的作品呢。肢体走一趟下来他的家人的记忆里，因为他作品他们重新走到一起，四肢。';
 
     window.languageSet[ 'en' ][ 'instruction' ] = 'ALL CREATION NEEDS THE RIGHT TOOLS';
     window.languageSet[ 'cn' ][ 'instruction' ] = 'cn-instruction';
