@@ -53,6 +53,7 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
 
     $scope.closeClue = function( element ) {
         $( '#singleClue' ).fadeOut();
+        $( '#tempFade' ).fadeOut();
         $scope.parentData.currentMsg = $scope.message[ currentItemIdx - 1 ];
     }
 
@@ -79,10 +80,12 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
             if ( trials > 1 ) {
                 $scope.parentData.currentMsg = '"You fool! Hand me the correct item, or you\'ll become my next tool!"'
                 var tempTrials = trials;
+                $( '#tempFade' ).show();
                 $( '#pageSplatter_' + tempTrials ).show();
                 // fadeout for msie < 11
                 if ( bowser.msie && bowser.version < 11 ) {
                     setTimeout( function() {
+                        $( '#tempFade' ).fadeOut();
                         $( '#pageSplatter_' + tempTrials ).fadeOut();
                     },3000);
                 }
@@ -287,6 +290,6 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     hidePage( '.bottomArea' );
     //$scope.startGame();
     // showPage( '#pageShare' );
-    showPage( '#pageLanding' );
-    // showPage( '#pageShare' );
+    // showPage( '#pageLanding' );
+    showPage( '#pageShare' );
 }]);

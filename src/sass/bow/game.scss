@@ -1,3 +1,14 @@
+#singleClue {
+    display: none;
+    position: absolute;
+    z-index: 46;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    // background-color: rgba(0, 0, 0, 0.65);
+    overflow: visible;
+}
 #singleClue > img {
     position: absolute;
     top: 50%;
@@ -6,7 +17,6 @@
     width: auto;
     margin-bottom: 20px;
     transform: translate(-50%, -50%);
-    z-index: 50;
 }
 .closeButtonRed {
     display: none;

@@ -140,5 +140,13 @@
     background-repeat: no-repeat;
     background-size: contain;
     /*width: 250px;*/
-    height: 400px;
+    height: 500px;
+}
+
+.codeImage div {
+    text-align: left;
+    width: 180px;
+    position: absolute;
+    bottom: 30px;
+    right: 35px;
 }
