@@ -21,6 +21,13 @@
     margin-left: 70px;
 }
 
+@media (max-width: 1170px) {
+    #pageShare > div > div > div > div > div:nth-child(2) {
+        width: calc( 50% - 30px );
+        margin-left: 10px;
+    }
+}
+
 .share-win {
     width: 288px;
     background-image: url(../img/texture.jpg);
