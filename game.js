@@ -25,7 +25,7 @@ tempHotspots[1] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(doc
     pitch: -0.11
 }, {
     perspective: {
-        radius: 515,
+        radius: 530,
         extraRotations: "rotateX(0deg)"
     }
 });
@@ -166,12 +166,37 @@ $( '#clue-10' ).mouseout( function( e ) {
 
 })
 */
+/*
+scenes.map(function(scene) {
+    var view = activeScene.marzipanoObject.view();
+    //console.log( view );
+    view.addEventListener('change', function() {
+        // Get the current viewport dimensions
+        var size = activeScene.marzipanoObject.view().size();
+        // Transform the hotspot coordinates into screen coordinates.
+
+        for (var i = 0; i < 10; i++) {
+
+            var panning_x = (activeScene.marzipanoObject.view().yaw()).toFixed(2);
+            console.log( panning_x );
+            if (panning_x > 1.7 && panning_x < 2.6) {
+            //
+
+            }
+
+
+        }
+
+
+    });
+});
+*/
 
 var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
 
 // Listen for the end of a drag.
 dragControlMethod.addEventListener('parameterDynamics', function() {
-
+    //console.log('log');
     // Get the current viewport dimensions
     var size = activeScene.marzipanoObject.view().size();
     // Transform the hotspot coordinates into screen coordinates.
@@ -180,16 +205,18 @@ dragControlMethod.addEventListener('parameterDynamics', function() {
     //     pitch: tempHotspots[ 0 ].position().pitch
     // });
     //
+    //console.log( size );
     for ( var i = 0; i < 10; i++ ) {
         // Transform the hotspot coordinates into screen coordinates.
         var screen = activeScene.marzipanoObject.view().coordinatesToScreen({
             yaw: tempHotspots[ i ].position().yaw,
             pitch: tempHotspots[ i ].position().pitch
         });
+        console.log( screen );
         if (
             screen &&
             Math.abs(screen.x - size.width/2) < 50 &&
-            Math.abs(screen.y - size.height/2) < 50
+            Math.abs(screen.y - size.height/2) < 180
         ) {
             window.tempSprite[ i ].play();
         }

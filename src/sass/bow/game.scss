@@ -21,7 +21,7 @@
 @media (max-width: 768px) {
     #singleClue > img {
         top: calc( 50% - 30px );
-        height: 545px;
+        height: 376px;
     }
 }
 .closeButtonRed {
@@ -182,7 +182,9 @@
     .bottomArea > div:first-child {
         margin: 0px auto;
         margin-bottom: 10px;
-        width: calc( 100% - 40px );
+        width: calc( 100% - 140px );
+        height: auto !important;
+
     }
 }
 
