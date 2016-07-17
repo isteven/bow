@@ -221,7 +221,7 @@ dragControlMethod.addEventListener('parameterDynamics', function() {
             window.tempSprite[ i ].play();
         }
         else {
-            window.tempSprite[ i ].pause();
+            window.tempSprite[ i ].toStart( true );
         }
     }
 });

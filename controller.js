@@ -75,6 +75,7 @@ function( $scope, $http, $timeout, $window ) {
                     hidePage( '.bottomArea' );
                     hidePage( '.splatter' );
                     // showPage( '#pageBlackBg' );
+                    hidePage( '#tempFade' );
                     showPage( '#pageShare' );
                 }, 900);
                 loadLeaderboard();
