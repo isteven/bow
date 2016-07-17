@@ -9,8 +9,8 @@ function( $scope, $http, $timeout, $window ) {
     var gameEndTime         = null;
     $scope.elapsedGameTime  = null;
 
-    $scope.entry1to5 = [ {idxString:'01', time: 999999 },{idxString:'01', time: 999999 },{idxString:'01', time: 999999 }];
-    $scope.entry2to5 = [{idxString:'01', time: 999999 },{idxString:'01', time: 999999 },{idxString:'01', time: 999999 }];
+    $scope.entry1to5 = [];
+    $scope.entry2to5 = [];
 
     var currentItemIdx  = 1;
     var trials          = 4;
@@ -65,7 +65,7 @@ function( $scope, $http, $timeout, $window ) {
         showPage( '.bottomArea' );
         if ( param < 5 && param == currentItemIdx ) {
             showPage( '#singleClue' );
-            showPage( '#pageBlackBg' );
+            showPage( '#tempFade' );
             $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
             $scope.parentData.currentMsg = '"Ah yes, this would be perfect for the task."';
             if ( currentItemIdx >= 4 ) {
@@ -304,8 +304,8 @@ function( $scope, $http, $timeout, $window ) {
     hidePage( '.bottomArea' );
     //$scope.startGame();
     // showPage( '#pageShare' );
-    // showPage( '#pageLanding' );
-    showPage( '#pageShare' );
+    showPage( '#pageLanding' );
+    // showPage( '#pageShare' );
     // showPage( '#pageFails' );
 
 }]);
