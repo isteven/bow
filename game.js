@@ -225,16 +225,3 @@ dragControlMethod.addEventListener('parameterDynamics', function() {
         }
     }
 });
-
-
-// $('#clue-' + (i + 1)).mouseover(function(e) {
-//     var idx = e.target.id.split('-');
-//     idx = idx[1] - 1;
-//     window.tempSprite[idx].play();
-// })
-// $('#clue-' + (i + 1)).mouseout(function(e) {
-//     var idx = e.target.id.split('-');
-//     idx = idx[1] - 1;
-//     window.tempSprite[idx].pause();
-//     window.tempSprite[idx].toStart();
-// })

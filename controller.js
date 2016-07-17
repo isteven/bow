@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp',[]);
 
-angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', '$window',
-function( $scope, $http, $timeout, $window ) {
+angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', '$window', '$sce',
+function( $scope, $http, $timeout, $window, $sce ) {
 
     $scope.lang            = 'en';
 
@@ -22,6 +22,17 @@ function( $scope, $http, $timeout, $window ) {
     $scope.message[ 1 ] = '"This isn\'t good at all, she\'s falling apart right along the sides. I need to tighten the seams."';
     $scope.message[ 2 ] = '"All bruised and broken, this hand will be rendered useless. I\'ll have to get rid of it."';
     $scope.message[ 3 ] = '"It\'s time to patch things up. Hand over the materials to seal off these hollow areas."';
+
+    $scope.getContent = function( index, html ) {
+        console.log( index, $scope.lang, window.languageSet[ $scope.lang ][ index ] );
+        if ( html ) {
+            return $sce.trustAsHtml( window.languageSet[ $scope.lang ][ index ] );
+        }
+        else {
+            return window.languageSet[ $scope.lang ][ index ];
+        }
+    }
+
 
     function getUrlVar( variable )
     {
@@ -55,7 +66,9 @@ function( $scope, $http, $timeout, $window ) {
     $scope.closeClue = function( element ) {
         $( '#singleClue' ).fadeOut();
         $( '#tempFade' ).fadeOut();
-        $scope.parentData.currentMsg = $scope.message[ currentItemIdx - 1 ];
+        var tempMsg = $scope.getContent( 'clue');
+        $scope.parentData.currentMsg =  tempMsg[ currentItemIdx - 1 ];
+        // $scope.parentData.currentMsg = $scope.message[ currentItemIdx - 1 ];
     }
 
     $scope.processClue = function( param ) {
@@ -67,7 +80,8 @@ function( $scope, $http, $timeout, $window ) {
             showPage( '#singleClue' );
             showPage( '#tempFade' );
             $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
-            $scope.parentData.currentMsg = '"Ah yes, this would be perfect for the task."';
+            $scope.parentData.currentMsg = $scope.getContent( 'clue-ok' );
+            // '"Ah yes, this would be perfect for the task."';
             if ( currentItemIdx >= 4 ) {
                 calculateGameTime();
                 setTimeout( function() {
@@ -86,7 +100,8 @@ function( $scope, $http, $timeout, $window ) {
             if ( trials > 1 ) {
                 showPage( '#singleClue' );
                 $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
-                $scope.parentData.currentMsg = '"You fool! Hand me the correct item, or you\'ll become my next tool!"'
+                $scope.parentData.currentMsg = $scope.getContent( 'clue-false' );
+                // '"You fool! Hand me the correct item, or you\'ll become my next tool!"'
                 var tempTrials = trials;
                 $( '#tempFade' ).show();
                 $( '#pageSplatter_' + tempTrials ).show();
@@ -250,12 +265,6 @@ function( $scope, $http, $timeout, $window ) {
         );
     }
 
-    $scope.$watch( function () {
-        return $window.isDragging
-    }, function() {
-        console.log( $window.isDragging );
-    });
-
 
     $scope.startGame = function() {
 
@@ -263,17 +272,13 @@ function( $scope, $http, $timeout, $window ) {
 
         $scope.triesLeft    = 4;
 
-        var tempLang = getUrlVar( 'lang' );
-        if ( tempLang ) {
-            lang = tempLang;
-        }
-
         hidePage( '.fadePage' );
         $( '#pageLanding' ).fadeOut( 400 );
         hidePage( '#pageFails' );
         showPage( '.bottomArea' );
 
-        $scope.parentData.currentMsg = $scope.message[ currentItemIdx - 1 ];
+        var tempMsg = $scope.getContent( 'clue');
+        $scope.parentData.currentMsg =  tempMsg[ currentItemIdx - 1 ];
         window.tempSprite = [];
         for ( var i = 0 ; i < 10; i++ ) {
 
@@ -300,6 +305,11 @@ function( $scope, $http, $timeout, $window ) {
             })
         }
         console.log( window.tempSprite );
+    }
+
+    var tempLang = getUrlVar( 'lang' );
+    if ( tempLang ) {
+        $scope.lang = tempLang;
     }
 
     hidePage( '.bottomArea' );

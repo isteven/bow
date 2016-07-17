@@ -70,9 +70,12 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="center-block">
-                                <h1 class="font-trajan-pro fg-whitish margin-bottom-20">Bodies Of Work</h1>
+                                <h1 class="font-trajan-pro fg-whitish margin-bottom-20">
+                                    {{getContent( 'title-landing')}}
+                                </h1>
                                 <p class="margin-bottom-30">
-                                    The Shipmen fire tragedy has ignited the evil within Damien, inspiring his greatest work yet. Take a trip down the memory lane with his family, as he pieces them back together, limb by limb.
+                                    {{getContent( 'intro')}}
+                                    <!-- The Shipmen fire tragedy has ignited the evil within Damien, inspiring his greatest work yet. Take a trip down the memory lane with his family, as he pieces them back together, limb by limb. -->
                                 </p>
                             </div>
                         </div>
@@ -81,30 +84,35 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <p class="fg-orange black">
-                                    ALL CREATION NEEDS THE RIGHT TOOLS
+{{getContent( 'instruction' )}}
+                                    <!-- ALL CREATION NEEDS THE RIGHT TOOLS -->
                                 </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4">
                                 <img src="img/icon_search.png" />
-                                <br /> Find the right tool that<br /> Damien needs.
+                                <br />
+                                <span ng-bind-html="getContent( 'icon-text-1', true )"></span>
+                                <!-- Find the right tool that<br /> Damien needs. -->
                             </div>
                             <div class="col-sm-4">
                                 <img src="img/icon_heart.png" />
-                                <br /> No mistake goes unpunished,<br /> but his mercy last till the 3<span style="vertical-align:super">rd</span>
+                                <br /><span ng-bind-html="getContent( 'icon-text-2', true )"></span>
+                                <!-- No mistake goes unpunished,<br /> but his mercy last till the 3<span style="vertical-align:super">rd</span> -->
                             </div>
                             <div class="col-sm-4">
 
                                 <img src="img/icon_timer.png" />
-                                <br /> Time is the key to higher<br /> chances of winning.
+                                <br /> <span ng-bind-html="getContent( 'icon-text-3', true )"></span>
+                                <!-- Time is the key to higher<br /> chances of winning. -->
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 start-game-col">
                             <a class="btnBlood active" ng-click="startGame();">
-                                START NOW
+                                {{getContent( 'start-button' )}}
                             </a>
                         </div>
                     </div>
@@ -121,15 +129,16 @@
         <div class="center-ver-parent-fix">
             <div class="center-hor-inline-children">
                 <h1 class="font-trajan-pro fg-whitish">
-                    A Deadly Mistake
+                    {{getContent( 'title-fail' )}}
                 </h1>
                 <br />
                 <p>
-                    Mercy comes short for those who disrupt Damien's work. However, you're in luck. He has decided to give you another change to save your own skin.
+                    {{getContent( 'intro-fail' )}}
+                    <!-- Mercy comes short for those who disrupt Damien's work. However, you're in luck. He has decided to give you another change to save your own skin. -->
                 </p>
                 <br />
                 <a class="btnBlood active" onclick="location.reload()">
-                    TRY AGAIN
+                    {{getContent( 'retry-button' )}}
                 </a>
             </div>
         </div>
@@ -144,28 +153,37 @@
                     <div class="row visible-sm visible-md visible-lg">
                         <div class="col-sm-6 codeImage">
                             <div>
-                                <span>
-                                    Collect all 5 codes to<br/> unlock the final haunting.
+                                <span ng-bind-html="getContent( 'code-instruction', true )">
+                                    <!-- Collect all 5 codes to<br/> unlock the final haunting. -->
                                 </span>
                                 <a href="#" class="iconDownload black fg-orange">
-                                    DOWNLOAD IMAGE
+                                    {{getContent( 'code-download' )}}
+                                    <!-- DOWNLOAD IMAGE -->
                                 </a>
                             </div>
                         </div>
 
                         <div class="col-sm-6 text-center">
-                            <h1 class="font-trajan-pro fg-whitish margin-bottom-30">Spread The Word Of Evil</h1>
+                            <h1 class="font-trajan-pro fg-whitish margin-bottom-30">
+                                {{getContent( 'title-share' )}}
+                                <!-- Spread The Word Of Evil -->
+                            </h1>
                             <h4 class="margin-bottom-30">
-                                Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
+                                {{getContent( 'intro-share' )}}
+                                <!-- Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends. -->
                             </h4>
                             <div class="share-win center-block">
                                 <div>
-                                    <h4 class="font-trajan-pro bold fg-orange">SHARE &amp; WIN NOW</h4>
+                                    <h4 class="font-trajan-pro bold fg-orange">
+                                        <!-- SHARE &amp; WIN NOW -->
+                                        {{getContent( 'share-and-win' )}}
+                                    </h4>
                                 </div>
                                 <div class="center-hor-block-children">
                                     <div>
                                         <p class="black">
-                                            YOUR TIME <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
+                                            {{getContent( 'your-time' )}}
+                                            <!-- YOUR TIME <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span> -->
                                         </p>
                                         <div>
                                             <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook " ng-click="share_facebook()"></a>
@@ -173,12 +191,16 @@
                                             <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
                                         </div>
                                         <div class="centerInlineHor">
-                                            <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange">Terms & Conditions</a> apply
+                                            <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange">
+                                                {{getContent( 'terms-and-conditions' )}}
+                                                <!-- Terms & Conditions -->
+                                            </a> {{getContent( 'terms-and-conditions-apply' )}}
                                         </div>
                                     </div>
                                     <div class="leaderboard topBorderRed">
                                         <h5 class="black">
-                                            LEADERBOARD
+                                            <!-- LEADERBOARD -->
+                                            {{getContent( 'leaderboard' )}}
                                         </h5>
                                         <div class="row">
                                             <div class="col-sm-6 bold">
@@ -201,7 +223,8 @@
                             </div>
                             <div class="text-center">
                                 <a class="iconReplay black fg-orange" onclick="location.reload()">
-                                    REPLAY?
+                                    {{getContent( 'replay' )}}
+                                    <!-- REPLAY? -->
                                 </a>
                             </div>
                         </div>
@@ -210,18 +233,27 @@
                     <!-- mobile -->
                     <div class="row visible-xs">
                         <div class="col-sm-12 text-center" style="padding-left:40px; padding-right: 40px;">
-                            <h1 class="font-trajan-pro fg-whitish margin-bottom-30">Spread The Word Of Evil</h1>
+                            <h1 class="font-trajan-pro fg-whitish margin-bottom-30">
+                                {{getContent( 'title-share' )}}
+                                <!-- Spread The Word Of Evil -->
+                            </h1>
                             <h4 class="margin-bottom-30">
-                                Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
+                                {{getContent( 'intro-share' )}}
+                                <!-- Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends. -->
                             </h4>
                             <div class="share-win center-block">
                                 <div>
-                                    <h4 class="font-trajan-pro bold fg-orange">SHARE &amp; WIN NOW</h4>
+                                    <h4 class="font-trajan-pro bold fg-orange">
+                                        {{getContent( 'share-and-win' )}}
+                                        <!-- SHARE &amp; WIN NOW -->
+                                    </h4>
                                 </div>
                                 <div class="center-hor-block-children">
                                     <div>
                                         <p class="black">
-                                            YOUR TIME <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
+                                            {{getContent( 'your-time' )}}
+                                            <!-- YOUR TIME -->
+                                            <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
                                         </p>
                                         <div>
                                             <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook " ng-click="share_facebook()"></a>
@@ -229,12 +261,15 @@
                                             <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
                                         </div>
                                         <div class="centerInlineHor">
-                                            <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange">Terms & Conditions</a> apply
+                                            <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange">
+                                                {{getContent( 'terms-and-conditions' )}}
+                                                <!-- Terms & Conditions -->
+                                            </a> {{getContent( 'terms-and-conditions-apply' )}}
                                         </div>
                                     </div>
                                     <div class="leaderboard topBorderRed">
                                         <h5 class="black">
-                                            LEADERBOARD
+                                            {{getContent( 'leaderboard' )}}
                                         </h5>
                                         <div class="row">
                                             <div class="col-xs-6 bold">
@@ -260,18 +295,19 @@
                     <div class="row visible-xs">
                         <div class="col-sm-12 text-center">
                             <a class="iconReplay black fg-orange" onclick="location.reload()">
-                                REPLAY?
+                                {{getContent( 'replay' )}}
                             </a>
                         </div>
                     </div>
                     <div class="row visible-xs">
                         <div class="col-sm-12 text-center">
                             <img src="img/mobile/M_completed.jpg" class="codeMobile"/>
-                            <div>
-                                Collect all 5 codes to<br/> unlock the final haunting.
+                            <div ng-bind-html="getContent( 'code-instruction', true )">
+                                <!-- Collect all 5 codes to<br/> unlock the final haunting. -->
                             </div>
                             <a href="#" class="iconDownload black fg-orange">
-                                DOWNLOAD IMAGE
+                                {{getContent( 'code-download' )}}
+                                <!-- DOWNLOAD IMAGE -->
                             </a>
                         </div>
                     </div>
@@ -400,6 +436,7 @@
     <script src="vendor/jquery.motio.min.js"></script>
 
     <script src="config.js"></script>
+    <script src="language.js"></script>
     <script src="controller.js"></script>
     <script src="data.js"></script>
     <script src="index.js"></script>
