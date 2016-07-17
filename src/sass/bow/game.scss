@@ -82,6 +82,7 @@
     pointer-events: none;
     position: absolute;
     z-index: 45;
+    background-size:  contain;
 }
 #pageSplatter_3 {
     background: url( ../img/splatter_overlay2.png );
@@ -96,7 +97,7 @@
     background: url( ../img/splatter_overlay3.png );
     background-color: transparent;
     background-repeat: no-repeat;
-    background-position: top right;
+    background-position: bottom left;
     pointer-events: none;
     position: absolute;
     z-index: 45;
@@ -136,7 +137,7 @@
         background: url( ../img/mobile/M_splatter_overlay3.png );
         background-color: transparent;
         background-repeat: no-repeat;
-        background-position: top right;
+        background-position: bottom left;
         pointer-events: none;
         position: absolute;
         z-index: 45;
@@ -179,6 +180,10 @@
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.7);
 }
 @media (max-width: 768px) {
+    .bottomArea {
+        width: 360px;
+    }
+
     .bottomArea > div:first-child {
         margin: 0px auto;
         margin-bottom: 10px;

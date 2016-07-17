@@ -57,6 +57,7 @@
     // Initialize viewer.
     var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
+
     // Setup autorotate.
     var autorotate = Marzipano.autorotate({
         yawSpeed: 0.1,
@@ -66,6 +67,8 @@
     if (APP_DATA.settings.autorotateEnabled) {
         autorotateToggleElement.classList.add('enabled');
     }
+
+
 
     // Create scenes.
     var scenes = APP_DATA.scenes.map(function(sceneData) {

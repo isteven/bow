@@ -25,7 +25,7 @@ tempHotspots[1] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(doc
     pitch: -0.11
 }, {
     perspective: {
-        radius: 530,
+        radius: 500,
         extraRotations: "rotateX(0deg)"
     }
 });

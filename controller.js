@@ -120,11 +120,9 @@ function( $scope, $http, $timeout, $window, $sce ) {
                 $( '#pageSplatter_' + trials ).show();
                 hidePage( '#singleClue' );
                 hidePage( '.bottomArea' );
+                showPage( '#pageBlackBg' );
+                showPage( '#pageFails' );
 
-                setTimeout( function() {
-                    showPage( '#pageBlackBg' );
-                    showPage( '#pageFails' );
-                }, 100);
             }
         }
     }
