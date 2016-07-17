@@ -12,14 +12,16 @@ html, body {
 }
 
 p {
-    /*line-height: 16px;*/
 }
+
 h1 {
     font-size: 30px;
     font-weight: 600;
     text-transform: capitalize;
     opacity: 1 !important;
-    line-height: 23px;
+    // line-height: 30px;
+    margin: 0px;
+    padding: 0px;
 }
 
 h2 {
@@ -47,6 +49,10 @@ h6 {
     font-size: 12px;
 }
 
+.font-italic {
+    font-style: italic;
+}
+
 .font-edo {
     font-family: "edoregular", sans-serif;
 }
@@ -57,15 +63,43 @@ h6 {
 .margin-bottom-30 {
     margin-bottom: 30px;
 }
-
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
 .margin-bottom-15 {
     margin-bottom: 15px;
+}
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.btnBlood {
+    display: inline-block;
+    padding: 0px 20px;
+    vertical-align: middle;
+    height: 40px;
+    line-height: 40px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../img/texture_inactive.jpg');
+    background-repeat: none;
+    border: none;
+    font-weight: 800;
+    color: #e5e5cf;
+}
+.btnBlood.active {
+    background-image: url('../img/texture.jpg');
+}
+
+.btnBlood.active:hover {
+    background-image: none;
+    background-color: #a80101;
 }
 
 .fg-whitish {
     color: #e5e5cf;
 }
-.fg-yellow {
+.fg-orange {
     color: #ffab1a !important;
 }
 .fg-black {
@@ -280,9 +314,6 @@ a:hover {
     }
 }
 
-
-
-
 #pageGuessName,
 #pageGuessDate,
 #pageShare,
@@ -312,7 +343,7 @@ a:hover {
 }
 
 .center-ver-parent {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
 }

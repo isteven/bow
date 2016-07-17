@@ -17,12 +17,12 @@
 }
 
 #pageLanding > div > div {
-    width: 682px;
+    width: 712px;
     /*width: 100%;*/
 }
 
 #pageLanding > div > div > div > div:first-child > div:first-child > div {
-    width: calc( 100% - 140px );
+    width: calc( 100% - 170px );
 }
 
 .black {
@@ -41,7 +41,7 @@
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    padding: 40px 30px 10px 30px;
+    padding: 40px 40px 10px 40px;
 }
 @media (max-width: 768px) {
     .blood-bg {
