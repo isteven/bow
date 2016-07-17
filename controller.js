@@ -290,6 +290,6 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     hidePage( '.bottomArea' );
     //$scope.startGame();
     // showPage( '#pageShare' );
-    // showPage( '#pageLanding' );
-    showPage( '#pageShare' );
+    showPage( '#pageLanding' );
+    // showPage( '#pageShare' );
 }]);
