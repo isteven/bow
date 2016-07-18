@@ -73,10 +73,9 @@
                                 <h1 class="font-trajan-pro fg-whitish margin-bottom-20">
                                     {{getContent( 'title-landing')}}
                                 </h1>
-                                <p class="margin-bottom-30">
-                                    {{getContent( 'intro')}}
+                                <h4 class="margin-bottom-30" ng-bind-html="getContent( 'intro', true )">
                                     <!-- The Shipmen fire tragedy has ignited the evil within Damien, inspiring his greatest work yet. Take a trip down the memory lane with his family, as he pieces them back together, limb by limb. -->
-                                </p>
+                                </h4>
                             </div>
                         </div>
                     </div>
@@ -132,10 +131,9 @@
                     {{getContent( 'title-fail' )}}
                 </h1>
                 <br />
-                <p>
-                    {{getContent( 'intro-fail' )}}
+                <h4 ng-bind-html="getContent( 'intro-fail', true )">
                     <!-- Mercy comes short for those who disrupt Damien's work. However, you're in luck. He has decided to give you another change to save your own skin. -->
-                </p>
+                </h4>
                 <br />
                 <a class="btnBlood active" onclick="location.reload()">
                     {{getContent( 'retry-button' )}}
