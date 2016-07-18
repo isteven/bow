@@ -307,7 +307,10 @@ function( $scope, $http, $timeout, $window, $sce ) {
 
     var tempLang = getUrlVar( 'lang' );
     if ( tempLang ) {
-        $scope.lang = tempLang;
+        $scope.lang = tempLang.toLowerCase();
+        if ( $scope.lang != 'en' && $scope.lang != 'zh' ) {
+            $scope.lang = 'en';
+        }
     }
 
     hidePage( '.bottomArea' );
