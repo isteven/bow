@@ -1,36 +1,5 @@
-#pageLanding {
-    background-image: url( ../img/landing_bg.jpg );
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 40;
-}
-
-#pageLanding > div,
-#pageShare > div {
-    position: absolute;
-    overflow: visible;
-}
-
-#pageLanding > div > div {
-    width: 712px;
-    /*width: 100%;*/
-}
-
-#pageLanding > div > div > div > div:first-child > div:first-child > div {
-    width: calc( 100% - 170px );
-}
-
-.black {
-    font-weight: 800;
-}
-
 .bold {
-    font-weight: 700;
+    font-weight: $lato-bold;
 }
 
 .blood-bg {
@@ -42,12 +11,198 @@
     background-repeat: no-repeat;
     position: relative;
     padding: 40px 40px 10px 40px;
+
 }
-@media (max-width: 768px) {
+
+@media #{$tablet-and-below} {
     .blood-bg {
         height: auto;
         width: auto;
-        padding: 30px 10px 30px 10px;
-        margin-top: 20px;
+
+        position: relative;
+        top: -10px;
+        // margin-top: 20px;
+
+        background-image: url( ../img/landing_blood-m.png );
     }
+}
+
+// @media #{$fallback-tablet-height-screens} {
+//     .blood-bg {
+//         height: auto;
+//         width: auto;
+//
+//         position: relative;
+//         top: -10px;
+//         // margin-top: 20px;
+//
+//         background-image: url( ../img/landing_blood-m.png );
+//     }
+// }
+
+.blood-bg img {
+    max-width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+@media #{$tablet-and-below} {
+    .blood-bg img {
+        max-width: 60px;
+        height: auto;
+        margin-top: 15px;
+        margin-bottom: 0px;
+    }
+    .blood-bg > div:nth-child(2) > div:first-child > img {
+        max-width: 60px;
+        height: auto;
+        margin-top: 10px;
+        // border: 1px solid blue;
+    }
+}
+
+
+#pageLanding {
+    background-image: url( ../img/landing_bg.jpg );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 40;
+
+    @media #{$tablet-and-below} {
+      background-image: url( ../img/landing_bg-m.png );
+    }
+
+    > div.container {
+      position: absolute;
+      overflow: visible;
+
+      @media #{$tablet-and-below} {
+        overflow: auto;
+      }
+    }
+
+    .row-landing-content {
+      margin-bottom: 30px;
+
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      @media #{$tablet-and-below} {
+        position: static;
+        transform: none;
+        overflow: auto;
+
+      }
+    }
+}
+
+#pageLanding .content-title-block {
+    width: 450px;
+    margin: 0 auto;
+
+    > h1 {
+      margin-bottom: 20px;
+      line-height: 1.1em;
+    }
+
+    .landing__intro {
+      @include font-size(16);
+      line-height: 1.2em;
+    }
+
+    @media #{$tablet-and-below} {
+        width: 80%;
+    }
+
+    @media #{$small-mobile} {
+        width: 100%;
+    }
+}
+
+
+#pageLanding .col-sm-6 {
+  margin-bottom: 20px;
+}
+
+@media #{$tablet-and-below} {
+  #pageLanding .col-sm-6 {
+    margin-bottom: 10px;
+  }
+}
+
+#pageLanding .blood-bg {
+
+  &.has-4-blocks {
+    height: 330px;
+    padding: 40px 80px 10px 80px;
+    width: 600px;
+
+    @media #{$tablet-and-below} {
+        padding: 50px;
+        padding-top: 65px;
+
+        height: 100%;
+        width: 100%;
+
+    }
+  }
+
+  &.has-3-blocks {
+    height: 250px;
+    padding: 40px 60px 10px 60px;
+    width: 680px;
+
+    @media #{$tablet-and-below} {
+
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 50px;
+        padding-top: 65px;
+        height: 100%;
+        width: 100%;
+    }
+  }
+
+}
+
+
+@media #{$short-height-screens-width} and #{$short-height-screens-max} {
+    #pageLanding {
+        .row-landing-content {
+            position: relative;
+            top: 100px;
+            transform: translate(-50%, 0%);
+        }
+    }
+
+    #pageLanding .content-title-block {
+      width: 550px;
+
+      .landing__intro {
+          margin-bottom: 0px;
+          @include font-size(16*0.8);
+      }
+    }
+
+    #pageLanding .col-sm-6 {
+      margin-bottom: 10px;
+    }
+
+    #pageLanding .blood-bg {
+      &.has-4-blocks {
+        height: 280px;
+      }
+
+      &.has-3-blocks {
+        height: 200px;
+      }
+    }
+
 }

@@ -1,56 +1,97 @@
+//Typography
+$lato-light: 300;
+//$lato-regular: 400;  /**dropping*/
+//$lato-medium: 500;  /**dropping*/
+//$lato-semibold: 600;  /**dropping*/
+$lato-bold: 700;
+//$lato-black: 900;  /**dropping*/
+
+
 html, body {
     font-family: lato, sans-serif;
     color: #e5e5cf;
-    font-weight: 500 !important;
+    font-weight: $lato-light;
     /*font-size: 16px !important;*/
-    overflow:hidden;
+    overflow: hidden;
+    // font-size: 16px;
+    @include font-size(14);
+    line-height: 1.2em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+      @include font-size(14*0.8);
+    }
 }
-@media (max-width: 480px){
+@media (max-width: 768px){
     html, body{
-        overflow: auto;
+        overflow-y: auto;
     }
 }
 
-p {
-}
-
 h1 {
-    font-size: 30px;
-    font-weight: 600;
+    // font-size: 30px;
+    @include font-size(30);
+    // font-weight: 600;
     text-transform: capitalize;
     opacity: 1 !important;
-    // line-height: 30px;
-    margin: 0px;
-    padding: 0px;
+    line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(30*0.8);
+    }
 }
 
 h2 {
-    font-size: 20px;
-    font-weight: 600;
+    // font-size: 20px;
+    @include font-size(20);
+    // font-weight: 600;
     text-transform: capitalize;
+    line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(20*0.8);
+    }
 }
 
 h3 {
-    font-size: 16px;
-    font-weight: 600;
+    // font-size: 16px;
+    @include font-size(16);
+    // font-weight: 600;
     text-transform: capitalize;
+    line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(16*0.8);
+    }
 }
 
 h4 {
-    font-size: 16px;
-    line-height: 16px;
+    @include font-size(16);
+    line-height: 1.1em;
+    // font-size: 16px;
+    // line-height: 16px;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(16*0.8);
+    }
 }
 
 h5 {
-    font-size: 14px;
+    // font-size: 14px;
+    @include font-size(14);
+    line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(14*0.8);
+    }
 }
 
 h6 {
-    font-size: 12px;
-}
+    @include font-size(12);
+    line-height: normal;
 
-.font-16px {
-    font-size: 16px !important;
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(12*0.8);
+    }
 }
 
 .font-italic {
@@ -77,37 +118,14 @@ h6 {
     margin-bottom: 10px;
 }
 
-.btnBlood {
-    display: inline-block;
-    padding: 0px 20px;
-    vertical-align: middle;
-    height: 40px;
-    line-height: 40px;
-    background-position: center;
-    background-size: cover;
-    background-image: url('../img/texture_inactive.jpg');
-    background-repeat: none;
-    border: none;
-    font-weight: 800;
-    color: #e5e5cf;
-}
-.btnBlood.active {
-    background-image: url('../img/texture.jpg');
-}
-
-.btnBlood.active:hover {
-    background-image: none;
-    background-color: #a80101;
-}
-
 .fg-whitish {
     color: #e5e5cf;
 }
 .fg-orange {
-    color: #ffab1a !important;
+    color: #ffab1a;
 }
 .fg-black {
-    color: #000;
+    color: #000000;
 }
 .fg-red {
     color: #a80101;
@@ -151,7 +169,7 @@ a:hover {
   right: 0;
   background-image: url(../img/overlay.png);
   background-size: 100% 100%;
-  z-index: 9;
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -181,8 +199,9 @@ a:hover {
         width: 100%;
     }
     .centerElement p{
-        font-size: 16px;
-        line-height: 20px;
+        // font-size: 16px;
+        @include font-size(16);
+        // line-height: 20px;
     }
     .centerElement p.fg-yellow {
         margin-bottom: 0;
@@ -217,20 +236,22 @@ a:hover {
     }
     .centerInlineHor .guessBox{
         padding: 20px 30px;
-        font-size: 14px;
-        line-height: 18px;
-        font-weight: 600;
+        // font-size: 14px;
+        @include font-size(14);
+        // line-height: 18px;
+        font-weight: $lato-light;
     }
     .centerInlineHor .guessBox > p {
-        font-size: 14px;
-        line-height: 18px;
+        // font-size: 14px;
+        @include font-size(14);
+        // line-height: 18px;
     }
     .centerInlineHor .guessBox > input{
         width: 60px;
         vertical-align: bottom;
         margin-right: 5px;
         font-size: 150%;
-        line-height: 1.3;
+        // line-height: 1.3;
         text-align: center;
     }
     .centerInlineHor .guessBox > button{
@@ -318,17 +339,6 @@ a:hover {
     }
 }
 
-#pageGuessName,
-#pageGuessDate,
-#pageShare,
-#pageClues {
-    display: none;
-    width: 100%;
-    min-height: 100%;
-    position: absolute;
-    z-index: 1;
-    background-color: #000000;
-}
 
 .borderDebug {
     border: 1px solid red;
@@ -347,8 +357,9 @@ a:hover {
 }
 
 .center-ver-parent {
-    display: flex !important;
+    display: flex;
     justify-content: center;
+    -ms-justify-content : center;
     align-items: center;
 }
 @media (max-width: 768px) {
@@ -357,6 +368,16 @@ a:hover {
         justify-content: center;
         align-items:flex-start;
     }
+    .bloodBox.center-ver-parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.center-ver-parent-fix {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .center-ver-hor-parent {

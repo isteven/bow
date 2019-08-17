@@ -1,123 +1,205 @@
-#pageGuessDate > div {
-    width: 50%;
+#pageGuessDate {
+    z-index: 3;
+    overflow: hidden;
 }
-
-#pageGuessDate .double-column .centerVer div{
+@media (max-width: 480px) {
+    #pageGuessDate {
+        padding-top: 54px;
+    }
+}
+#pageGuessDate > .inner {
+    position: absolute;
+    z-index: 1;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@media (max-width: 769px) {
+    #pageGuessDate > .inner {
+        overflow: hidden;
+        top: 0;
+        height: 100%;
+        transform: none;
+        left: 0;
+        position: static;
+        padding-top: 500px;
+    }
+}
+@media (max-width: 480px) {
+    #pageGuessDate > .inner {
+        padding-top: 220px;
+    }
+}
+// #pageGuessDate .centerElement {
+//     width: 100%;
+//     height: 100%;
+// }
+// #pageGuessDate .single-column .pontianakSpecial{
+//     float: right;
+//     width: 50% !important;
+//     /*background-position-x: -5300px;*/
+// }
+#pageGuessDate .single-column .centerVer {
+    // float: right;
+    width: 380px;
+    top: auto;
+    transform: none;
+    margin-right: 400px;
+    margin-top: 50px;
+}
+@media (max-width: 900px) {
+    #pageGuessDate .single-column .centerVer {
+        width: 360px;
+    }
+}
+@media (max-width: 769px) {
+    #pageGuessDate .single-column .centerVer {
+        margin-right: 0;
+        left: 50%;
+        margin-left: -200px;
+        margin-top: 0;
+        width: 400px;
+    }
+}
+@media (max-width: 480px) {
+    #pageGuessDate .single-column .centerVer {
+        width: 100%;
+        left: 0;
+        margin-left: 0;
+    }
+}
+#pageGuessDate .single-column .centerVer .guess-date-title {
+    // font-size: 22px;
+    font-weight: $lato-light;
+    color: #cc0a00;
+    @include font-size(22);
+}
+#pageGuessDate .single-column .centerVer h3:first-letter {
+    font-size: 1em;
+    // @include font-size(16);
+}
+#pageGuessDate .single-column .centerVer h3 {
+    margin: 12px auto;
+    font-family: lato, serif;
+    // font-weight: 700;
+    // font-size: 30px;
+    // line-height: 1.3;
+    @include font-size(30);
+}
+#pageGuessDate .single-column .centerVer div {
     display: inline-block;
     border-style: solid;
     border-width: 4px 4px 4px 4px;
-    -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-    -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-    -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-    border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -moz-border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
+    -webkit-border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
+    -o-border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
+    border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
     background-color: rgba(0, 0, 0, 0.60);
     margin-top: 12px;
 }
-#pageGuessDate .double-column .centerVer div a{
+#pageGuessDate .single-column .centerVer div a {
     display: inline-block;
     border-left: 1px solid #a80101;
     border-right: 1px solid #a80101;
     text-align: center;
     padding: 20px;
-    font-size: 120%;
+    // font-size: 120%;
     color: #ffab1a;
-    font-weight: bold;
+    // font-weight: bold;
     border-right: 1px solid #a80101;
     cursor: pointer;
+    font-weight: $lato-bold;
+    // font-size: 20px;
+    @include font-size(20);
+    line-height: 1em;
 }
-#pageGuessDate .double-column .centerVer div a:hover{
+@media (max-width: 769px) {
+    #pageGuessDate .single-column .centerVer div a {
+        padding: 12px;
+    }
+}
+#pageGuessDate .single-column .centerVer div a:hover {
     background-color: #ffab1a;
     color: #a80101;
 }
-@media (max-width: 480px) {
-    #pageGuessDate .double-column .centerVer div a{
-        padding: 20px;
-    }
-}
-
-#pageGuessDate .centerElement{
-    width: 100%;
-    height: 100%;
-}
-#pageGuessDate .double-column .pontianakSpecial{
-    float: right;
-    width: 50% !important;
-    /*background-position-x: -5300px;*/
-}
-#pageGuessDate .double-column .centerVer{
-    float: right;
-    width: 400px;
-}
-#pageGuessDate .double-column .centerVer h3:first-letter {
-  font-size: 1em;
-}
-@media (max-width: 800px) {
-  #pageGuessDate .double-column .centerVer{
-    width: 45%;
-    padding-left: 5%;
-  }
-}
-@media (min-width: 481px) {
-  #pageGuessDate .double-column .centerVer h3 {
-    margin: 12px auto;
-    width: 95%;
-    font-family: lato, serif;
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 1.3;
-  }
-}
-@media (max-width: 480px) {
-	#pageGuessDate{
-		z-index: 42;
-	}
-	#pageGuessDate .centerElement{
-		width: 100%;
-        padding: 0;
-	}
-    #pageGuessDate .double-column .pontianakSpecial{
+@media (max-width: 769px) {
+    // #pageGuessDate{
+    // 	z-index: 42;
+    // }
+    // #pageGuessDate .centerElement{
+    // 	width: 100%;
+    //       padding: 0;
+    // }
+    // #pageGuessDate .single-column .pontianakSpecial {
+    //     display: inline-block;
+    //     float: right;
+    //     width: 100% !important;
+    //     margin-top: -30%;
+    //     background-position: -4290px 0;
+    // }
+    #pageGuessDate .single-column .centerVer {
         display: inline-block;
-        float: right;
-        width: 100% !important;
-        margin-top: -30%;
-        background-position: -4290px 0;
-    }
-    #pageGuessDate .double-column .centerVer{
-        display: inline-block;
-        float: left;
-        width: 100% !important;
-        top: 0;
-        margin-top: -10%;
+        // float: left;
+        // width: 100% !important;
+        // top: 0;
+        // margin-top: -10%;
         padding: 0 18px 50px;
     }
     /*
-	#pageGuessDate .double-column li{
+	#pageGuessDate .single-column li{
 		width: 100%;
 	}
-	#pageGuessDate .double-column li:first-child{
+	#pageGuessDate .single-column li:first-child{
 		width: 100%;
 		margin-top: 50%;
 
 	}
-	#pageGuessDate .double-column li:last-child{
+	#pageGuessDate .single-column li:last-child{
 		position: absolute;
 		top: 0;
 	}
-	#pageGuessDate .double-column li .pontianakSpecial{
+	#pageGuessDate .single-column li .pontianakSpecial{
 		display: block;
 		background-position-x: -4200px;
 	}
-    #pageGuessDate .double-column li h3.centerInlineHor {
+    #pageGuessDate .single-column li h3.centerInlineHor {
     	font-family: Lato, sans-serif;
     	font-size: 220%;
     }
     */
 }
-@media (max-width: 320px) {
-    #pageGuessDate .double-column .pontianakSpecial{
-        background-position-x: -4315px;
+// @media (max-width: 320px) {
+//     #pageGuessDate .single-column .pontianakSpecial{
+//         background-position-x: -4315px;
+//     }
+//     #pageGuessDate .single-column .centerVer div a{
+//         padding: 15px;
+//     }
+// }
+#pageGuessDate .pontianakSpecial {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 640px;
+    height: 800px;
+    margin-top: -200px;
+    margin-left: -50px;
+}
+@media (max-width: 769px) {
+    #pageGuessDate .pontianakSpecial {
+        width: 768px;
+        height: 1020px;
+        // margin-left: -192px;
+        // left: 0;
+        margin-left: -384px;
+        left: 50%;
+        top: 100px;
     }
-    #pageGuessDate .double-column .centerVer div a{
-        padding: 15px;
+}
+@media (max-width: 480px) {
+    #pageGuessDate .pontianakSpecial {
+        width: 480px;
+        height: 635px;
+        margin-left: -240px;
     }
 }

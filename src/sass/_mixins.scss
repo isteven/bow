@@ -1,10 +1,28 @@
-$desktop-large-min: 1440px;
+@mixin font-size($sizeValue: 12) {
+  font-size:  $sizeValue + px;
+  font-size: ($sizeValue / 10) + rem;
+}
+
+
+//Media Queries
+$tablet-and-below: "(max-width: 768px)";
+$mobile-only: "(max-width: 767px)";
+$small-mobile: "(max-width: 480px)";
+
+$short-height-screens-max: "(max-height: 700px)";
+$short-height-screens-width: "(min-width: 769px)";
+
+$fallback-tablet-height-screens: "(max-height: 600px)";
+
+$desktop-large-min: 1201px;
 $desktop-medium-max: $desktop-large-min - 1;
-$desktop-medium-min: 1280px;
+$desktop-medium-min: 992px;
+$desktop-small-max: $desktop-medium-min - 1;
+$desktop-small-min: 769px;
 $tablet-max: 1024px;
 $tablet-min: 737px;
-$tablet-portrait-min: 414px;
-$tablet-portrait-max: 736px;
+// $tablet-portrait-min: 414px;
+// $tablet-portrait-max: 736px;
 $mobile-max: 736px;
 
 @mixin respond-to($media) {
@@ -18,8 +36,8 @@ $mobile-max: 736px;
       @content;
     }
   }
-  @else if $media == "desktop" {
-    @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+  @else if $media == "desktop-small" {
+    @media only screen and (min-width: $desktop-small-min) and (max-width: $desktop-small-max) {
       @content;
     }
   }

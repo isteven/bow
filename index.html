@@ -5,13 +5,14 @@
     <title>Halloween Horror Night 6</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <meta name="viewport"
+        content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
     <style>
         @-ms-viewport {
             width: device-width;
         }
     </style>
-    <link rel="stylesheet" href="vendor/reset.min.css">
+    <!-- <link rel="stylesheet" href="vendor/reset.min.css"> -->
     <!-- <link rel="stylesheet" href="vendor/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
     <!-- <link rel="stylesheet" href="style.css">
@@ -22,25 +23,26 @@
     <link rel="stylesheet" href="styles/menu.css"> -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/game-bow.css">
-    <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
+    <!-- <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css> -->
 </head>
 
-<body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons">
+<body ng-controller="bodyCtrl" class="game-bow">
 
     <!-- facebook share  -->
     <script>
+        /*
         window.jsFbLoggedIn = false;
         window.jsFbResponse = null;
 
-        window.fbAsyncInit = function() {
+        window.fbAsyncInit = function () {
             FB.init({
                 appId: '1198509583506495',
                 xfbml: true,
                 version: 'v2.6'
             });
 
-            FB.getLoginStatus(function(response) {
+            FB.getLoginStatus(function (response) {
                 if (response.status === 'connected') {
                     window.fbLoggedIn = true;
                     window.fbResponse = response;
@@ -48,7 +50,7 @@
             });
         };
 
-        (function(d, s, id) {
+        (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {
                 return;
@@ -58,78 +60,72 @@
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-
+        */
     </script>
 
 
     <!-- landing page -->
-    <div id="pageLanding" class="page">
-        <div class="container center-ver-parent">
-            <div class="row center-block">
-                <div class="col-sm-12 text-center">
+    <div id="pageLanding">
+        <div class="container">
+            <div class="row-landing-content text-center">
+
+                <div class="center-block content-title-block">
+                    <h1 class="font-trajan-pro fg-whitish">
+                        {{getContent( 'title-landing')}}
+                    </h1>
+
+                    <p class="margin-bottom-30 landing__intro" ng-bind-html="getContent('intro', true)">
+                    </p>
+                </div>
+                <div class="blood-bg center-block has-3-blocks">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="center-block">
-                                <h2 class="font-trajan-pro fg-whitish margin-bottom-20">Bodies Of Work</h2>
-                                <p class="margin-bottom-30">
-                                    The Shipmen fire tragedy has ignited the evil within Damien, inspiring his greatest work yet. Take a trip down the memory lane with his family, as he pieces them back together, limb by limb.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blood-bg center-block">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <p class="fg-orange black">
-                                    ALL CREATION NEEDS THE RIGHT TOOLS
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img src="img/icon_search.png" />
-                                <br /> Find the right tool that<br /> Damien needs.
-                            </div>
-                            <div class="col-sm-4">
-                                <img src="img/icon_heart.png" />
-                                <br /> No mistake goes unpunished,<br /> but his mercy last till the 3<span style="vertical-align:super">rd</span>
-                            </div>
-                            <div class="col-sm-4">
-
-                                <img src="img/icon_timer.png" />
-                                <br /> Time is the key to higher<br /> chances of winning.
-                            </div>
+                            <p class="fg-orange bold" ng-bind-html="getContent( 'instruction', true )">
+                            </p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12 start-game-col">
-                            <a class="btnBlood active" ng-click="startGame();">
-                                START NOW
-                            </a>
+                        <div class="col-sm-4">
+                            <img src="img/icon_search.png" />
+                            <br />
+                            <span ng-bind-html="getContent( 'icon-text-1', true )"></span>
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="img/icon_heart.png" />
+                            <br /><span ng-bind-html="getContent( 'icon-text-2', true )"></span>
+                        </div>
+                        <div class="col-sm-4">
+
+                            <img src="img/icon_timer.png" />
+                            <br /> <span ng-bind-html="getContent( 'icon-text-3', true )"></span>
                         </div>
                     </div>
+                </div>
+                <div class="start-game-col">
+                    <a class="btnBlood active" ng-click="startGame();">
+                        {{getContent('start-button')}}
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="pageBlackBg" class="page">
-    </div>
+    <div id="pageBlackBg" class="page"></div>
 
     <!-- fail -->
     <div id="pageFails" class="page">
-        <div class="center-ver-parent">
+        <div class="center-ver-parent-fix">
             <div class="center-hor-inline-children">
                 <h1 class="font-trajan-pro fg-whitish">
-                    A Deadly Mistake
+                    {{getContent( 'title-fail' )}}
                 </h1>
                 <br />
-                <p class="font-16px">
-                    Mercy comes short for those who disrupt Damien's work. However, you're in luck. He has decided to give you another change to save your own skin.
-                </p>
+                <h4 ng-bind-html="getContent( 'intro-fail', true )">
+                    <!-- Mercy comes short for those who disrupt Damien's work. However, you're in luck. He has decided to give you another change to save your own skin. -->
+                </h4>
                 <br />
                 <a class="btnBlood active" onclick="location.reload()">
-                    TRY AGAIN
+                    {{getContent( 'retry-button' )}}
                 </a>
             </div>
         </div>
@@ -137,107 +133,188 @@
 
     <!-- share -->
     <div id="pageShare" class="page">
-        <div class="container center-ver-parent">
-            <div class="row center-block">
-                <div class="col-sm-12 text-center">
-                    <div class="row">
-                        <div class="col-sm-6 codeImage  visible-md visible-lg">
-                            <div>
-                                <span>
-                                    Collect all 5 codes to<br/> unlock the final haunting.
-                                </span>
-                                <br />
-                                <a href="#" class="iconDownload black fg-orange">
-                                    DOWNLOAD IMAGE
-                                </a>
-                            </div>
-                        </div>
+        <!-- for game shares that has background code. e.g: -->
+        <!-- <div class="container has-background-code" style="background-image: url('img/bow-code.jpg')"> -->
+        <div class="container has-background-code" style="background-image: url('img/bow-code.jpg')">
+            <div class="row center-block page__share__row">
 
-                        <div class="col-sm-6 text-center">
-                            <h1 class="font-trajan-pro fg-whitish margin-bottom-30">Spread The Word Of Evil</h1>
-                            <h4 class="margin-bottom-30">
-                                Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
+                <div class="col__leaderboard">
+                    <div class="col__leaderboard__inner">
+                        <h1 class="font-trajan-pro fg-whitish">
+                            {{getContent( 'title-share' )}}
+                        </h1>
+                        <p class="col__leaderboard__intro">
+                            {{getContent( 'intro-share' )}}
+                        </p>
+                        <div class="content__share__win center-block">
+                            <h4 class="content__share__win__title font-trajan-pro bold fg-orange">
+                                {{getContent( 'share-and-win' )}}
                             </h4>
-                            <div class="share-win center-block">
-                                <div>
-                                    <h4 class="font-trajan-pro bold fg-orange">SHARE &amp; WIN NOW</h4>
+                            <div class="content__share__win__inner center-hor-block-children">
+                                <p class="content__share__win__timing">
+                                    {{getContent( 'your-time' )}}
+                                    <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
+                                </p>
+                                <div class="content__share__win__socials">
+                                    <a href="#" ng-if="lang == 'en'" class="sprite icon_fb "
+                                        ng-click="share_facebook()"></a>
+                                    <a href="#" ng-if="lang == 'en'" class="sprite icon_twitter "
+                                        ng-click="share_twitter()"></a>
+                                    <a href="#" ng-if="lang == 'zh'" class="sprite icon_weibo "
+                                        ng-click="share_weibo()"></a>
                                 </div>
-                                <div class="center-hor-block-children">
-                                    <div>
-                                        <p class="black">
-                                            YOUR TIME <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
-                                        </p>
-                                        <div>
-                                            <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook " ng-click="share_facebook()"></a>
-                                            <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter " ng-click="share_twitter()"></a>
-                                            <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
-                                        </div>
-                                        <div class="centerInlineHor">
-                                            <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange">Terms & Conditions</a> apply
-                                        </div>
-                                    </div>
-                                    <div class="leaderboard topBorderRed">
-                                        <h5 class="black">
-                                            LEADERBOARD
-                                        </h5>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div ng-repeat="entry in entry1to5">
-                                                    <span class="numbering">
-                                                        {{entry.idxString}}.
-                                                    </span> {{millisToMinutesAndSeconds( entry.time )}}
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div ng-repeat="entry in entry2to5">
-                                                    <span class="numbering">
-                                                        {{entry.idxString}}.
-                                                    </span> {{millisToMinutesAndSeconds( entry.time )}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <a class="iconReplay black fg-orange" onclick="location.reload()">
-                                    REPLAY?
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 visible-xs visible-sm">
-                            <div>
-                                <span>
-                                    Collect all 5 codes to<br/> unlock the final haunting.
-                                </span>
-                                <br />
-                                <a href="#" class="iconDownload black fg-orange">
-                                    DOWNLOAD IMAGE
-                                </a>
-                            </div>
-                        </div>
+                                <p class="terms-conditions">
+                                    <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
+                                        {{getContent( 'terms-and-conditions' )}}
+                                    </a>
+                                    {{getContent( 'terms-and-conditions-apply' )}}
+                                </p>
+                                <div class="content__share__win__leaderboard">
+                                    <p>
+                                        {{getContent( 'leaderboard' )}}
+                                    </p>
 
+                                    <div class="row">
+
+                                        <div class="col-xs-6 bold">
+                                            <div class="timings" ng-repeat="entry in entryResult | limitTo: 5">
+                                                <div ng-if="$index < 5" ng-class="{'gray-out': entry.time === 0}">
+                                                    <span class="numbering ">
+                                                        {{entry.idxString}}.
+                                                    </span>
+                                                    {{ millisToMinutesAndSeconds(entry.time) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 bold">
+                                            <div class="timings" ng-repeat="entry in entryResult" ng-if="$index >= 5">
+                                                <div ng-class="{'gray-out': entry.time === 0}">
+                                                    <span class="numbering ">
+                                                        {{entry.idxString}}.
+                                                    </span>
+                                                    {{ millisToMinutesAndSeconds(entry.time) }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <p><a class="link__replay" onclick="location.reload()"><span class="sprite icon_replay"></span>
+                                {{getContent( 'replay' )}}
+                            </a></p>
                     </div>
                 </div>
+
+                <div class="col__code">
+                    <div class="middle-spacer"></div>
+                    <div class="inner">
+                        <img class="code" src="img/bow-code.jpg" />
+                        <div class="col__code__text">
+                            <p ng-bind-html="getContent( 'code-instruction', true )"></p>
+                            <a download="img/bow-code.jpg" href="img/bow-code.jpg" target="_blank"
+                                class="link__download">
+                                <span class="sprite icon_download "></span>
+                                {{getContent( 'code-download' )}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
     <!-- Marzipano Pano -->
-    <div id="pano"></div>
+    <div id="pano" ng-click="showPage( '.bottomArea' );""></div>
 
-    <!-- correct items in pano -->
-    <div id="clue-1" class="clue" style="height: 122px; width: 82px" ng-click="processClue( 1 )"></div>
-    <div id="clue-2" class="clue" style="height: 135px; width: 231px" ng-click="processClue( 2 )"></div>
-    <div id="clue-3" class="clue" style="height: 250px; width: 290px" ng-click="processClue( 3 )"></div>
-    <div id="clue-4" class="clue" style="height: 133px; width: 138px" ng-click="processClue( 4 )"></div>
+    <!-- correct items -->
+    <!--
+    <div id=" clue-1" class="clue" style="width:82px;    height:122px;">
+        <div id="cluechild-1" style="width:50px;    height:50px; " ng-click="processClue( 1, $event, 21, 61, 30, 90 )">
+        </div>
+    </div>
+    <div id="clue-2" class="clue" style="width:231px;   height:135px;"
+        ng-click="processClue( 2, $event, 40, 80, 30, 90 )" ng-mousemove="highlight( 2, $event, 80, 110, 30, 90  )">
+    </div>
+    <div id="clue-3" class="clue" style="width:290px;   height:250px;"
+        ng-click="processClue( 3, $event, 150, 270, 140, 220 )"
+        ng-mousemove="highlight( 3, $event, 150, 270, 140, 220 )"></div>
+    <div id="clue-4" class="clue" style="width:138px;   height:133px;"
+        ng-click="processClue( 4, $event, 30, 100, 30, 60 )" ng-mousemove="highlight( 4, $event, 30, 100, 30, 60 )">
+    </div>
+    wrong items
+    <div id="clue-5" class="clue" style="width:165px;   height:115px;"
+        ng-click="processClue( 5, $event, 40, 120, 30, 90 )" ng-mousemove="highlight( 5, $event, 40, 120, 30, 90 )">
+    </div>
+    <div id="clue-6" class="clue" style="width:167px;   height:254px;"
+        ng-click="processClue( 6, $event, 40, 120, 50, 200 )" ng-mousemove="highlight( 6, $event, 40, 120, 50, 200 )">
+    </div>
+    <div id="clue-7" class="clue" style="width:221px;   height:222px;"
+        ng-click="processClue( 7, $event, 70, 160, 40, 180 )" ng-mousemove="highlight( 7, $event, 70, 160, 40, 180 )">
+    </div>
+    <div id="clue-8" class="clue" style="width:110px;   height:219px;"
+        ng-click="processClue( 8, $event, 40, 80, 40, 180 )" ng-mousemove="highlight( 8, $event, 40, 80, 40, 180 )">
+    </div>
+    <div id="clue-9" class="clue" style="width:104px;   height:45px;"
+        ng-click="processClue( 9, $event, 30, 80, 10, 35 )" ng-mousemove="highlight( 9, $event, 30, 80, 10, 35 )"></div>
+    <div id="clue-10" class="clue" style="width:93px;   height:55px;"
+        ng-click="processClue( 10, $event, 20, 70, 12, 36)" ng-mousemove="highlight( 10, $event, 20, 70, 12, 36 )">
+    </div>
+    -->
+    <!-- correct items -->
+    <div id="clue-1" class="clue" style="width:217px; height:179px;">
+        <div id="cluechild-1" class="" style="width:110px; height:130px; position: absolute; top: 13px; left: 93px;"
+            ng-click="processClue( 1, $event, 21, 61, 30, 90 )"></div>
+    </div>
+    <div id="clue-2" class="clue" style="width:352px; height:181px;">
+        <div id="cluechild-2" class="" style="width:155px; height:165px; position: absolute; top: 10px; left: 38px;"
+            ng-click="processClue( 2, $event, 21, 61, 30, 90 )"></div>
+    </div>
+    <div id="clue-3" class="clue" style="width:290px; height:250px;">
+        <div id="cluechild-3" class="" style="width:325px;height:65px;position: absolute; bottom: 105px; right: 0px;
+        -ms-transform: rotate(38deg); -webkit-transform: rotate(38deg);
+        transform: rotate(38deg);" ng-click="processClue( 3, $event, 21, 61, 30, 90 )"></div>
+    </div>
+    <div id="clue-4" class="clue" style="width:138px; height:133px;">
+        <div id="cluechild-4" class="" style="width:95px; height:100px;position: absolute; top: 5px; left: 7px;"
+            ng-click="processClue( 4, $event, 21, 61, 30, 90 )"></div>
+    </div>
     <!-- wrong items -->
-    <div id="clue-5" class="clue" style="height: 115px; width: 165px" ng-click="processClue( 5 )"></div>
-    <div id="clue-6" class="clue" style="height: 254px; width: 167px" ng-click="processClue( 6 )"></div>
-    <div id="clue-7" class="clue" style="height: 222px; width: 221px" ng-click="processClue( 7 )"></div>
-    <div id="clue-8" class="clue" style="height: 219px; width: 110px" ng-click="processClue( 8 )"></div>
-    <div id="clue-9" class="clue" style="height: 45px; width: 104px" ng-click="processClue( 9 )"></div>
-    <div id="clue-10" class="clue" style="height: 55px; width: 93px" ng-click="processClue( 10 )"></div>
+    <!-- clue 5 is no longer clickable. index 5 will be used by... -->
+    <!-- <div id="clue-5" class="clue" style="width:165px; height:115px;">
+        <div id="cluechild-5" class="" style="width:110px; height:65px;position: absolute; top: 40px; left: 25px;" ng-click="processClue( 5, $event, 21, 61, 30, 90 )" ></div>
+    </div>-->
+    <div id="clue-5" class="clue" style="width:82px; height:122px;">
+        <div id="cluechild-5" class="" style="width:41px; height:115px; position: absolute; top: 5px; left: 15px;"
+            ng-click="processClue( 5, $event, 21, 61, 30, 90 )"></div>
+    </div>
+    <div id="clue-6" class="clue" style="width:167px; height:254px;">
+        <div id="cluechild-6" class="" style="width:120px; height:150px;position: absolute; top: 5px; left: 35px;"
+            ng-click="processClue( 6, $event, 21, 61, 30, 90 )"></div>
+    </div>
+    <div id="clue-7" class="clue" style="width:221px; height:222px;">
+        <div id="cluechild-7" class="" style="width:130px; height:160px;position: absolute; top: 5px; left: 50px;"
+            ng-click="processClue( 7, $event, 21, 61, 30, 90 )"></div>
+    </div>
+    <div id="clue-8" class="clue" style="width:110px; height:219px;">
+        <div id="cluechild-8" class="" style="width:60px; height:130px;
+        -ms-transform: rotate(22deg); -webkit-transform: rotate(22deg);
+        transform: rotate(22deg);
+        position: absolute; top: 9px; left: 18px;" ng-click="processClue( 8, $event, 21, 61, 30, 90 )"></div>
+    </div>
+    <div id="clue-9" class="clue" style="width:104px; height:45px;">
+        <div id="cluechild-9" class="" style="width:90px; height:30px;position: absolute; top: 5px; left: 10px;"
+            ng-click="processClue( 9, $event, 21, 61, 30, 90 )"></div>
+    </div>
+    <div id="clue-10" class="clue" style="width:93px; height:55px;">
+        <div id="cluechild-10" class="" style="width:60px; height:45px;position: absolute; top: 5px; left: 15px;"
+            ng-click="processClue( 10, $event, 21, 61, 30, 90 )"></div>
+    </div>
+
+
 
     <!-- <img src="img/arrow_up.png" id="switch-1" /> -->
 
@@ -246,8 +323,13 @@
 
     <!-- health meter and dialogues-->
     <div class="bottomArea">
-        <div class="bloodBox bold font-italic center-ver-parent">
-            <span>{{parentData.currentMsg}}</span>
+        <!-- Note for steven: add activeGlow class to trigger the glow. -->
+        <!-- <div class="bloodBox font-italic center-ver-parent activeGlow"> -->
+        <h4 class="bold drop-shadow">TOOLS: {{toolsCollected}}/4</h4>
+        <div class="bloodBox font-italic center-ver-parent-fix">
+            <h4 class="bold">
+                {{parentData.currentMsg}}
+            </h4>
         </div>
         <div>
             <img src="img/heart.png" class="heart_4" />
@@ -257,96 +339,51 @@
         </div>
     </div>
 
-    <div id="pageSplatter_4" class="page splatter">
-    </div>
-    <div id="pageSplatter_3" class="page splatter">
-    </div>
-    <div id="pageSplatter_2" class="page splatter">
-    </div>
-    <div id="pageSplatter_1" class="page splatter">
-    </div>
+    <div id="pageSplatter_4" class="page splatter "></div>
+    <div id="pageSplatter_3" class="page splatter"></div>
+    <div id="pageSplatter_2" class="page splatter"></div>
+    <div id="pageSplatter_1" class="page splatter"></div>
 
-    <!-- single item -->
-    <div id="tempFade" class="page">
-    </div>
-
+    <!-- single item display -->
     <div id="singleClue" ng-click="closeClue()">
         <img class="" />
     </div>
 
-    <div style="display:none">
-        <div id="sceneList">
-            <ul class="scenes">
-                <a href="#" class="scene" data-id="0-snowy">
-                    <li class="text">snowy</li>
-                </a>
-                <a href="#" class="scene" data-id="1-home">
-                    <li class="text">home</li>
-                </a>
-            </ul>
-        </div>
-
-        <div id="titleBar">
-            <h1 class="sceneName"></h1>
-        </div>
-
-        <a href="#" id="autorotateToggle">
-            <img class="icon off" src="img/play.png">
-            <img class="icon on" src="img/pause.png">
-        </a>
-
-        <a href="#" id="fullscreenToggle">
-            <img class="icon off" src="img/fullscreen.png">
-            <img class="icon on" src="img/windowed.png">
-        </a>
-
-        <a href="#" id="sceneListToggle">
-            <img class="icon off" src="img/expand.png">
-            <img class="icon on" src="img/collapse.png">
-        </a>
-
-        <a href="#" id="viewUp" class="viewControlButton viewControlButton-1">
-            <img class="icon" src="img/up.png">
-        </a>
-        <a href="#" id="viewDown" class="viewControlButton viewControlButton-2">
-            <img class="icon" src="img/down.png">
-        </a>
-        <a href="#" id="viewLeft" class="viewControlButton viewControlButton-3">
-            <img class="icon" src="img/left.png">
-        </a>
-        <a href="#" id="viewRight" class="viewControlButton viewControlButton-4">
-            <img class="icon" src="img/right.png">
-        </a>
-        <a href="#" id="viewIn" class="viewControlButton viewControlButton-5">
-            <img class="icon" src="img/plus.png">
-        </a>
-        <a href="#" id="viewOut" class="viewControlButton viewControlButton-6">
-            <img class="icon" src="img/minus.png">
-        </a>
+    <!-- single item background -->
+    <div id="tempFade" class="page">
     </div>
 
-    <script src=https://use.typekit.net/gmu3kbc.js></script>
-    <script>
+    <!-- interaction prompt icon -->
+    <div id="interactionPromptTemp" ng-click="hidePage( '#interactionPromptTemp' );" class="center-ver-parent">
+        <img src="img/interaction_prompt.png" class="center-block" />
+    </div>
+
+    <script src=https://use.typekit.net/gmu3kbc.js> </script> <script>
         try {
             Typekit.load({
                 async: true
             });
-        } catch (e) {}
+        } catch (e) { }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="vendor/es5-shim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0-beta14/howler.min.js"></script>
+    <!-- <script src="vendor/es5-shim.js"></script>
     <script src="vendor/eventShim.js"></script>
+
+    <script src="vendor/requestAnimationFrame.js"></script> -->
+    <!-- <script src="vendor/screenfull.min.js"></script> -->
     <script src="vendor/classList.js"></script>
-    <script src="vendor/requestAnimationFrame.js"></script>
-    <script src="vendor/screenfull.min.js"></script>
     <script src="vendor/bowser.min.js"></script>
     <script src="vendor/marzipano.js"></script>
+    <script src="vendor/DeviceOrientationControlMethod.js"></script>
     <script src="vendor/jquery.spritely.js"></script>
     <script src="vendor/motio.min.js"></script>
-    <script src="vendor/jquery.motio.min.js"></script>
+    <!-- <script src="vendor/jquery.motio.min.js"></script> -->
 
     <script src="config.js"></script>
+    <script src="language.js"></script>
     <script src="controller.js"></script>
     <script src="data.js"></script>
     <script src="index.js"></script>

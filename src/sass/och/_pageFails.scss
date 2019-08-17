@@ -9,17 +9,29 @@
     position: absolute;
     z-index: 50;
 }
+@media (max-width: 768px) {
+    #pageFails {
+        background-image: url( ../img/m_fail_bg.jpg );
+    }
+}
+
+#pageFails .centerElement {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @media (min-width: 481px){
 	#pageFails .ftr__logo{
 		display: none;
 	}
 }
 @media (max-width: 480px){
-	#pageFails .centerElement {
-	    top: 50%;
-	    left: 50%;
-	    transform: translate(-50%, -50%);
-	}
+	// #pageFails .centerElement {
+	//     top: 50%;
+	//     left: 50%;
+	//     transform: translate(-50%, -50%);
+	// }
 	#pageFails .ftr__logo{
 		display: block;
 		position: absolute;

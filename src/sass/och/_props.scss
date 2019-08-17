@@ -16,44 +16,181 @@
   height: 100px;
 
   position: absolute;
-  z-index: 40;
+  z-index: 1;
 
   bottom: 100px;
   right: 80px;
   display: none;
+
+  &.active {
+    display: block;
+  }
 }
 
 .cluesCtr img {
   width: 100%;
 }
 
-@media (max-width: 480px){
+@media (max-width: 600px){
   .cluesCtr {
     bottom: 70px;
-    right: 20px;
+    right: 10px;
+
+    width: 80px;
+    height: 80px;
   }
 }
 
+.cluesCtr.is-max .clue-glow {
+  // background-color: #cc0a00;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  // transform: translate(-50%, -50%);
+  margin-left: -25px;
+  margin-top: -25px;
+      z-index: -1;
 
+  border-radius: 50%;
+
+  -webkit-box-shadow: 0px 0px 80px 20px rgba(204,10,0,1);
+  -moz-box-shadow: 0px 0px 80px 20px rgba(204,10,0,1);
+  box-shadow: 0px 0px 80px 20px rgba(204,10,0,1);
+
+
+  -webkit-animation: glowing_clue_icon 1s steps(10) infinite;
+  -moz-animation: glowing_clue_icon 1s steps(10) infinite;
+  animation: glowing_clue_icon 1s steps(10) infinite;
+
+
+}
+
+@-webkit-keyframes glowing_clue_icon {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    -webkit-transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes glowing_clue_icon {
+  0% {
+    opacity: 1;
+    -moz-transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    -moz-transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: scale(1);
+  }
+}
+
+@keyframes glowing_clue_icon {
+  0% {
+    // box-shadow: 0px 0px 80px 20px rgba(204,10,0,1);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    // box-shadow: 0px 0px 80px 10px rgba(204,10,0,1);
+    opacity: 0.8;
+    transform: scale(0.5);
+  }
+
+  100% {
+    // box-shadow: 0px 0px 80px 20px rgba(204,10,0,1);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+// @media (max-width: 480px){
+//   .cluesCtr {
+//     bottom: 70px;
+//     right: 20px;
+//   }
+// }
+
+/*
+*  SINGLE CLUE POPUP ON SCREEN
+*/
 .cluePlaceholder {
     display: none;
     position: absolute;
     z-index: 10;
     top: 50%;
     left: 50%;
-    height: 50%;
+    // height: 50%;
     width: auto;
     transform: translate(-50%, -50%);
-    box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.7);
+
+    text-align: center;
+
 }
-#cluePlaceholder img {
-    height: 100%;
-    width: auto;
+@media (max-width: 767px){
+	.cluePlaceholder {
+    	width: 100%;
+      top: 45%;
+	}
 }
 @media (max-width: 480px){
 	.cluePlaceholder {
-    	top: 46%;
+    	top: 40%;
 	}
+}
+@media (max-width: 320px){
+	.cluePlaceholder {
+    	top: 36%;
+	}
+}
+
+#cluePlaceholder img {
+    // height: 100%;
+    // width: 70%;
+    max-width: 300px;
+    box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.7);
+}
+@media (max-width: 767px){
+	.cluePlaceholder img {
+    	width: 60%;
+	}
+}
+@media (max-width: 767px){
+  #cluePlaceholder .closeButtonRed {
+    right: 24%;
+  }
+}
+
+#cluePlaceholder .finale-copy {
+  display: none;
+  margin-top: 20px;
+
+  > p {
+    font-weight: $lato-bold;
+  }
+
+  &.active {
+    display: block;
+  }
 }
 
 
@@ -124,6 +261,14 @@
 *  Animations Section
 *  Scene 2 - Jump Scare
 */
+.scare-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+}
 #scare {
   width: 974px;
   height: 1119px;
@@ -133,8 +278,9 @@
   transform: translate(-50%, -50%);
   z-index: 12;
   display: none;
-  background-image: url('../img/scare.png');
-  background-size: cover;
+  background-image: url('../img/sprites/scare.jpg');
+  background-repeat: no-repeat;
+  // background-size: cover;
   background-position: 0 0;
 }
 
@@ -155,10 +301,10 @@
   display: block;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
   #scare {
     width: 389px;
     height: 447px;
-    background-image: url('../img/scare-m.png');
+    background-image: url('../img/sprites/scare-m.png');
   }
 }

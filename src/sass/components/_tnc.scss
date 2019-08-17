@@ -1,82 +1,125 @@
+$mobile-max: 736px;
+
 .tnc {
+
+    //display: table;
     padding-top: 100px;
-}
-.tnc__wrapper {
-    display: none;
-    position: fixed;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    top: 0;
-    left: 0;
-    overflow: auto
-}
-.tnc__close {
-    position: fixed;
-    top: 40px;
-    right: 30px
-}
-.tnc__content {
-    max-width: 740px;
-    counter-reset: a
-}
-.tnc h3 {
-    line-height: 1;
-    margin-bottom: 20px
-}
-.tnc h4 {
-    font-size: 1.4rem
-}
-.tnc ol {
-    padding-left: 3rem;
-    margin-bottom: 10px
-}
-.tnc ol>li {
-    list-style: none;
-    position: relative;
-    margin-bottom: 15px
-}
-.tnc ol>li:before {
-    counter-increment: a;
-    content: counter(a, decimal) ") ";
-    position: absolute;
-    left: -3rem
-}
-.tnc ol ol {
-    margin: 20px 0;
-    counter-reset: b
-}
-.tnc ol ol>li:before {
-    counter-increment: b;
-    content: counter(b, lower-alpha) ") ";
-    position: absolute;
-    left: -1.4em
-}
-.tnc ol ol ol {
-    counter-reset: c;
-    margin: 5px 0
-}
-.tnc ol ol ol>li {
-    margin-bottom: 5px
-}
-.tnc ol ol ol>li:before {
-    counter-increment: c;
-    content: counter(c, lower-roman) ") ";
-    position: absolute;
-    left: -1.4em
-}
-.tnc table {
-    border-collapse: collapse;
-    border: 1px solid hsla(60, 30%, 85%, .5)
-}
-.tnc table td,
-.tnc table th {
-    padding: 5px;
-    border: 1px solid hsla(60, 30%, 85%, .3);
-    text-align: center
-}
-.tnc table .subheader {
-    text-align: left;
-    padding-left: 20px
+
+    @media (max-width: $mobile-max){
+        padding-top: 60px;
+    }
+
+
+    &__wrapper {
+        position: fixed;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        top: 0;
+        left:0;
+        overflow: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        z-index: 50;
+    }
+
+    &__close {
+        position: fixed;
+        //position: sticky;
+        top: 40px;
+        right: 30px;
+        z-index: 51;
+        display: none;
+
+        &.init {
+            display: inline-block;
+        }
+
+        @media (max-width: $mobile-max){
+            background-image: url('../img/icon-close-light.png');
+            top: 20px;
+            right: 20px;
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    &__content {
+        max-width: 740px;
+        counter-reset: list;
+
+    }
+
+    h3 {
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+
+    h4 {
+        font-size: 1.4rem;
+    }
+
+    ol {
+        padding-left: 3rem;
+        margin-bottom: 10px;
+    }
+
+    ol > li {
+        list-style: none;
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+    ol > li:before {
+        counter-increment: list;
+        content: counter(list, decimal) ") ";
+        position: absolute;
+        left: -3rem;
+    }
+
+    ol ol {
+        margin: 20px 0;
+        counter-reset: second-level;
+
+        > li:before {
+            counter-increment: second-level;
+            content: counter(second-level, lower-alpha) ") ";
+            position: absolute;
+            left: -1.4em;
+        }
+    }
+
+    ol ol ol {
+        counter-reset: third-level;
+        margin: 5px 0;
+
+        > li {
+            margin-bottom: 5px;
+        }
+        > li:before {
+            counter-increment: third-level;
+            content: counter(third-level, lower-roman) ") ";
+            position: absolute;
+            left: -1.4em;
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+        border: 1px rgba($offwhite,0.5) solid;
+        th, td {
+            padding: 5px;
+            border: 1px rgba($offwhite,0.3) solid;
+            text-align: center;
+        }
+
+        .subheader {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+    }
+
+
 }

@@ -1,15 +1,32 @@
 var myApp = angular.module('myApp',[]);
 
-angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', function( $scope, $http, $timeout ) {
+angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeout', '$window', '$sce',
+function( $scope, $http, $timeout, $window, $sce ) {
 
     $scope.lang            = 'en';
 
     var gameStartTime       = null;
     var gameEndTime         = null;
     $scope.elapsedGameTime  = null;
+    $scope.toolsCollected   = 1;
+
+    var closeClueTimerId    = null;
+    var activeGlowTimerId   = null;
 
     $scope.entry1to5 = [];
     $scope.entry2to5 = [];
+    $scope.entryResult = [
+      { idxString: '01', time: 0},
+      { idxString: '02', time: 0},
+      { idxString: '03', time: 0},
+      { idxString: '04', time: 0},
+      { idxString: '05', time: 0},
+      { idxString: '06', time: 0},
+      { idxString: '07', time: 0},
+      { idxString: '08', time: 0},
+      { idxString: '09', time: 0},
+      { idxString: '10', time: 0}
+    ];
 
     var currentItemIdx  = 1;
     var trials          = 4;
@@ -17,10 +34,21 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     $scope.parentData.currentMsg   = '';
 
     $scope.message      = [];
-    $scope.message[ 0 ] = '"Ah, such a round nose we have here. It simply will not do, I have to sharpen it further."';
+    $scope.message[ 0 ] = '"She looks as pale as death. Perhaps a little colour on her cheeks would add some life back in."';
     $scope.message[ 1 ] = '"This isn\'t good at all, she\'s falling apart right along the sides. I need to tighten the seams."';
     $scope.message[ 2 ] = '"All bruised and broken, this hand will be rendered useless. I\'ll have to get rid of it."';
     $scope.message[ 3 ] = '"It\'s time to patch things up. Hand over the materials to seal off these hollow areas."';
+
+    $scope.getContent = function( index, html ) {
+        // console.log( index, $scope.lang, window.languageSet[ $scope.lang ][ index ] );
+        if ( html ) {
+            return $sce.trustAsHtml( window.languageSet[ $scope.lang ][ index ] );
+        }
+        else {
+            return window.languageSet[ $scope.lang ][ index ];
+        }
+    }
+
 
     function getUrlVar( variable )
     {
@@ -54,37 +82,77 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     $scope.closeClue = function( element ) {
         $( '#singleClue' ).fadeOut();
         $( '#tempFade' ).fadeOut();
-        $scope.parentData.currentMsg = $scope.message[ currentItemIdx - 1 ];
+        var tempMsg = $scope.getContent( 'clue');
+        $scope.parentData.currentMsg =  tempMsg[ currentItemIdx - 1 ];
+        $( '.bloodBox' ).addClass( 'activeGlow');
+        activeGlowTimerId = $timeout(function () {
+            $( '.bloodBox' ).removeClass( 'activeGlow' );
+        }, 1000 );
+        $( '.bloodBox h4' ).removeClass( 'wrong-answer-red' );
+         $timeout.cancel( closeClueTimerId );
+         $scope.toolsCollected = currentItemIdx;
+         //$timeout.cancel( activeGlowTimerId );
     }
 
-    $scope.processClue = function( param ) {
-        showPage( '#singleClue' );
+    $scope.processClue = function( param, angEvent, x1, x2, y1, y2 ) {
+        $( '#singleClue > img' ).attr( 'src', 'img/transparent.png' );
+        if ( window.isDragging ) {
+            return;
+        }
         showPage( '.bottomArea' );
-        $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
+
+        // correct guess
         if ( param < 5 && param == currentItemIdx ) {
-            $scope.parentData.currentMsg = '"Ah yes, this would be perfect for the task."';
+            $scope.playSfx( 'correct-answer' );
+            showPage( '#singleClue' );
+            showPage( '#tempFade' );
+            $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
+            closeClueTimerId = $timeout( function() {
+                $scope.closeClue();
+            },2000);
+            $scope.parentData.currentMsg = $scope.getContent( 'clue-ok' );
+            $( '.bloodBox' ).addClass( 'activeGlow');
+            activeGlowTimerId = $timeout(function () {
+                $( '.bloodBox' ).removeClass( 'activeGlow' );
+            },1000 );
+            // '"Ah yes, this would be perfect for the task."';
             if ( currentItemIdx >= 4 ) {
                 calculateGameTime();
-                setTimeout( function() {
+                $timeout( function() {
                     hidePage( '#singleClue' );
                     hidePage( '.bottomArea' );
                     hidePage( '.splatter' );
-                    showPage( '#pageBlackBg' );
+                    hidePage( '#tempFade' );
                     showPage( '#pageShare' );
                 }, 900);
                 loadLeaderboard();
             }
             currentItemIdx++;
         }
+
+        // wrong guess
         else {
+            $scope.playSfx( 'wrong-answer' );
             if ( trials > 1 ) {
-                $scope.parentData.currentMsg = '"You fool! Hand me the correct item, or you\'ll become my next tool!"'
+                showPage( '#singleClue' );
+                $( '#singleClue > img' ).attr( 'src', 'img/items/tool_' + param + '.png' );
+                $( '.bloodBox' ).addClass( 'activeGlow' );
+                $( '.bloodBox h4' ).addClass( 'wrong-answer-red' );
+                activeGlowTimerId =  $timeout(function () {
+                    $( '.bloodBox' ).removeClass( 'activeGlow' );
+                }, 1000 );
+                closeClueTimerId = $timeout( function() {
+                    $scope.closeClue();
+                    $( '.bloodBox h4' ).removeClass( 'wrong-answer-red' );
+                },2000);
+                $scope.parentData.currentMsg = $scope.getContent( 'clue-false' );
+                // '"You fool! Hand me the correct item, or you\'ll become my next tool!"'
                 var tempTrials = trials;
                 $( '#tempFade' ).show();
                 $( '#pageSplatter_' + tempTrials ).show();
                 // fadeout for msie < 11
                 if ( bowser.msie && bowser.version < 11 ) {
-                    setTimeout( function() {
+                    $timeout( function() {
                         $( '#tempFade' ).fadeOut();
                         $( '#pageSplatter_' + tempTrials ).fadeOut();
                     },3000);
@@ -95,12 +163,14 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
             else {
                 $( '.heart_' + trials ).attr( 'src', 'img/heart_strike.png');
                 $( '#pageSplatter_' + trials ).show();
-                setTimeout( function() {
-                    hidePage( '#singleClue' );
-                    hidePage( '.bottomArea' );
-                    showPage( '#pageBlackBg' );
-                    showPage( '#pageFails' );
-                }, 100);
+                hidePage( '#singleClue' );
+                hidePage( '.bottomArea' );
+                showPage( '#pageBlackBg' );
+                showPage( '#pageFails' );
+                $timeout( function() {
+                    $scope.playSfx( 'user-fails' );
+                }, 300 );
+
             }
         }
     }
@@ -119,26 +189,35 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
     loadLeaderboard = function() {
         $http({
             method: 'GET',
-            url: configGet('apiUrl') + '_laravel/game/board/2',
+            url: configGet('apiUrl') + 'game/board/2',
         }).then(
             function(success) {
-                var idx = 0;
-                angular.forEach(success.data, function(value, key) {
-                    //console.log( value );
-                    var paddedIdx = pad('00', (idx + 1), true);
-                    if (idx < 5) {
-                        $scope.entry1to5.push({
-                            idxString: paddedIdx,
-                            time: value.time
-                        });
-                    } else if (idx < 10) {
-                        $scope.entry2to5.push({
-                            idxString: paddedIdx,
-                            time: value.time
-                        });
-                    }
-                    idx++;
-                });
+                // var idx = 0;
+                // angular.forEach(success.data, function(value, key) {
+                //     //console.log( value );
+                //     var paddedIdx = pad('00', (idx + 1), true);
+                //     if (idx < 5) {
+                //         $scope.entry1to5.push({
+                //             idxString: paddedIdx,
+                //             time: value.time
+                //         });
+                //     } else if (idx < 10) {
+                //         $scope.entry2to5.push({
+                //             idxString: paddedIdx,
+                //             time: value.time
+                //         });
+                //     }
+                //     idx++;
+                // });
+                for( var i = 1; i <= 10; i++ ) {
+
+                  if ( success.data[i] !== undefined ) {
+
+                    $scope.entryResult[i-1].time = success.data[i].time;
+
+                  }
+
+                }
             },
             function(error) {
                 console.log(error);
@@ -182,7 +261,7 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
 
     $scope.share_twitter = function() {
         window.open(
-            'http://stg.craftandcode.com.sg/clients/rws/hhn6/_laravel/game/twitter?gameId=' + configGet( 'gameId' ) + '&gameTime=' + $scope.elapsedGameTime,
+            'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/twitter?gameId=' + configGet( 'gameId' ) + '&gameTime=' + $scope.elapsedGameTime,
             'twitter-share',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         );
@@ -227,7 +306,7 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
         console.log('postToDb()');
         $http({
             method: 'POST',
-            url: configGet('apiUrl') + '_laravel/game/submit',
+            url: configGet('apiUrl') + 'game/submit',
             data: param
         }).then(
             function(success) {
@@ -241,55 +320,194 @@ angular.module('myApp', []).controller( 'bodyCtrl', [ '$scope', '$http', '$timeo
         );
     }
 
+    $scope.highlight = function( param, angEvent, x1, x2, y1, y2 ) {
+        //console.log( angEvent.offsetX, angEvent.offsetY, x1, x2, y1, y2);
+        if (
+            (angEvent.offsetX < x1 || angEvent.offsetX > x2) ||
+            (angEvent.offsetY < y1 || angEvent.offsetY > y2)
+        ) {
+            return ;
+        }
+        else {
+            console.log('highlight');
+            window.tempSprite[ param - 1 ].to( 5 );
+        }
+    }
 
     $scope.startGame = function() {
 
         gameStartTime   = performance.now();
 
-        $scope.triesLeft    = 4;
+        $scope.playSfx( 'enter-game' );
 
-        var tempLang = getUrlVar( 'lang' );
-        if ( tempLang ) {
-            lang = tempLang;
-        }
+        $scope.triesLeft    = 4;
 
         hidePage( '.fadePage' );
         $( '#pageLanding' ).fadeOut( 400 );
         hidePage( '#pageFails' );
-        showPage( '.bottomArea' );
+        if ( Modernizr.mq('(max-width: 769px)')) {
 
-        $scope.parentData.currentMsg = $scope.message[ currentItemIdx - 1 ];
+            showPage( '.bottomArea' );
+        }
+        var tempMsg = $scope.getContent( 'clue');
+        $scope.parentData.currentMsg =  tempMsg[ currentItemIdx - 1 ];
         window.tempSprite = [];
         for ( var i = 0 ; i < 10; i++ ) {
 
-            $( '#clue-' + ( i + 1)).css( "background", "transparent url( img/items/tool_glow_" + (i + 1) + ".png )  no-repeat 0 0" );
+            $( '#clue-' + ( i + 1) ).css( "background", "transparent url( img/items/tool_glow_" + (i + 1) + ".png )  no-repeat 0 0" );
 
             var element = document.getElementById( 'clue-' + (i + 1) );
             var sprite = new Motio(element, {
-                fps: 11,
-                frames: 11
+                fps: 12,
+                frames: 6
             });
 
             window.tempSprite[ i ] = sprite;
 
-            $( '#clue-' + (i+1) ).mouseover( function( e ) {
+            $( '#clue-' + (i+1) + ' > div' ).mouseover( function( e ) {
                 var idx = e.target.id.split( '-' );
                 idx = idx[ 1 ] - 1;
-                window.tempSprite[ idx ].play();
+                window.tempSprite[ idx ].to(5);
             })
-            $( '#clue-' + (i+1) ).mouseout( function( e ) {
+
+            $( '#clue-' + (i+1) + ' > div').mouseout( function( e ) {
                 var idx = e.target.id.split( '-' );
                 idx = idx[ 1 ] - 1;
                 window.tempSprite[ idx ].pause();
                 window.tempSprite[ idx ].toStart();
             })
         }
-        console.log( window.tempSprite );
+        if ( Modernizr.mq('(max-width: 769px)')) {
+            // if small device
+            var view = window.activeScene.marzipanoObject.view();
+            view.addEventListener('change', window.viewChange );
+        }
+        else {
+            var view = window.activeScene.marzipanoObject.view();
+            view.addEventListener('change', window.hideInteractionPrompt );
+            // show drag icon
+            showPage( '#interactionPromptTemp' );
+        }
+            // hidePage( '#bottomArea' );
     }
 
+    $scope.revealBottomClue = function() {
+        console.log('showing');
+        $( '.bottomArea' ).fadeIn();
+        $( '.bloodBox' ).addClass( 'activeGlow' );
+        activeGlowTimerId =  $timeout(function () {
+            $( '.bloodBox' ).removeClass( 'activeGlow' );
+        }, 1000 );
+        //$( '#bottomArea' ).fadeIn();
+    }
+
+    $scope.playSfx = function(param) {
+        window.playSfx(param);
+    }
+
+    var tempLang = getUrlVar( 'lang' );
+    if ( tempLang ) {
+        $scope.lang = tempLang.toLowerCase();
+        if ( $scope.lang != 'en' && $scope.lang != 'zh' ) {
+            $scope.lang = 'en';
+        }
+    }
+
+    /*
+    *   PRELOADER FOR IMAGES AND AUDIOS
+    */
+    var loadManifest = function($data, callback) {
+
+      $http({
+          method: 'GET',
+          url: 'manifest/manifest-bow.json',
+      }).then(
+          function(success) {
+              loadImages(success.data);
+              // console.log(success.data);
+          },
+          function(error) {
+              console.log(error);
+          }
+      );
+
+    };
+
+    var loadImages = function($data) {
+
+      var count = 0;
+
+      angular.forEach( $data.images, function( value, key ){
+
+        var img = new Image();
+
+        img.onload = function(){
+          count++;
+          if ( count === $data.images.length ) {
+            //after loading images, proceed to load audios
+            $scope.gameIsLoaded = true;
+            loadAudios();
+
+          }
+        };
+
+        // img.src = 'img/'+value;
+        img.src = cdn_url+'/'+value;
+      });
+
+    };
+
+    var audioFiles = [
+        cdn_url+"/bow/audio/bow_bgm.mp3",
+        cdn_url+"/bow/audio/correct.mp3",
+        cdn_url+"/bow/audio/wrong.mp3",
+        cdn_url+"/bow/audio/fail.mp3"
+    ];
+
+    var preloadAudio = function(url) {
+        var audio = new Audio();
+        // once this file loads, it will call loadedAudio()
+        // the file will be kept by the browser as cache
+        audio.addEventListener('canplaythrough', loadedAudio, false);
+        audio.src = url;
+    };
+
+    var loadAudios = function() {
+
+      for (var i in audioFiles) {
+          preloadAudio(audioFiles[i]);
+      }
+    };
+
+    var loaded = 0;
+    function loadedAudio() {
+        // this will be called every time an audio file is loaded
+        // we keep track of the loaded files vs the requested files
+        loaded++;
+        if (loaded == audioFiles.length){
+            // all have loaded
+          // showPage('#pageLanding');
+          $('.preloader').fadeOut(400);
+          // showPage('#pageLanding');
+        }
+    }
+
+    //  on first load, show preloader first and load the assets
+    if ( !$scope.gameIsLoaded ) {
+      showPage('.preloader');
+      loadManifest();
+      // hidePage('.preloader');
+    }
+
+    // $( '#bottomArea' ).hide();
+    hidePage( '#interactionPromptTemp' );
     hidePage( '.bottomArea' );
-    //$scope.startGame();
+
+    // $scope.startGame();
     // showPage( '#pageShare' );
     showPage( '#pageLanding' );
+    // hidePage( '#pano' );
     // showPage( '#pageShare' );
+    // showPage( '#pageFails' );
+
 }]);

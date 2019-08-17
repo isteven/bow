@@ -1,6 +1,20 @@
+@import "mixins";
+
+//Typography
+$lato-light: 300;
+$lato-regular: 400;  /**dropping*/
+$lato-medium: 500;  /**dropping*/
+$lato-semibold: 600;  /**dropping*/
+$lato-bold: 700;
+$lato-black: 900;  /**dropping*/
 
 @import "och/props";
 @import "och/emf";
+@import "och/ochFooter";
+// @import "och/ochLanding";
+
+
+@import "och/game";
 @import "och/pageClues";
 @import "och/pageGuessName";
 @import "och/pageGuessDate";
