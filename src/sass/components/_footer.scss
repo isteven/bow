@@ -1,0 +1,524 @@
+// =================================
+// Footer
+// =================================
+
+// ======================================
+// Variables
+// ======================================
+
+$padding: 10px;
+
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+//$yellow-light: #e5e2c1;
+//$offwhite: #e5e5cf;
+
+$red: #f2000c;
+$red-blood: #3e0609;
+$yolk: #ffab1a;
+$yellow-light: #e5e5cf;
+$offwhite: $yellow-light;
+$offwhite-dull: rgba(#d6d3bb, 0.5);
+
+$texture: url(../assets/images/texture.jpg);
+
+$menu-link-color: $yolk;
+
+$trajan: 'trajan-pro-3', serif;
+$edo: 'edo', serif;
+
+$small: 700px;
+
+
+// REM font-sizing
+// =================================
+@mixin font-size($sizeValue: 12) {
+  font-size:  $sizeValue + px;
+  font-size: ($sizeValue / 10) + rem;
+}
+
+
+@mixin small {
+  @media (max-width: #{$small}) {
+    @content;
+  }
+}
+
+@mixin icon( $url: none, $width: 50px, $height: 50px ) {
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background: $url no-repeat;
+    text-indent: -9999px;
+    outline: none;
+    background-size: contain;
+}
+
+
+html {
+	font-size: 62.5%;
+}
+
+.ftr {
+	width: 100%;
+	height: 0;
+	overflow: visible;
+
+
+	//border: 1px red solid;
+	position: fixed;
+	bottom: 0;
+	z-index: 10;
+	//background: url(../assets/images/footer-mask.png) repeat-x left bottom;
+
+	@include small {
+		position: absolute;
+		height: 100px;
+
+	}
+
+	&__background {
+		position: absolute;
+		bottom: 0;
+		pointer-events: none;
+		width: 100%;
+		height: 100px;
+
+		@include small {
+			//display: none;
+			z-index: -1;
+			//border: 1px red solid;
+		}
+	}
+
+	&__logo {
+		width: 135px;
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+
+		@include small {
+			margin: 0 auto;
+			position: static;
+			display: block;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__warning {
+		@include small {
+			width: 85%;
+			margin: 60px auto 0;
+		}
+
+
+	}
+
+	&__links {
+		@include font-size(11);
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		//border: 1px red solid;
+
+		@include small {
+			text-align: center;
+			right: 0;
+			width: 100%;
+		}
+	}
+
+	&__link {
+		text-transform: uppercase;
+		text-decoration: none;
+		display: inline-block;
+		padding: 5px;
+		margin: 0 5px;
+
+		@include small {
+			padding: 5px 7px;
+			margin: 0 8px;
+		}
+
+		&:last-child {
+			margin-right: 0;
+			padding-right: 0;
+		}
+	}
+
+
+
+	&__popup {
+		transition: all 300ms ease-in-out;
+		height: 0;
+		background-color: #000;
+		width: 100%;
+		position: fixed;
+		top: 100%;
+		padding: 10px;
+
+		@include small {
+			position: absolute; 
+			padding: 10px 20px;
+		}
+
+		&.is-active {
+			height: 195px;
+			transform: translateY(-100%);
+
+			@include small {
+				height: 255px;
+			}
+		}
+
+
+
+
+		.inner {
+
+			margin: 25px auto;
+			text-align: center;
+		}
+
+		h3 {
+			@include font-size(16);
+			font-family: $trajan;
+			&:first-letter {
+				@include font-size(18);
+			}
+		}
+
+		&--spread {
+			@include font-size(16);
+			font-family: $trajan;
+			font-weight: 600;
+
+			a {
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+
+		&--connected {
+			max-width: 768px;
+			//border: 1px red solid;
+			.connected__follow {
+				width: 30%;
+				float: left;
+				padding-right: 20px;
+
+				@include small {
+					width: 100%;
+					border-bottom: 1px rgba($offwhite,0.2) solid;
+					padding-bottom: 15px;
+				}
+
+				h3 {
+					@include small {
+						display: inline-block;
+					}
+				}
+			}
+			.connected__subscribe {
+				width: 70%;
+				float: left;
+				text-align: left;
+				border-left: 1px rgba($offwhite,0.2) solid;
+
+				@include small {
+					padding-top: 20px;
+					width: 100%;
+					border: 0;
+				}
+
+				.inner {
+
+					max-width: 388px;
+					margin: 0 auto;
+				}
+
+				h3 {
+					margin-bottom: 10px;
+				}
+
+				p {
+					position: relative;
+					padding: 0 10px;
+					max-width: 90%;
+					margin: 10px auto;
+
+					@include small {
+						margin: 10px 0;
+						max-width: none;
+						padding: 0 10px;
+					}
+				}
+
+				input[type="checkbox"], .checkbox--dummy {
+					position: absolute;
+					left: 20px;
+					top: 0;
+
+					@include small {
+						left: 15px;
+					}
+				}
+
+				label {
+					@include font-size(12);
+					line-height: 1;
+					padding-left: 30px;
+					text-align: left;
+				}
+
+				.btn {
+					@include font-size(13);
+					padding: 6px 10px;
+					margin-left: 7px;
+					height: 29px;
+					position: relative;
+					top: -1px;
+				}
+			}
+		}
+
+		&--legal {
+
+			@include font-size(10);
+			max-width: 450px;
+
+			a {
+				text-transform: uppercase;
+			}
+
+			ul {
+				margin: 25px 0 15px;
+			}
+
+			li {
+				padding: 0 25px;
+				border-right: 1px $offwhite solid;
+				&:last-child {
+					border: 0;
+				}
+
+				@include small {
+					padding: 0 9px;
+				}
+			}
+
+			.legal__rights {
+				max-width: 385px;
+				margin: 0 auto;
+			}
+		}
+
+	}
+
+	&__wrapper {
+		&--share.is-active {
+
+			@include small {
+				height: 130px;
+			}
+
+		}
+
+
+		&--legal.is-active {
+
+				@include small {
+					height: 235px;
+				}
+
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+
+		@include small {
+			top: 30px;
+			right: 30px;
+		}
+	}
+
+	&__icon {
+
+		width: 28px;
+		height: 28px;
+		display: inline-block;
+		margin: 10px;
+		vertical-align: middle;
+
+
+		&--fb {
+			width: 16px;
+		}
+
+		&--ig {
+			margin-right: 5px;
+			pointer-events: none;
+		}
+
+
+		path {
+			transition: all 500ms ease-out;
+			fill: $offwhite;
+		}
+
+		&:hover {
+			path {
+
+				fill: #fff;
+			}
+		}
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	input[type="email"] {
+		background-color: #000;
+		border: 1px $offwhite-dull solid;
+		padding: 5px 10px;
+		box-sizing: border-box;
+		max-width: 260px;
+		width: 100%;
+		outline: none;
+		transition: all 500ms ease-out;
+		color: $offwhite;
+
+		@include small {
+			max-width: 255px;
+		}
+
+		&:focus {
+			border: 1px $offwhite solid;
+			box-shadow: 0 0 10px $offwhite-dull;
+		}
+	}
+
+	.checkbox--dummy {
+		display: none;
+	}
+
+	input[type="checkbox"], .checkbox--dummy {
+
+		appearance: none;
+		background: url('../img/footer/checkbox.png') no-repeat center top;
+		cursor: pointer;
+		width: 15px;
+		height: 16px;
+		outline: none !important;
+		border-radius: 0;
+		border: 0;
+
+		&.is-checked {
+			background-position: center bottom;
+		}
+	}
+
+}
+
+
+html[data-useragent*='MSIE 10.0'] {
+	.ftr__links {
+		right: 20px;
+	}
+
+  	.ftr__background {
+ 		right: 17px;
+  	}
+
+  	input[type="checkbox"] {
+  		visibility: hidden;
+  	}
+
+  	.checkbox--dummy {
+		display: inline-block;
+	}
+}
+
+.h-mobile {
+  display: none !important;
+  @include small {
+    display: block !important;
+  }
+}
+
+.h-web {
+  display: none !important;
+  @media (min-width: 701px) {
+    display: block !important;
+  }
+}
+
+.icon {
+	&--close {
+        @include icon( url('../img/footer/icon-close.png'), 20px, 20px );
+
+        &--dark {
+            @include icon( url('../img/footer/icon-close-dark.png'), 20px, 20px );
+        }
+
+        &--light {
+            @include icon( url('../img/footer/icon-close-light.png'), 25px, 25px );
+        }
+    }
+}
+
+button {
+	border: 0;
+}
+
+.list--reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list--horizontal {
+    li {
+        display: inline-block;
+    }
+}
+
+.btn {
+    cursor: pointer;
+
+    &--close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+
+
+    &--textured {
+        transition: all 200ms ease-out;
+        background-image: url(../img/footer/texture.jpg);
+        color: $yellow-light;
+        font-weight: 900;
+        text-transform: uppercase;
+        padding: 8px 30px;
+        background-color: #CC0A00;
+        display: inline-block;
+
+        &:hover {
+            background-image: url(../img/footer/transparent.jpg);
+        }
+
+        @include small {
+            padding: 4px 15px;
+        }
+    }
+}

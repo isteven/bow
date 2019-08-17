@@ -1,0 +1,53 @@
+{
+    "images": [
+      "transparent.png",
+      "texture.jpg",
+      "texture_inactive.jpg",
+
+      "landing_blood-m.png",
+      "landing_blood.png",
+      "landing_bg.jpg",
+      "landing_bg-m.png",
+      "icon_heart.png",
+      "icon_search.png",
+      "icon_timer.png",
+
+      "0-scene-1/b.jpg",
+      "0-scene-1/f.jpg",
+      "0-scene-1/l.jpg",
+      "0-scene-1/r.jpg",
+
+      "tool_1.png",
+      "tool_2.png",
+      "tool_3.png",
+      "tool_4.png",
+      "tool_5.png",
+      "tool_6.png",
+      "tool_7.png",
+      "tool_8.png",
+      "tool_9.png",
+      "tool_10.png",
+      "tool_glow_1.png",
+      "tool_glow_2.png",
+      "tool_glow_3.png",
+      "tool_glow_4.png",
+      "tool_glow_5.png",
+      "tool_glow_6.png",
+      "tool_glow_7.png",
+      "tool_glow_8.png",
+      "tool_glow_9.png",
+      "tool_glow_10.png",
+
+      "interaction_prompt.png",
+      "heart.png",
+      "heart-strike.png",
+
+      "completed_bg.jpg",
+      "bow-code.jpg",
+
+      "mobile/M_completed.png",
+      "mobile/M_splatter_overlay1.png",
+      "mobile/M_splatter_overlay2.png",
+      "mobile/M_splatter_overlay3.png"
+    ]
+}

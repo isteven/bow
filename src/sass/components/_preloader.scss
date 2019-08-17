@@ -1,0 +1,50 @@
+.preloader {
+  position: absolute;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  overflow: visible;
+
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+  &__circle {
+    width: 120px;
+    height: 120px;
+    border: 2px solid;
+    border-color: transparent #ffab1a transparent transparent;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+    // margin-top: -#{$dim / 2};
+    animation: preloader_spin 1s infinite linear;
+  }
+  &__icon {
+    background: url(../img/icon-preloader.svg) no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    text-indent: -9999px;
+    outline: none;
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    margin-left: -75px;
+  }
+}
+
+@keyframes preloader_spin {
+  100%{ transform: rotate(360deg); }
+}

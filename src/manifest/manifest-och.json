@@ -1,0 +1,87 @@
+{
+    "images": [
+      "transparent.png",
+      "texture.jpg",
+      "texture_inactive.jpg",
+      "landing_blood-m.png",
+      "landing_blood.png",
+      "sprites/icons.png",
+      "sprites/icons-2x.png",
+
+      "och/sprites/emf-2x.png",
+      "och/sprites/scare.jpg",
+      "och/sprites/scare-m.png",
+
+      "och/landing_bg.jpg",
+      "och/landing_bg-m.png",
+
+      "och/icon_camera.png",
+      "och/icon_clues.png",
+      "och/icon_search.png",
+      "och/icon_timer.png",
+      "och/icon-close-light.png",
+      "och/icon-close.png",
+
+      "och/0-scene-1/f.jpg",
+      "och/0-scene-1/u.jpg",
+      "och/0-scene-1/d.jpg",
+      "och/0-scene-1/l.jpg",
+      "och/0-scene-1/r.jpg",
+      "och/0-scene-1/b.jpg",
+      "och/0-scene-2/f.jpg",
+      "och/0-scene-2/u.jpg",
+      "och/0-scene-2/d.jpg",
+      "och/0-scene-2/l.jpg",
+      "och/0-scene-2/r.jpg",
+      "och/0-scene-2/b.jpg",
+      "och/0-scene-3/f.jpg",
+      "och/0-scene-3/u.jpg",
+      "och/0-scene-3/d.jpg",
+      "och/0-scene-3/l.jpg",
+      "och/0-scene-3/r.jpg",
+      "och/0-scene-3/b.jpg",
+      "och/emf-bg.png",
+      "och/clue.png",
+      "och/link.png",
+      "och/overlay.png",
+      "och/icon_camera_ingame.png",
+      "och/photo_clue_blank.png",
+      "och/photo_clue_1.jpg",
+      "och/photo_clue_2.jpg",
+      "och/photo_clue_3.jpg",
+      "och/photo_clue_4.jpg",
+      "och/photo_clue_5.jpg",
+
+      "och/scene-0-props/scene1_b_light.png",
+
+      "och/q1_bg-m.jpg",
+      "och/q1_bg.png",
+      "och/dash.png",
+
+      "och/01_ponappear.png",
+      "och/02_ponwait.png",
+      "och/03_ponturn_1.png",
+      "och/04_ponwait_1.png",
+      "och/05_ponturn_2.png",
+      "och/06_ponwait_2.png",
+      "och/07_ponturn_3.png",
+      "och/08_ponwait_3.png",
+      "och/09_pondash_480.png",
+      "och/09_pondash-m.png",
+      "och/09_pondash.png",
+
+      "och/och-code.jpg",
+
+      "och/m_fail_bg.jpg",
+      "och/fail_bg.jpg",
+
+
+      "och/zh/photo_clue_1.jpg",
+      "och/zh/photo_clue_2.jpg",
+      "och/zh/photo_clue_3.jpg",
+      "och/zh/och-code.jpg",
+      "och/zh/icon_camera_ingame.png"
+
+    ]
+
+}

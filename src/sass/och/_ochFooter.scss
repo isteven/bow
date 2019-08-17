@@ -1,0 +1,59 @@
+/*
+*  This is just specifically for OCH game only.
+*  Footer to only display sound icon on
+*  - Game
+*  - Guess name
+*  - Guess date
+*  - Guess Fails
+*/
+
+#pageLanding, #pageShare {
+  .ftr {
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #pageLanding, #pageShare {
+    .ftr {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .ftr__link:first-child {
+      //  snapshots should appear as one liner
+      width: auto;
+      display: block;
+    }
+
+    .ftr__popup {
+        position: absolute;
+        // padding: 10px 20px;
+    }
+    .ftr__wrapper--legal.is-active {
+      height: 260px;
+    }
+  }
+
+  #pano .ftr,
+  #pageGuessName .ftr,
+  #pageGuessDate .ftr {
+    .ftr__logo {
+      display: none;
+    }
+    .ftr__links {
+      text-align: center;
+    }
+    .ftr__link {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .ftr__logo {
+    margin-top: 100px;
+  }
+}

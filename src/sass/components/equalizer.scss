@@ -1,0 +1,75 @@
+.bar-c {
+  overflow: hidden;
+  height: 30px;
+  width: 30px;
+  margin: 0 auto;
+  position: relative;
+  cursor:pointer;
+  display: inline-block;
+}
+.bar {
+  height: 1px;
+  width: 1px;
+  display: inline-block;
+  background-color: #ffffd2;
+  bottom: 0;
+  position: absolute;
+
+  &.noAnim {
+    animation: none;
+    animation-name: none;
+  }
+
+  &#bar-1 {
+    left: 0;
+    animation-name: danceHeight1;
+    animation-delay: 0ms;
+  }
+  &#bar-2 {
+    left: 3px;
+    animation-name: danceHeight2;
+    animation-delay: 300ms;
+  }
+  &#bar-3 {
+    left: 6px;
+    animation-name: danceHeight3;
+    animation-delay: 600ms;
+  }
+  &#bar-4 {
+    left: 9px;
+    animation-name: danceHeight4;
+    animation-delay: 900ms;
+  }
+  &#bar-5 {
+    left: 12px;
+    animation-name: danceHeight5;
+    animation-delay: 1200ms;
+  }
+
+  animation-duration: 600ms;
+  animation-play-state: running;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes danceHeight1 {
+  from { height: 5px; }
+  to { height: 11px; }
+}
+@keyframes danceHeight2 {
+  from { height: 2px; }
+  to { height: 15px; }
+}
+@keyframes danceHeight3 {
+  from { height: 6px; }
+  to { height: 13px; }
+}
+@keyframes danceHeight4 {
+  from { height: 3px; }
+  to { height: 14px; }
+}
+@keyframes danceHeight5 {
+  from { height: 5px; }
+  to { height: 15px; }
+}
